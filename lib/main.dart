@@ -1,7 +1,9 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:insurease/pages/app_pages/navBar.dart';
+import 'package:insurease/pages/app_pages/welcome.dart';
 import 'package:insurease/tools/button.dart';
 import 'package:insurease/tools/major_font.dart';
 
@@ -26,20 +28,7 @@ class MyApp extends StatelessWidget {
           textTheme: Typography.englishLike2018.apply(fontSizeFactor : 1.sp)
         ),
         debugShowCheckedModeBanner: false,
-        home:  Scaffold(
-            body: Column(
-              crossAxisAlignment:CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center ,
-              children: [
-                MajorFont(text: 'this should work just fine',size: 22,weight: false),
-                Container(
-                  height: 30.h,
-                  width: 60.w,
-                  child: Button(text: 'Next'),
-                )
-                ],
-                )
-        )
+        home: Welcome()
       ),
     );
   }

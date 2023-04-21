@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../styles/colors.dart';
+
 class MajorFont extends StatelessWidget {
   bool weight;
   final double size;
-  final Color color;
+  Color color;
   final String text;
 
    MajorFont(
       {super.key,
       this.weight = true,
       required this.text,
-      this.color = Colors.green,
-      this.size = 35});
+      this.color = AppColors.primeColor,
+      this.size = 24});
 
   @override
   Widget build(BuildContext context) {

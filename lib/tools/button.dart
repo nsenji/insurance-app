@@ -8,13 +8,15 @@ class Button extends StatelessWidget {
   double width;
   double height;
   String text;
-  Button({super.key, this.width = 100, this.height = 100, required this.text});
+  Button({super.key, this.width = 100, this.height = 37, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
       Container(
+        height: height.sp,
+        width: width.sp,
         decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage(
@@ -23,19 +25,17 @@ class Button extends StatelessWidget {
               fit: BoxFit.fill
           )
         ),
-        ),
-      Container(
-        child: 
-        Center(
-          child: Text(
-            text,
-            style:  TextStyle(
-              color: Colors.white,
-              fontFamily: 'BubblegumSans',
-              fontSize: 12.sp
-            )
-            ),
-        ))
-    ]);
+        
+      child: Center(
+        child: Text(
+          text,
+          style:  TextStyle(
+            color: Colors.white,
+            fontFamily: 'BubblegumSans',
+            fontSize: 15.sp
+          )
+          ),
+      )
+    )]);
   }
 }
