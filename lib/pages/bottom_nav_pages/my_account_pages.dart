@@ -117,7 +117,7 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   Divider(
-                    thickness: 1,
+                    thickness: 1.h,
                     color: AppColors.greyColor,
                   ),
                   InkWell(
@@ -145,7 +145,7 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   Divider(
-                    thickness: 1,
+                    thickness: 1.h,
                     color: AppColors.greyColor,
                   ),
                   InkWell(
@@ -173,7 +173,7 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   Divider(
-                    thickness: 1,
+                    thickness: 1.h,
                     color: AppColors.greyColor,
                   ),
                   // Container(
