@@ -33,7 +33,7 @@ class _WelcomeState extends State<Welcome> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage('images/welcome.png')
+                    image: AssetImage('assets/images/welcome.png')
                 )
               ),
             ),
@@ -75,8 +75,8 @@ class _WelcomeState extends State<Welcome> {
                       color: Colors.black87,
                     )),
                 Container(
-                  width: 200,
-                  height: 100,
+                  width: 200.w,
+                  height: 100.h,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

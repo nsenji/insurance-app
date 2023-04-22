@@ -20,7 +20,7 @@ class Button extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage(
-                "images/green_button.png",
+                "assets/images/green_button.png",
               ),
               fit: BoxFit.fill
           )

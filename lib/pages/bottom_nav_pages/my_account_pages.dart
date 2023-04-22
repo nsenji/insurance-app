@@ -52,7 +52,7 @@ class _ProfileState extends State<Profile> {
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: AssetImage(
-                          "images/man.jpg",
+                          "assets/images/man.jpg",
                         ),
                       )),
                 ),

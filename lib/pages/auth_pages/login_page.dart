@@ -39,11 +39,11 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Container(
             margin: EdgeInsets.only(top: 30.h, left: 17.w),
-            height: 120.h,
-            width: 170.w,
+            height: 130.h,
+            width: 180.w,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    fit: BoxFit.fill, image: AssetImage('images/auth.png'))),
+                    fit: BoxFit.contain, image: AssetImage('assets/images/auth.png'))),
           ),
           Container(
             margin: EdgeInsets.only(bottom: 40.h, left: 30.w, top: 30.h),

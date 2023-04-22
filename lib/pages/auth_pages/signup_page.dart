@@ -28,7 +28,7 @@ class _SignupPageState extends State<SignupPage> {
         elevation: 0,
         backgroundColor: AppColors.whiteColor,
         title: MajorFont(
-          text: 'Signup',
+          text: 'Sign up',
           color: AppColors.blackColor,
           weight: false,
         ),
@@ -42,11 +42,11 @@ class _SignupPageState extends State<SignupPage> {
         children: [
           Container(
             margin: EdgeInsets.only(top: 30.h, left: 17.w),
-            height: 120.h,
-            width: 170.w,
+            height: 130.h,
+            width: 180.w,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    fit: BoxFit.fill, image: AssetImage('images/auth.png'))),
+                    fit: BoxFit.contain, image: AssetImage('assets/images/auth.png'))),
           ),
           Container(
             margin: EdgeInsets.only(top: 30.h,left: 30.w),
@@ -131,11 +131,11 @@ class _SignupPageState extends State<SignupPage> {
                 ),
               ),
                     Container(
-                      padding: EdgeInsets.only(top: 38.h),
+                      padding: EdgeInsets.only(top: 25.h),
                       child: InkWell(
                         onTap:  () => Navigator.push(context,
                           MaterialPageRoute(builder: (context) => NavBar())),
-                        child: Button(text: 'Signup')),
+                        child: Button(text: 'Sign up')),
                     )
               ],
             ),
