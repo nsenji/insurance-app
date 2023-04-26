@@ -46,33 +46,34 @@ class _WelcomeState extends State<Welcome> {
               children: [
                 Container(
                     padding: EdgeInsets.only(left: 13.w),
-                    width: 190.w,
-                    height: 13.h,
+                    width: 250.w,
+                    height: 17.h,
                     child: MajorFont(
-                      text: 'Protect your future today with our',
-                      size: 12,
+                      text: 'PROTECT YOUR FUTURE TODAY WITH',
+                      size: 14,
                       weight: false,
                       color: Colors.black87,
                     )),
                 Container(
-                    padding: EdgeInsets.only(left: 21.w),
-                    width: 190.w,
-                    height: 13.h,
+                    padding: EdgeInsets.only(left: 32.w),
+                    width: 250.w,
+                    height: 17.h,
                     child: MajorFont(
-                      text: 'comprehensive insurance plans.',
-                      size: 12,
+                      text: 'COMPREHENSIVE INSURANCE.',
+                      size: 14,
                       weight: false,
                       color: Colors.black87,
                     )),
+                SizedBox(height: 13.h,),
                 Container(
                     padding: EdgeInsets.only(left: 41.w),
                     width: 190.w,
-                    height: 13.h,
+                    height: 15.h,
                     child: MajorFont(
                       text: 'Select your coverage.',
-                      size: 12,
+                      size: 14,
                       weight: false,
-                      color: Colors.black87,
+                      color: AppColors.primeColor,
                     )),
                 Container(
                   width: 200.w,
@@ -87,7 +88,7 @@ class _WelcomeState extends State<Welcome> {
                                   builder: (context) => LoginPage())),
                           child: Button(
                             text: 'Login',
-                            width: 90,
+                            width: 95,
                             height: 37,
                           )),
                       InkWell(
@@ -97,7 +98,7 @@ class _WelcomeState extends State<Welcome> {
                                 builder: (context) => SignupPage())),
                         child: Button(
                           text: 'Sign up',
-                          width: 90,
+                          width: 95,
                           height: 37,
                         ),
                       )
