@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           textTheme: Typography.englishLike2018.apply(fontSizeFactor : 1.sp)
         ),
         debugShowCheckedModeBanner: false,
-        home: Welcome()
+        home: NavBar()
       ),
     );
   }

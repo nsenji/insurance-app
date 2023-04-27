@@ -44,7 +44,8 @@ class _LoginPageState extends State<LoginPage> {
             width: 180.w,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    fit: BoxFit.contain, image: AssetImage('assets/images/auth.png'))),
+                    fit: BoxFit.contain,
+                    image: AssetImage('assets/images/auth.png'))),
           ),
           Container(
             margin: EdgeInsets.only(bottom: 40.h, left: 30.w, top: 30.h),
