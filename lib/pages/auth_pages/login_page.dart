@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: AppColors.whiteColor,
@@ -38,12 +39,13 @@ class _LoginPageState extends State<LoginPage> {
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 30.h, left: 17.w),
+            margin: EdgeInsets.only(top: 20.h, left: 17.w),
             height: 130.h,
             width: 180.w,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    fit: BoxFit.contain, image: AssetImage('assets/images/auth.png'))),
+                    fit: BoxFit.contain,
+                    image: AssetImage('assets/images/auth.png'))),
           ),
           Container(
             margin: EdgeInsets.only(bottom: 40.h, left: 30.w, top: 30.h),
@@ -56,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                     // changes position of shadow
                   ),
                 ],
-                color: AppColors.whiteColor,
+                color: AppColors.containerColor,
                 borderRadius: BorderRadius.all(Radius.circular(20.r))),
             // color: Colors.white,
             height: 320.h,
