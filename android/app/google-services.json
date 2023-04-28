@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "926460402818",
+    "firebase_url": "https://insurease-8bfa5-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "insurease-8bfa5",
+    "storage_bucket": "insurease-8bfa5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926460402818:android:c58a548b687a951d78689b",
+        "android_client_info": {
+          "package_name": "com.example.insurease"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "926460402818-t26sqehr53c7sq97dpt9a6u697nlmfp6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRTx-pndZ_ogYINQvQBVhmS00IWUekpuY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "926460402818-t26sqehr53c7sq97dpt9a6u697nlmfp6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "926460402818-gslsjsrc9dj60f2gv7erb953siunmmd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.insurease"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
