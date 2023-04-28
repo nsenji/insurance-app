@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:insurease/pages/app_pages/PlanCategories.dart';
 import 'package:insurease/pages/app_pages/searchProduct.dart';
 import 'package:insurease/pages/app_pages/welcome.dart';
 import 'package:insurease/tools/major_font.dart';
 
 import '../../styles/colors.dart';
 import '../../tools/button.dart';
+import '../app_pages/productDetails.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -137,18 +139,21 @@ class _HomeState extends State<Home> {
                 shrinkWrap: true,
                 itemCount: 10,
                 itemBuilder: (_, index) {
-                  return Container(
-                    margin: EdgeInsets.only(
-                        bottom: 13.h, top: 12.h, right: 12.w, left: 12.w),
-                    decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                              spreadRadius: 1,
-                              color: Colors.grey.withOpacity(0.5)),
-                        ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12.r)),
-                    height: 100.h,
+                  return InkWell(
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>PlanCategories())),
+                    child: Container(
+                      margin: EdgeInsets.only(
+                          bottom: 2.h, top: 12.h, right: 15.w, left: 15.w),
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                                spreadRadius: 1,
+                                color: Colors.grey.withOpacity(0.5)),
+                          ],
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12.r)),
+                      height: 120.h,
+                    ),
                   );
                 })
           ],

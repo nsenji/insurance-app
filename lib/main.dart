@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/pages/app_pages/navBar.dart';
+import 'package:insurease/pages/app_pages/productDetails.dart';
 import 'package:insurease/pages/app_pages/welcome.dart';
 import 'package:insurease/tools/button.dart';
 import 'package:insurease/tools/major_font.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           textTheme: Typography.englishLike2018.apply(fontSizeFactor : 1.sp)
         ),
         debugShowCheckedModeBanner: false,
-        home: NavBar()
+        home: ProductDetails()
       ),
     );
   }
