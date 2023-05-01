@@ -37,104 +37,66 @@ class _HomeState extends State<Home> {
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back)),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 170.h,
-              child: Container(
-                decoration: BoxDecoration(
-                    color: AppColors.containerColor,
-                    borderRadius: BorderRadius.circular(12.r)),
-                margin: EdgeInsets.only(
-                    left: 15.w, right: 15.w, bottom: 10.h, top: 10.h),
-                child: Row(children: [
-                  Container(
-                    width: 200.w,
-                    margin: EdgeInsets.only(left: 7.w, top: 7.h),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                      MajorFont(
-                        text: 'Hi, Thomas',
-                        color: AppColors.primeColor,
-                        weight: false,
-                      ),
-                      SizedBox(
-                        height: 5.h,
-                      ),
-                      MajorFont(text: 'Ref : 234jr',color: AppColors.blackColor,size: 15, weight: false,)
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 170.h,
+            child: Container(
+              decoration: BoxDecoration(
+                  color: AppColors.containerColor,
+                  borderRadius: BorderRadius.circular(12.r)),
+              margin: EdgeInsets.only(
+                  left: 15.w, right: 15.w, bottom: 10.h, top: 10.h),
+              child: Row(children: [
+                Container(
+                  width: 200.w,
+                  margin: EdgeInsets.only(left: 7.w, top: 7.h),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                    MajorFont(
+                      text: 'Hi, Thomas',
+                      color: AppColors.primeColor,
+                      weight: false,
+                    ),
+                    SizedBox(
+                      height: 5.h,
+                    ),
+                    MajorFont(text: 'Ref : 234jr',color: AppColors.blackColor,size: 15, weight: false,)
 
-                    ]),
-                  )
-                ]),
-              ),
+                  ]),
+                )
+              ]),
             ),
-            Container(
-              height: 30,
-              margin: EdgeInsets.only(left: 14.w, top: 8.h, right: 15.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  MajorFont(
-                    text: 'Select insurance product',
-                    weight: false,
-                    size: 15,
-                    color: AppColors.primeColor,
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SearchProduct()));
-                      },
-                      icon: Icon(Icons.search))
-                ],
-              ),
+          ),
+          Container(
+            height: 30,
+            margin: EdgeInsets.only(left: 14.w, top: 8.h, right: 15.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                MajorFont(
+                  text: 'Select insurance product',
+                  weight: false,
+                  size: 15,
+                  color: AppColors.primeColor,
+                ),
+                IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SearchProduct()));
+                    },
+                    icon: Icon(Icons.search))
+              ],
             ),
-            // Container(
-            //   // Add padding around the search bar
-            //   padding: EdgeInsets.symmetric(horizontal: 12.0.w, vertical: 10.h),
-            //   // Use a Material design search bar
-            //   child: TextField(
-            //     style: TextStyle(color: AppColors.blackColor),
-            //     controller: _searchController,
-            //     decoration: InputDecoration(
-            //       hintText: 'Search Product...',
-            //       hintStyle: TextStyle(
-            //           fontFamily: 'BubblegumSans',
-            //           fontWeight: FontWeight.normal,
-            //           fontSize: 15.sp),
-            //       // Add a clear button to the search bar
-            //       suffixIcon: IconButton(
-            //         color: AppColors.primeColor,
-            //         icon: Icon(Icons.send),
-            //         onPressed: () {
-            //           Navigator.push(
-            //               context,
-            //               MaterialPageRoute(
-            //                   builder: (context) => SearchProduct()));
-            //         }, //perform the search here
-            //       ),
-            //       // Add a search icon or button to the search bar
-            //       prefixIcon: Icon(Icons.search),
-            //       border: OutlineInputBorder(
-            //         borderRadius: BorderRadius.circular(15.0.r),
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            // Container(
-            //   margin: EdgeInsets.only(left: 13.w),
-            //   height: 1.h,
-            //   width: 335.w,
-            //   color: Color.fromARGB(94, 0, 0, 0),
-            // ),
-            ListView.builder(
+          ),
+          Expanded(
+            child: ListView.builder(
                 padding: EdgeInsets.only(left: 2.w, right: 2.w),
                 shrinkWrap: true,
                 itemCount: 10,
@@ -155,9 +117,9 @@ class _HomeState extends State<Home> {
                       height: 120.h,
                     ),
                   );
-                })
-          ],
-        ),
+                }),
+          )
+        ],
       ),
     );
   }

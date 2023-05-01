@@ -2,9 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:insurease/pages/app_pages/PlanCategories.dart';
 import 'package:insurease/pages/app_pages/navBar.dart';
 import 'package:insurease/pages/app_pages/productDetails.dart';
 import 'package:insurease/pages/app_pages/welcome.dart';
+import 'package:insurease/pages/bottom_nav_pages/myPolicies_page.dart';
+import 'package:insurease/pages/bottom_nav_pages/my_account_pages.dart';
 import 'package:insurease/tools/button.dart';
 import 'package:insurease/tools/major_font.dart';
 
@@ -19,19 +22,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360,740),
+      designSize: const Size(360, 740),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context,child)=>MaterialApp(
-        title: 'InsurEase',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          textTheme: Typography.englishLike2018.apply(fontSizeFactor : 1.sp)
-        ),
-        debugShowCheckedModeBanner: false,
-        home: ProductDetails()
-      ),
+      builder: (context, child) => MaterialApp(
+          title: 'InsurEase',
+          theme: ThemeData(
+              primarySwatch: Colors.blue,
+              textTheme:
+                  Typography.englishLike2018.apply(fontSizeFactor: 1.sp)),
+          debugShowCheckedModeBanner: false,
+          home: Welcome()),
     );
   }
 }
-

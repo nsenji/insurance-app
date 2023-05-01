@@ -114,7 +114,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           //   height: 4.h,
                           // ),
                           MajorFont(
-                            text: 'Life',
+                            text: 'Credit Life',
                             size: 20,
                             weight: false,
                             color: AppColors.blackColor,
