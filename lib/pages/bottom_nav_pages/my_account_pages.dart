@@ -3,7 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/pages/app_pages/app_settings.dart';
-import 'package:insurease/pages/app_pages/profile_settings.dart';
+import 'package:insurease/pages/app_pages/editProfile.dart';
 import 'package:insurease/tools/button.dart';
 
 import '../../styles/colors.dart';
@@ -47,11 +47,11 @@ class _ProfileState extends State<Profile> {
                   margin: EdgeInsets.only(top: 20.h),
                   height: 80.h,
                   width: 80.w,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage(
+                        image: NetworkImage(
                           "assets/images/man.jpg",
                         ),
                       )),
@@ -96,7 +96,7 @@ class _ProfileState extends State<Profile> {
                     onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ProfileSettings())),
+                            builder: (context) => const EditProfile())),
                     child: Container(
                       height: 45.h,
                       width: 300.w,
@@ -104,12 +104,12 @@ class _ProfileState extends State<Profile> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           MajorFont(
-                            text: 'Profile settings',
+                            text: 'Edit profile',
                             weight: false,
                             size: 20,
                             color: AppColors.blackColor,
                           ),
-                          Icon(
+                          const Icon(
                               color: AppColors.primeColor,
                               Icons.arrow_forward_sharp)
                         ],
@@ -124,7 +124,7 @@ class _ProfileState extends State<Profile> {
                     onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Notifications())),
+                            builder: (context) => const Notifications())),
                     child: Container(
                       height: 45.h,
                       width: 300.w,
@@ -137,7 +137,7 @@ class _ProfileState extends State<Profile> {
                             size: 20,
                             color: AppColors.blackColor,
                           ),
-                          Icon(
+                          const Icon(
                               color: AppColors.primeColor,
                               Icons.arrow_forward_sharp)
                         ],
@@ -149,10 +149,8 @@ class _ProfileState extends State<Profile> {
                     color: AppColors.greyColor,
                   ),
                   InkWell(
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => AppSettings())),
+                    onTap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const AppSettings())),
                     child: SizedBox(
                       height: 45.h,
                       width: 300.w,
@@ -165,7 +163,7 @@ class _ProfileState extends State<Profile> {
                             size: 20,
                             color: AppColors.blackColor,
                           ),
-                          Icon(
+                          const Icon(
                               color: AppColors.primeColor,
                               Icons.arrow_forward_sharp)
                         ],

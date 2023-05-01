@@ -4,14 +4,14 @@ import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../../tools/major_font.dart';
 
-class ProfileSettings extends StatefulWidget {
-  const ProfileSettings({super.key});
+class EditProfile extends StatefulWidget {
+  const EditProfile({super.key});
 
   @override
-  State<ProfileSettings> createState() => _ProfileSettingsState();
+  State<EditProfile> createState() => _EditProfileState();
 }
 
-class _ProfileSettingsState extends State<ProfileSettings> {
+class _EditProfileState extends State<EditProfile> {
   @override
   Widget build(BuildContext context) {
     return  Center(

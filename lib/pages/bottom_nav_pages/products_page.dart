@@ -54,20 +54,24 @@ class _HomeState extends State<Home> {
                   width: 200.w,
                   margin: EdgeInsets.only(left: 7.w, top: 7.h),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                    MajorFont(
-                      text: 'Hi, Thomas',
-                      color: AppColors.primeColor,
-                      weight: false,
-                    ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    MajorFont(text: 'Ref : 234jr',color: AppColors.blackColor,size: 15, weight: false,)
-
-                  ]),
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        MajorFont(
+                          text: 'Hi, Thomas',
+                          color: AppColors.primeColor,
+                          weight: false,
+                        ),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        MajorFont(
+                          text: 'Ref : 234jr',
+                          color: AppColors.blackColor,
+                          size: 15,
+                          weight: false,
+                        )
+                      ]),
                 )
               ]),
             ),
@@ -95,6 +99,9 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
+          SizedBox(
+            height: 5.h,
+          ),
           Expanded(
             child: ListView.builder(
                 padding: EdgeInsets.only(left: 2.w, right: 2.w),
@@ -102,7 +109,10 @@ class _HomeState extends State<Home> {
                 itemCount: 10,
                 itemBuilder: (_, index) {
                   return InkWell(
-                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>PlanCategories())),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PlanCategories())),
                     child: Container(
                       margin: EdgeInsets.only(
                           bottom: 2.h, top: 12.h, right: 15.w, left: 15.w),
