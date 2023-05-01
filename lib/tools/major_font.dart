@@ -14,7 +14,7 @@ class MajorFont extends StatelessWidget {
       this.weight = true,
       required this.text,
       this.color = AppColors.primeColor,
-      this.size = 24});
+      this.size = 24,});
 
   @override
   Widget build(BuildContext context) {

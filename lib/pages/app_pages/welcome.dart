@@ -21,8 +21,7 @@ class _WelcomeState extends State<Welcome> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.whiteColor,
-        body: Stack(
-          children: [
+        body: Stack(children: [
           Positioned(
             top: 70.h,
             left: 30.w,
@@ -31,11 +30,9 @@ class _WelcomeState extends State<Welcome> {
               height: 400.h,
               width: 300.w,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('assets/images/welcome.png')
-                )
-              ),
+                  image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage('assets/images/welcome.png'))),
             ),
           ),
           Positioned(
@@ -64,18 +61,20 @@ class _WelcomeState extends State<Welcome> {
                       weight: false,
                       color: Colors.black87,
                     )),
-                SizedBox(height: 13.h,),
+                SizedBox(
+                  height: 14.h,
+                ),
                 Container(
                     padding: EdgeInsets.only(left: 41.w),
                     width: 190.w,
-                    height: 15.h,
+                    height: 19.h,
                     child: MajorFont(
                       text: 'Select your coverage.',
                       size: 14,
                       weight: false,
                       color: AppColors.primeColor,
                     )),
-                Container(
+                SizedBox(
                   width: 200.w,
                   height: 100.h,
                   child: Row(
