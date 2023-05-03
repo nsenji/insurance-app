@@ -4,7 +4,10 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/pages/app_pages/navBar.dart';
 import 'package:insurease/tools/major_font.dart';
+import 'package:provider/provider.dart';
 
+import '../../api/get_products.dart';
+import '../../notifiers/productType.dart';
 import '../../styles/colors.dart';
 import '../../tools/button.dart';
 
@@ -64,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
               // color: Colors.white,
               height: 320.h,
               width: 300.w,
-      
+
               child: Column(
                 children: [
                   Padding(
@@ -105,8 +108,16 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     padding: EdgeInsets.only(top: 38.h),
                     child: InkWell(
-                        onTap: () => Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => NavBar())),
+                        onTap: () {
+                          ProductTypeNotifier productType =
+                              Provider.of<ProductTypeNotifier>(context,
+                                  listen: false);
+                          getProductTypes(productType);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NavBar()));
+                        },
                         child: Button(text: 'Login')),
                   )
                 ],
