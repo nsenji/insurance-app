@@ -18,11 +18,10 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   final TextEditingController _emailField = TextEditingController();
   final TextEditingController _passwordField = TextEditingController();
-   TextEditingController _usernameField = TextEditingController();
+  TextEditingController _usernameField = TextEditingController();
   final TextEditingController _contactField = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    _usernameField.text = 'nsenji';
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
