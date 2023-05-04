@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:insurease/pages/app_pages/navBar.dart';
+import 'package:insurease/pages/bottom_nav_pages/navBar.dart';
 import 'package:insurease/tools/major_font.dart';
 import 'package:provider/provider.dart';
 

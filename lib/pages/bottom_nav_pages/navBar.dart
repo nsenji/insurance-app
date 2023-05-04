@@ -9,7 +9,7 @@ import 'package:insurease/tools/major_font.dart';
 
 import '../../styles/colors.dart';
 import '../../tools/button.dart';
-import '../bottom_nav_pages/my_account_pages.dart';
+import 'my_account_pages.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});

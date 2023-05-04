@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/notifiers/productType.dart';
 import 'package:insurease/pages/app_pages/PlanCategories.dart';
-import 'package:insurease/pages/app_pages/navBar.dart';
+import 'package:insurease/pages/bottom_nav_pages/navBar.dart';
 import 'package:insurease/pages/app_pages/productDetails.dart';
 import 'package:insurease/pages/app_pages/welcome.dart';
 import 'package:insurease/pages/bottom_nav_pages/myPolicies_page.dart';

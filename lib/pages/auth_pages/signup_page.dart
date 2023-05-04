@@ -6,7 +6,7 @@ import 'package:insurease/tools/major_font.dart';
 
 import '../../styles/colors.dart';
 import '../../tools/button.dart';
-import '../app_pages/navBar.dart';
+import '../bottom_nav_pages/navBar.dart';
 
 class SignupPage extends StatefulWidget {
   SignupPage({super.key});

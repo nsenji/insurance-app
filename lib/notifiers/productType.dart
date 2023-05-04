@@ -7,6 +7,13 @@ class ProductTypeNotifier extends ChangeNotifier {
 
   // UnmodifiableListView get productList => UnmodifiableListView(_productList);
 
+
+  dynamic get prodList {
+    return productList;
+  }
+
+
+
   void add(item) {
     productList.add(item);
 
