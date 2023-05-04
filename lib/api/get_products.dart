@@ -28,6 +28,8 @@ getProductTypes(ProductTypeNotifier productType) async {
       _productTypeList.add(prod);
     }
     productType.productList = _productTypeList;
+
+    return true;
   } else {
     throw Exception('Failed to get product types');
   }
