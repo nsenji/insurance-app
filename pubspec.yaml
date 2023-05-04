@@ -71,6 +71,18 @@ flutter:
      - assets/images/man.jpg
      - assets/images/welcome.png
      - assets/images/axa-logo.png
+     - assets/images/3rd party auto insurance.png
+     - assets/images/comprehensive-auto.png
+     - assets/images/credit-card.png
+     - assets/images/fire-and-burglary-insurance.png
+     - assets/images/gadget.png
+     - assets/images/goods-insurance.png
+     - assets/images/healthcare.png
+     - assets/images/job-loss.png
+     - assets/images/key-man.png
+     - assets/images/life-insurance.png
+     - assets/images/marine.png
+     - assets/images/travel.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
