@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:insurease/pages/app_pages/moreDetails.dart';
+import 'package:insurease/pages/additional%20Details/creditLife.dart';
 import 'package:insurease/styles/colors.dart';
 
 import '../../tools/button.dart';
@@ -149,7 +149,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
             InkWell(
               onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MoreDetails())),
+                  MaterialPageRoute(builder: (context) => CreditLife())),
               child: Button(
                 text: 'Purchase',
               ),

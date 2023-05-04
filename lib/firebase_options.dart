@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,6 +43,17 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAahUyfq9YzI1dUejf1RFNoY5tjzNnrE9A',
+    appId: '1:926460402818:web:35035061e0d624ed78689b',
+    messagingSenderId: '926460402818',
+    projectId: 'insurease-8bfa5',
+    authDomain: 'insurease-8bfa5.firebaseapp.com',
+    databaseURL: 'https://insurease-8bfa5-default-rtdb.asia-southeast1.firebasedatabase.app',
+    storageBucket: 'insurease-8bfa5.appspot.com',
+    measurementId: 'G-VZ40530DHK',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBRTx-pndZ_ogYINQvQBVhmS00IWUekpuY',
     appId: '1:926460402818:android:c58a548b687a951d78689b',
@@ -59,6 +64,17 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyDusu5CBnfO8YQUj1pgp3FOgtMAWyOGn8Q',
+    appId: '1:926460402818:ios:7ce59c6128e2e10278689b',
+    messagingSenderId: '926460402818',
+    projectId: 'insurease-8bfa5',
+    databaseURL: 'https://insurease-8bfa5-default-rtdb.asia-southeast1.firebasedatabase.app',
+    storageBucket: 'insurease-8bfa5.appspot.com',
+    iosClientId: '926460402818-gslsjsrc9dj60f2gv7erb953siunmmd9.apps.googleusercontent.com',
+    iosBundleId: 'com.example.insurease',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyDusu5CBnfO8YQUj1pgp3FOgtMAWyOGn8Q',
     appId: '1:926460402818:ios:7ce59c6128e2e10278689b',
     messagingSenderId: '926460402818',

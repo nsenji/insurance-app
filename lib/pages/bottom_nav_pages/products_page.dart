@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:insurease/notifiers/productType.dart';
 import 'package:insurease/pages/app_pages/PlanCategories.dart';
 import 'package:insurease/pages/app_pages/searchProduct.dart';
 import 'package:insurease/pages/app_pages/welcome.dart';
 import 'package:insurease/tools/major_font.dart';
+import 'package:provider/provider.dart';
 
 import '../../styles/colors.dart';
 import '../../tools/button.dart';
@@ -54,20 +56,24 @@ class _HomeState extends State<Home> {
                   width: 200.w,
                   margin: EdgeInsets.only(left: 7.w, top: 7.h),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                    MajorFont(
-                      text: 'Hi, Thomas',
-                      color: AppColors.primeColor,
-                      weight: false,
-                    ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    MajorFont(text: 'Ref : 234jr',color: AppColors.blackColor,size: 15, weight: false,)
-
-                  ]),
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        MajorFont(
+                          text: 'Hi, Thomas',
+                          color: AppColors.primeColor,
+                          weight: false,
+                        ),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        MajorFont(
+                          text: 'Ref : 234jr',
+                          color: AppColors.blackColor,
+                          size: 15,
+                          weight: false,
+                        )
+                      ]),
                 )
               ]),
             ),
@@ -95,14 +101,23 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
+          SizedBox(
+            height: 5.h,
+          ),
           Expanded(
             child: ListView.builder(
                 padding: EdgeInsets.only(left: 2.w, right: 2.w),
                 shrinkWrap: true,
-                itemCount: 10,
+                itemCount:
+                    Provider.of<ProductTypeNotifier>(context, listen: false)
+                        .productList
+                        .length,
                 itemBuilder: (_, index) {
                   return InkWell(
-                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>PlanCategories())),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PlanCategories())),
                     child: Container(
                       margin: EdgeInsets.only(
                           bottom: 2.h, top: 12.h, right: 15.w, left: 15.w),
@@ -114,7 +129,44 @@ class _HomeState extends State<Home> {
                           ],
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(12.r)),
-                      height: 120.h,
+                      height: 100.h,
+                      child: Row(children: [
+                        Container(
+                          height: 90.h,
+                          width: 130.w,
+                          child: Center(
+                              child: Container(
+                            height: 45.h,
+                            width: 60.w,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        '${Provider.of<ProductTypeNotifier>(context, listen: false).prodList[index].iconurl}'))),
+                          )),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 7.h),
+                          height: 90.h,
+                          width: 178.w,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              MajorFont(
+                                  weight: false,
+                                  text:
+                                      '${Provider.of<ProductTypeNotifier>(context, listen: false).prodList[index].name}'),
+                              SizedBox(height: 4.h),
+                              MajorFont(
+                                weight: false,
+                                text:
+                                    '${Provider.of<ProductTypeNotifier>(context, listen: false).prodList[index].premiumtype}',
+                                color: AppColors.blackColor,
+                                size: 19,
+                              ),
+                            ],
+                          ),
+                        )
+                      ]),
                     ),
                   );
                 }),

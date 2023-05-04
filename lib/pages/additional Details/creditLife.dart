@@ -8,14 +8,14 @@ import 'package:insurease/styles/colors.dart';
 import '../../tools/button.dart';
 import '../../tools/major_font.dart';
 
-class MoreDetails extends StatefulWidget {
-  const MoreDetails({super.key});
+class CreditLife extends StatefulWidget {
+  const CreditLife({super.key});
 
   @override
-  State<MoreDetails> createState() => _MoreDetailsState();
+  State<CreditLife> createState() => _CreditLifeState();
 }
 
-class _MoreDetailsState extends State<MoreDetails> {
+class _CreditLifeState extends State<CreditLife> {
   final TextEditingController _productCode = TextEditingController();
   final TextEditingController _customerRef = TextEditingController();
   final TextEditingController _paymentType = TextEditingController();
