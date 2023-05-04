@@ -109,10 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                     padding: EdgeInsets.only(top: 38.h),
                     child: InkWell(
                         onTap: () {
-                          ProductTypeNotifier productType =
-                              Provider.of<ProductTypeNotifier>(context,
-                                  listen: false);
-                          getProductTypes(productType);
+                          
                           Navigator.push(
                               context,
                               MaterialPageRoute(
