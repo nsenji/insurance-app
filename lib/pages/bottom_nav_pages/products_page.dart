@@ -158,7 +158,9 @@ class _HomeState extends State<Home> {
                           onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PlanCategories(prodIndex: index,))),
+                                  builder: (context) => PlanCategories(
+                                        prodIndex: index,
+                                      ))),
                           child: Container(
                             margin: EdgeInsets.only(
                                 bottom: 2.h,
@@ -180,8 +182,8 @@ class _HomeState extends State<Home> {
                                 width: 130.w,
                                 child: Center(
                                     child: Container(
-                                  height: 45.h,
-                                  width: 60.w,
+                                  height: 55.h,
+                                  width: 75.w,
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(icons[index]))),
@@ -195,17 +197,41 @@ class _HomeState extends State<Home> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     MajorFont(
-                                        weight: false,
-                                        text:
-                                            '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].name}'),
+                                      size: 22,
+                                      weight: false,
+                                      text:
+                                          '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].name}',
+                                      color: AppColors.blackColor,
+                                    ),
                                     SizedBox(height: 4.h),
                                     MajorFont(
                                       weight: false,
                                       text:
                                           '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].premiumtype}',
-                                      color: AppColors.blackColor,
-                                      size: 19,
+                                      color: Color.fromARGB(255, 173, 173, 173),
+                                      size: 18,
                                     ),
+                                    SizedBox(
+                                      height: 9.h,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'view plans',
+                                          style: TextStyle(
+                                              color: AppColors.primeColor,
+                                              fontSize: 14.sp),
+                                        ),
+                                        SizedBox(
+                                          width: 4.w,
+                                        ),
+                                        Icon(
+                                          Icons.arrow_forward_sharp,
+                                          size: 15,
+                                          color: AppColors.primeColor,
+                                        )
+                                      ],
+                                    )
                                   ],
                                 ),
                               )
