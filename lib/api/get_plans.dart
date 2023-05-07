@@ -8,15 +8,15 @@ import 'package:insurease/notifiers/allPlansNotifier.dart';
 import '../models/productPlan_model.dart';
 
 getPlans(AllPlansNotifier allPlansNotifier, String planName) async {
-  const String baseUrl = 'api.grow.curacel.co';
-  String path =
-      '/api/v1/products?page=1&per_page=20&type=$planName&with=cover_benefits&calculate_premium=0&trip_frequency=recurring';
+  // const String baseUrl = '';
+  String url =
+      'https://api.grow.curacel.co/api/v1/products?page=1&per_page=20&type=$planName&with=cover_benefits&calculate_premium=0&trip_frequency=recurring';
   const String apikey =
       'Bearer 903c2a641e5a3e51f38a0dbc8349cb811562375cdc276b16bed93b6cc7ad7e3d';
 
-  final url = Uri.https(baseUrl, path);
+  // final url = Uri.https(baseUrl, path);
 
-  final response = await http.get(url, headers: {
+  final response = await http.get(Uri.parse(url), headers: {
     'accept': 'application/json',
     'authorization': apikey,
   });
@@ -26,7 +26,7 @@ getPlans(AllPlansNotifier allPlansNotifier, String planName) async {
   if (response.statusCode == 200) {
     final responseBody = jsonDecode(response.body);
     final data = responseBody['data'];
-    log(data);
+    log(jsonEncode(data));
     for (final item in data) {
       ProductPlanModel prod = ProductPlanModel.fromMap(item);
       productPlanList.add(prod);
