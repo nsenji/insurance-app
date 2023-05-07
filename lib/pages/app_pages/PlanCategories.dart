@@ -42,13 +42,16 @@ class _PlanCategoriesState extends State<PlanCategories> {
 
   @override
   Widget build(BuildContext context) {
+    String name2 = Provider.of<ProductTypeNotifier>(context, listen: false)
+        .prodList[widget.prodIndex]
+        .slug;
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         elevation: 0.h,
         backgroundColor: AppColors.whiteColor,
         title: MajorFont(
-          text: '[category] plans',
+          text: '$name2 insurance plans',
           color: AppColors.blackColor,
           weight: false,
         ),
@@ -66,16 +69,18 @@ class _PlanCategoriesState extends State<PlanCategories> {
           : ListView.builder(
               padding: EdgeInsets.only(left: 2.w, right: 2.w),
               shrinkWrap: true,
-              itemCount: Provider.of<AllPlansNotifier>(context,
-                              listen: false)
-                          .plansList
-                          .length,
+              itemCount: Provider.of<AllPlansNotifier>(context, listen: false)
+                  .plansList
+                  .length,
               itemBuilder: (_, index) {
                 return InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ProductDetails())),
+                          builder: (context) => ProductDetails(
+                                planIndex: index,
+                                category: name2,
+                              ))),
                   child: Container(
                     margin: EdgeInsets.only(
                         bottom: 2.h, top: 12.h, right: 15.w, left: 15.w),
@@ -91,20 +96,18 @@ class _PlanCategoriesState extends State<PlanCategories> {
                     child: Row(
                       children: [
                         Container(
-                          margin: EdgeInsets.only(left: 2.w),
+                          margin: EdgeInsets.only(left: 9.w),
                           height: 100.h,
                           width: 130.w,
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                   fit: BoxFit.contain,
                                   image: NetworkImage(
-                                      '${Provider.of<AllPlansNotifier>(context,
-                              listen: false)
-                          .plansList[index].logoUrl}'))),
+                                      '${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].logoUrl}'))),
                         ),
                         SizedBox(
                           height: 100.h,
-                          width: 8.w,
+                          width: 13.w,
                         ),
                         Container(
                           height: 100.h,
@@ -113,27 +116,59 @@ class _PlanCategoriesState extends State<PlanCategories> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               MajorFont(
-                                text: 'Title : AXA PRADO 1',
+                                text:
+                                    '${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].title}',
                                 size: 17,
                                 weight: false,
+                                color: AppColors.primeColor,
+                                flowover: true,
                               ),
                               SizedBox(
                                 height: 9.h,
                                 width: 140.w,
                               ),
                               MajorFont(
-                                text: 'Insurer : AXA',
+                                text:
+                                    'Insurer : ${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].insurer}',
                                 weight: false,
                                 size: 17,
+                                flowover: true,
+                                color: AppColors.blackColor,
                               ),
                               SizedBox(
                                 height: 9.h,
                                 width: 140.w,
                               ),
                               MajorFont(
-                                text: 'Type : Fixed',
+                                text:
+                                    'Premium type : ${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].premiumType}',
                                 weight: false,
                                 size: 17,
+                                flowover: true,
+                                color: AppColors.blackColor,
+                              ),
+                              SizedBox(
+                                height: 9.h,
+                                width: 140.w,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    'view details',
+                                    style: TextStyle(
+                                        color: AppColors.primeColor,
+                                        fontSize: 14.sp),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  SizedBox(
+                                    width: 4.w,
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_sharp,
+                                    size: 15,
+                                    color: AppColors.primeColor,
+                                  )
+                                ],
                               )
                             ],
                           ),
