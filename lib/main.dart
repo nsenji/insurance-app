@@ -18,6 +18,7 @@ import 'package:provider/provider.dart';
 
 import 'api/get_products.dart';
 import 'firebase_options.dart';
+import 'notifiers/allPlansNotifier.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +26,7 @@ void main() async {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => ProductTypeNotifier()),
+      ChangeNotifierProvider(create: (context) => AllPlansNotifier()),
     ],
     child: MyApp(),
   ));

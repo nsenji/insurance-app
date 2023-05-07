@@ -75,7 +75,7 @@ class _HomeState extends State<Home> {
             icon: const Icon(Icons.arrow_back)),
       ),
       body: isLoading
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(
                 color: AppColors.primeColor,
               ),
@@ -158,7 +158,7 @@ class _HomeState extends State<Home> {
                           onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PlanCategories())),
+                                  builder: (context) => PlanCategories(prodIndex: index,))),
                           child: Container(
                             margin: EdgeInsets.only(
                                 bottom: 2.h,

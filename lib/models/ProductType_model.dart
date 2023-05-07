@@ -1,5 +1,5 @@
 class ProductTypeModel {
-  int  id = 1;
+  int id = 1;
   String name = '';
   String slug = '';
   String premiumtype = '';
