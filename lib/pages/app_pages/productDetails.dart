@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/notifiers/allPlansNotifier.dart';
 import 'package:insurease/pages/additional%20Details/creditLife.dart';
@@ -43,9 +44,8 @@ class _ProductDetailsState extends State<ProductDetails> {
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(left: 20.w, right: 20.w),
-          height: 900.h,
+          height: 800.h,
           width: 360.w,
-          // color: Colors.blue,
           child: Column(
             children: [
               Container(
@@ -108,6 +108,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                             height: 8.h,
                           ),
                           MajorFont(
+                            text: 'Code',
+                            weight: false,
+                            size: 17,
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          MajorFont(
                             text: 'Insurer',
                             weight: false,
                             size: 17,
@@ -132,7 +140,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             height: 8.h,
                           ),
                           MajorFont(
-                            text: 'Duration',
+                            text: 'Duration (months)',
                             weight: false,
                             size: 17,
                           ),
@@ -153,8 +161,19 @@ class _ProductDetailsState extends State<ProductDetails> {
                           MajorFont(
                             text: '${widget.category}',
                             weight: false,
-                            size: 17,
+                            size: 16,
                             color: AppColors.blackColor,
+                            flowover: true,
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          MajorFont(
+                            text: '${plans.code}',
+                            weight: false,
+                            size: 16,
+                            color: AppColors.blackColor,
+                            flowover: true,
                           ),
                           SizedBox(
                             height: 8.h,
@@ -162,7 +181,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           MajorFont(
                             text: '${plans.insurer}',
                             weight: false,
-                            size: 17,
+                            size: 16,
                             color: AppColors.blackColor,
                             flowover: true,
                           ),
@@ -172,7 +191,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           MajorFont(
                             text: '${plans.premiumRate}',
                             weight: false,
-                            size: 17,
+                            size: 16,
                             color: AppColors.blackColor,
                           ),
                           SizedBox(
@@ -181,7 +200,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           MajorFont(
                             text: '${plans.premiumType}',
                             weight: false,
-                            size: 17,
+                            size: 16,
                             color: AppColors.blackColor,
                           ),
                           SizedBox(
@@ -190,7 +209,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           MajorFont(
                             text: '${plans.coverDuration}',
                             weight: false,
-                            size: 17,
+                            size: 16,
                             color: AppColors.blackColor,
                           ),
                           SizedBox(
@@ -208,7 +227,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               Container(
                 margin: EdgeInsets.only(left: 10.w, right: 10.w),
                 width: 320.w,
-                height: 200.h,
+                height: 280.h,
                 decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
@@ -236,17 +255,28 @@ class _ProductDetailsState extends State<ProductDetails> {
                     Container(
                       padding: EdgeInsets.only(left: 5.w, right: 5.w),
                       width: 290.w,
-                      height: 170.h,
+                      height: 250.h,
                       // color: Colors.orange,
-                      child: MajorFont(
-                        text: '${plans.description}',
-                        flowover: true,
-                        size: 17,
+                      child: SingleChildScrollView(
+                        child: Wrap(children: [
+                          Html(
+                            data: plans.description,
+                            style: {
+                              "body": Style(
+                                  color: Colors.black,
+                                  fontFamily: 'BubblegumSans'),
+                            },
+                          )
+                        ]),
                       ),
                     )
                   ],
                 ),
-              )
+              ),
+              SizedBox(
+                height: 30.h,
+              ),
+              Button(text: 'Purchase')
             ],
           ),
         ),
