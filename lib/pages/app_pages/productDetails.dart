@@ -108,6 +108,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                             height: 8.h,
                           ),
                           MajorFont(
+                            text: 'Code',
+                            weight: false,
+                            size: 17,
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          MajorFont(
                             text: 'Insurer',
                             weight: false,
                             size: 17,
@@ -132,7 +140,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             height: 8.h,
                           ),
                           MajorFont(
-                            text: 'Duration',
+                            text: 'Duration (months)',
                             weight: false,
                             size: 17,
                           ),
@@ -153,8 +161,19 @@ class _ProductDetailsState extends State<ProductDetails> {
                           MajorFont(
                             text: '${widget.category}',
                             weight: false,
-                            size: 17,
+                            size: 16,
                             color: AppColors.blackColor,
+                            flowover: true,
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          MajorFont(
+                            text: '${plans.code}',
+                            weight: false,
+                            size: 16,
+                            color: AppColors.blackColor,
+                            flowover: true,
                           ),
                           SizedBox(
                             height: 8.h,
@@ -162,7 +181,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           MajorFont(
                             text: '${plans.insurer}',
                             weight: false,
-                            size: 17,
+                            size: 16,
                             color: AppColors.blackColor,
                             flowover: true,
                           ),
@@ -172,7 +191,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           MajorFont(
                             text: '${plans.premiumRate}',
                             weight: false,
-                            size: 17,
+                            size: 16,
                             color: AppColors.blackColor,
                           ),
                           SizedBox(
@@ -181,7 +200,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           MajorFont(
                             text: '${plans.premiumType}',
                             weight: false,
-                            size: 17,
+                            size: 16,
                             color: AppColors.blackColor,
                           ),
                           SizedBox(
@@ -190,7 +209,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           MajorFont(
                             text: '${plans.coverDuration}',
                             weight: false,
-                            size: 17,
+                            size: 16,
                             color: AppColors.blackColor,
                           ),
                           SizedBox(
@@ -238,10 +257,15 @@ class _ProductDetailsState extends State<ProductDetails> {
                       width: 290.w,
                       height: 170.h,
                       // color: Colors.orange,
-                      child: MajorFont(
-                        text: '${plans.description}',
-                        flowover: true,
-                        size: 17,
+                      child: SingleChildScrollView(
+                        child: Wrap(children: [
+                          MajorFont(
+                            text: '${plans.description}',
+                            size: 17,
+                            color: AppColors.blackColor,
+                            weight: false,
+                          ),
+                        ]),
                       ),
                     )
                   ],

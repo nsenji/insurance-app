@@ -1,6 +1,7 @@
 class ProductPlanModel {
   String title = '';
   int id = 1;
+  String code = '';
   dynamic description = '';
   dynamic insurer = '';
   dynamic logoUrl = '';
@@ -13,6 +14,7 @@ class ProductPlanModel {
   ProductPlanModel.fromMap(things) {
     title = things['title'];
     id = things['id'];
+    code = things['code'];
     description = things['description'];
     insurer = things['insurer']['name'];
     logoUrl = things['insurer']['logo_url'];

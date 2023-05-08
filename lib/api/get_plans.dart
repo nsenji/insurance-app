@@ -26,7 +26,6 @@ getPlans(AllPlansNotifier allPlansNotifier, String planName) async {
   if (response.statusCode == 200) {
     final responseBody = jsonDecode(response.body);
     final data = responseBody['data'];
-    log(jsonEncode(data));
     for (final item in data) {
       ProductPlanModel prod = ProductPlanModel.fromMap(item);
       productPlanList.add(prod);
