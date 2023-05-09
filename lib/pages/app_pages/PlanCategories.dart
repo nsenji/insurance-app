@@ -102,16 +102,24 @@ class _PlanCategoriesState extends State<PlanCategories> {
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                   fit: BoxFit.contain,
-                                  image: NetworkImage(
-                                      '${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].logoUrl}'))),
+                                  image: Provider.of<AllPlansNotifier>(context,
+                                                  listen: false)
+                                              .plansList[index]
+                                              .insurer ==
+                                          'Tangerine'
+                                      ? AssetImage(
+                                              'assets/images/tangerine-logo.png')
+                                          as ImageProvider<Object>
+                                      : NetworkImage(
+                                          '${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].logoUrl}'))),
                         ),
                         SizedBox(
                           height: 100.h,
-                          width: 13.w,
+                          width: 22.w,
                         ),
                         Container(
                           height: 100.h,
-                          width: 140.w,
+                          width: 160.w,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -129,7 +137,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
                               ),
                               MajorFont(
                                 text:
-                                    'Insurer : ${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].insurer}',
+                                    'By : ${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].insurer}',
                                 weight: false,
                                 size: 17,
                                 flowover: true,
@@ -141,7 +149,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
                               ),
                               MajorFont(
                                 text:
-                                    'Premium type : ${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].premiumType}',
+                                    'Type : ${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].premiumType}',
                                 weight: false,
                                 size: 17,
                                 flowover: true,
@@ -152,19 +160,21 @@ class _PlanCategoriesState extends State<PlanCategories> {
                                 width: 140.w,
                               ),
                               Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Text(
-                                    'view details',
+                                    'Details',
                                     style: TextStyle(
                                         color: AppColors.primeColor,
-                                        fontSize: 14.sp),
+                                        fontSize: 14.sp,
+                                        fontFamily: 'BubblegumSans'),
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                   SizedBox(
-                                    width: 4.w,
+                                    width: 2.w,
                                   ),
                                   Icon(
-                                    Icons.arrow_forward_sharp,
+                                    Icons.arrow_forward_ios,
                                     size: 15,
                                     color: AppColors.primeColor,
                                   )

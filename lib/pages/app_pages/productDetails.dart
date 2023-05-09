@@ -44,7 +44,7 @@ class _ProductDetailsState extends State<ProductDetails> {
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(left: 20.w, right: 20.w),
-          height: 800.h,
+          height: 785.h,
           width: 360.w,
           child: Column(
             children: [
@@ -56,7 +56,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                     border: Border.all(color: AppColors.greyColor),
                     image: DecorationImage(
                         fit: BoxFit.contain,
-                        image: NetworkImage('${plans.logoUrl}'))),
+                        image: Provider.of<AllPlansNotifier>(context,
+                                        listen: false)
+                                    .plansList[widget.planIndex]
+                                    .insurer ==
+                                'Tangerine'
+                            ? AssetImage('assets/images/tangerine-logo.png')
+                                as ImageProvider<Object>
+                            : NetworkImage('${plans.logoUrl}'))),
               ),
               Container(
                 width: 320.w,
@@ -276,7 +283,10 @@ class _ProductDetailsState extends State<ProductDetails> {
               SizedBox(
                 height: 30.h,
               ),
-              Button(text: 'Purchase')
+              InkWell(
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => CreditLife())),
+                  child: Button(text: 'Purchase'))
             ],
           ),
         ),
