@@ -84,6 +84,7 @@ flutter:
      - assets/images/life-insurance.png
      - assets/images/marine.png
      - assets/images/travel.png
+     - assets/images/tangerine-logo.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

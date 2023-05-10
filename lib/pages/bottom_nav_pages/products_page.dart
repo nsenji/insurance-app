@@ -191,6 +191,7 @@ class _HomeState extends State<Home> {
                               ),
                               Container(
                                 margin: EdgeInsets.only(top: 12.h),
+                                padding: EdgeInsets.only(top: 8.h),
                                 height: 90.h,
                                 width: 195.w,
                                 child: Column(
@@ -215,20 +216,29 @@ class _HomeState extends State<Home> {
                                       height: 9.h,
                                     ),
                                     Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        Text(
-                                          'view plans',
-                                          style: TextStyle(
-                                              color: AppColors.primeColor,
-                                              fontSize: 14.sp),
+                                        Padding(
+                                          padding: EdgeInsets.only(bottom: 4.h),
+                                          child: Text(
+                                            'Plans',
+                                            style: TextStyle(
+                                                color: AppColors.primeColor,
+                                                fontSize: 14.sp,
+                                                fontFamily: 'BubblegumSans'),
+                                          ),
                                         ),
                                         SizedBox(
-                                          width: 4.w,
+                                          width: 1.w,
                                         ),
-                                        Icon(
-                                          Icons.arrow_forward_sharp,
-                                          size: 15,
-                                          color: AppColors.primeColor,
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                              right: 4.w, bottom: 4.h),
+                                          child: const Icon(
+                                            Icons.arrow_forward_ios,
+                                            size: 15,
+                                            color: AppColors.primeColor,
+                                          ),
                                         )
                                       ],
                                     )

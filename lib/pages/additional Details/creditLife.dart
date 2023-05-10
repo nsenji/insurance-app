@@ -46,7 +46,8 @@ class _CreditLifeState extends State<CreditLife> {
       body: SizedBox(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.only(top: 30.h, left: 30.w, right: 20.w, bottom: 30.h),
+            margin: EdgeInsets.only(
+                top: 30.h, left: 30.w, right: 20.w, bottom: 30.h),
             decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
@@ -240,12 +241,15 @@ class _CreditLifeState extends State<CreditLife> {
                     keyboardType: TextInputType.name,
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.only(top: 20.h),
-                  child: InkWell(
-                      onTap: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Payment())),
-                      child: Button(text: 'Submit')),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    padding: EdgeInsets.only(top: 20.h),
+                    child: InkWell(
+                        onTap: () => Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Payment())),
+                        child: Button(text: 'Submit')),
+                  ),
                 )
               ],
             ),

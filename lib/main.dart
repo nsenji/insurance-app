@@ -19,6 +19,7 @@ import 'package:provider/provider.dart';
 import 'api/get_products.dart';
 import 'firebase_options.dart';
 import 'notifiers/allPlansNotifier.dart';
+import 'pages/additional Details/creditLife.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
