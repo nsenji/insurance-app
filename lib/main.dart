@@ -46,11 +46,12 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
           title: 'InsurEase',
           theme: ThemeData(
+            
               primarySwatch: Colors.blue,
               textTheme:
                   Typography.englishLike2018.apply(fontSizeFactor: 1.sp)),
           debugShowCheckedModeBanner: false,
-          home: Welcome()),
+          home: CreditLife()),
     );
   }
 }
