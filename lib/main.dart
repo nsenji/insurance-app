@@ -19,6 +19,7 @@ import 'package:provider/provider.dart';
 import 'api/get_products.dart';
 import 'firebase_options.dart';
 import 'notifiers/allPlansNotifier.dart';
+import 'pages/additional Details/Git.dart';
 import 'pages/additional Details/creditLife.dart';
 
 void main() async {
@@ -46,12 +47,11 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
           title: 'InsurEase',
           theme: ThemeData(
-            
               primarySwatch: Colors.blue,
               textTheme:
                   Typography.englishLike2018.apply(fontSizeFactor: 1.sp)),
           debugShowCheckedModeBanner: false,
-          home: CreditLife()),
+          home: Welcome()),
     );
   }
 }

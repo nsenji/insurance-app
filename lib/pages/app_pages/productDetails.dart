@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 
 import '../../tools/button.dart';
 import '../../tools/major_font.dart';
+import '../additional Details/Git.dart';
 
 class ProductDetails extends StatefulWidget {
   dynamic planIndex;
@@ -284,8 +285,20 @@ class _ProductDetailsState extends State<ProductDetails> {
                 height: 30.h,
               ),
               InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => CreditLife())),
+                  onTap: () => {
+                        if (widget.category == 'git')
+                          {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) => GIT()))
+                          }
+                        else
+                          {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CreditLife()))
+                          }
+                      },
                   child: Button(text: 'Purchase'))
             ],
           ),
