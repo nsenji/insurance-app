@@ -10,23 +10,23 @@ import 'package:intl/intl.dart';
 import '../../tools/button.dart';
 import '../../tools/major_font.dart';
 
-class CreditLife extends StatefulWidget {
-  const CreditLife({super.key});
+class GIT extends StatefulWidget {
+  const GIT({super.key});
 
   @override
-  State<CreditLife> createState() => _CreditLifeState();
+  State<GIT> createState() => _GITState();
 }
 
-class _CreditLifeState extends State<CreditLife> {
+class _GITState extends State<GIT> {
   final TextEditingController _productCode = TextEditingController();
   final TextEditingController _customerRef = TextEditingController();
   final TextEditingController _paymentType = TextEditingController();
   final TextEditingController _policyStartDate = TextEditingController();
   final TextEditingController _assetValue = TextEditingController();
-  final TextEditingController _loanDuration = TextEditingController();
-  final TextEditingController _installments = TextEditingController();
-  final TextEditingController _natureOfBusiness = TextEditingController();
-  final TextEditingController _businessAddress = TextEditingController();
+  final TextEditingController _tripFrequency = TextEditingController();
+  final TextEditingController _tripsPerDay = TextEditingController();
+  final TextEditingController _pickUpLocation = TextEditingController();
+  final TextEditingController _dropOffLocation = TextEditingController();
 
   bool codeIsEmpty = false;
   bool refIsEmpty = false;
@@ -198,11 +198,29 @@ class _CreditLifeState extends State<CreditLife> {
                 padding: EdgeInsets.all(20.0.h),
                 child: TextField(
                   style: TextStyle(color: AppColors.blackColor),
-                  controller: _loanDuration,
+                  controller: _tripFrequency,
+                  decoration: InputDecoration(
+                    // errorText: codeIsEmpty ? 'This field is required' : null,
+                    label: MajorFont(
+                      text: 'Trip frequency',
+                      weight: false,
+                      size: 15,
+                    ),
+
+                    hintText: 'Single or Recurring',
+                  ),
+                  keyboardType: TextInputType.name,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(20.0.h),
+                child: TextField(
+                  style: TextStyle(color: AppColors.blackColor),
+                  controller: _tripsPerDay,
                   decoration: InputDecoration(
                       // errorText: codeIsEmpty ? 'This field is required' : null,
                       label: MajorFont(
-                    text: 'Loan duration',
+                    text: 'Trips per day',
                     weight: false,
                     size: 15,
                   )
@@ -216,11 +234,11 @@ class _CreditLifeState extends State<CreditLife> {
                 padding: EdgeInsets.all(20.0.h),
                 child: TextField(
                   style: TextStyle(color: AppColors.blackColor),
-                  controller: _installments,
+                  controller: _pickUpLocation,
                   decoration: InputDecoration(
                       // errorText: codeIsEmpty ? 'This field is required' : null,
                       label: MajorFont(
-                    text: 'Monthly Loan Instalment',
+                    text: 'Pickup location',
                     weight: false,
                     size: 15,
                   )
@@ -234,29 +252,11 @@ class _CreditLifeState extends State<CreditLife> {
                 padding: EdgeInsets.all(20.0.h),
                 child: TextField(
                   style: TextStyle(color: AppColors.blackColor),
-                  controller: _natureOfBusiness,
+                  controller: _dropOffLocation,
                   decoration: InputDecoration(
                       // errorText: codeIsEmpty ? 'This field is required' : null,
                       label: MajorFont(
-                    text: 'Nature of business',
-                    weight: false,
-                    size: 15,
-                  )
-                      //hintText: 'username',
-
-                      ),
-                  keyboardType: TextInputType.name,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(20.0.h),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  controller: _businessAddress,
-                  decoration: InputDecoration(
-                      // errorText: codeIsEmpty ? 'This field is required' : null,
-                      label: MajorFont(
-                    text: 'Business address',
+                    text: 'Drop off location',
                     weight: false,
                     size: 15,
                   )
@@ -289,16 +289,16 @@ class _CreditLifeState extends State<CreditLife> {
                           _assetValue.text.isEmpty
                               ? assetIsEmpty = true
                               : assetIsEmpty = false;
-                          _loanDuration.text.isEmpty
+                          _tripFrequency.text.isEmpty
                               ? loanIsEmpty = true
                               : loanIsEmpty = false;
-                          _installments.text.isEmpty
+                          _tripFrequency.text.isEmpty
                               ? installIsEmpty = true
                               : installIsEmpty = false;
-                          _natureOfBusiness.text.isEmpty
+                          _pickUpLocation.text.isEmpty
                               ? natureIsEmpty = true
                               : natureIsEmpty = false;
-                          _businessAddress.text.isEmpty
+                          _dropOffLocation.text.isEmpty
                               ? businessIsEmpty = true
                               : businessIsEmpty = false;
                         });

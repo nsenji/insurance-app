@@ -12,30 +12,23 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
+    return Stack(children: [
       Container(
-        height: height.sp,
-        width: width.sp,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(
-                "assets/images/green_button.png",
-              ),
-              fit: BoxFit.fill
-          )
-        ),
-        
-      child: Center(
-        child: Text(
-          text,
-          style:  TextStyle(
-            color: Colors.white,
-            fontFamily: 'BubblegumSans',
-            fontSize: 15.sp
-          )
-          ),
-      )
-    )]);
+          height: height.sp,
+          width: width.sp,
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(
+                    "assets/images/green_button.png",
+                  ),
+                  fit: BoxFit.fill)),
+          child: Center(
+            child: Text(text,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'BubblegumSans',
+                    fontSize: 15.sp)),
+          ))
+    ]);
   }
 }
