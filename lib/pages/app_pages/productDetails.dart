@@ -10,7 +10,15 @@ import 'package:provider/provider.dart';
 
 import '../../tools/button.dart';
 import '../../tools/major_font.dart';
+import '../additional Details/FireBurglary.dart';
+import '../additional Details/Gadget.dart';
 import '../additional Details/Git.dart';
+import '../additional Details/JobLoss.dart';
+import '../additional Details/Marine.dart';
+import '../additional Details/comprehensive.dart';
+import '../additional Details/health.dart';
+import '../additional Details/thirdParty.dart';
+import '../additional Details/travel.dart';
 
 class ProductDetails extends StatefulWidget {
   dynamic planIndex;
@@ -285,20 +293,86 @@ class _ProductDetailsState extends State<ProductDetails> {
                 height: 30.h,
               ),
               InkWell(
-                  onTap: () => {
-                        if (widget.category == 'git')
-                          {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => GIT()))
-                          }
-                        else
-                          {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => CreditLife()))
-                          }
-                      },
+                  onTap: () {
+                    switch (widget.category) {
+                      case 'git':
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => GIT()));
+                        break;
+
+                      case '3rd_party_auto':
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ThirdParty()));
+                        break;
+
+                      case 'credit_life':
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CreditLife()));
+                        break;
+
+                      case 'comprehensive_auto':
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Comprehensive()));
+                        break;
+                      case 'health':
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Health()));
+                        break;
+                     
+                        
+                      case 'marine':
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Marine()));
+                        break;
+                      case 'gadget':
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Gadget()));
+                        break;
+                      case 'fire_burglary':
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => FireBurglary()));
+                        break;
+                      case 'travel':
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Travel()));
+                        break;
+                      case 'job_loss':
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => JobLoss()));
+                        break;
+                    }
+
+                    // if (widget.category == 'git')
+                    //   {
+                    //     Navigator.push(context,
+                    //         MaterialPageRoute(builder: (context) => GIT()))
+                    //   }
+                    // else
+                    //   {
+                    //     Navigator.push(
+                    //         context,
+                    //         MaterialPageRoute(
+                    //             builder: (context) => CreditLife()))
+                    //   }
+                  },
                   child: Button(text: 'Purchase'))
             ],
           ),

@@ -19,8 +19,16 @@ import 'package:provider/provider.dart';
 import 'api/get_products.dart';
 import 'firebase_options.dart';
 import 'notifiers/allPlansNotifier.dart';
+import 'pages/additional Details/FireBurglary.dart';
+import 'pages/additional Details/Gadget.dart';
 import 'pages/additional Details/Git.dart';
+import 'pages/additional Details/JobLoss.dart';
+import 'pages/additional Details/Marine.dart';
+import 'pages/additional Details/comprehensive.dart';
 import 'pages/additional Details/creditLife.dart';
+import 'pages/additional Details/health.dart';
+import 'pages/additional Details/thirdParty.dart';
+import 'pages/additional Details/travel.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
