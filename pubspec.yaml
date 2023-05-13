@@ -43,6 +43,9 @@ dependencies:
   flutter_html: ^2.2.1
   intl: ^0.18.1
   fluttertoast: ^8.2.1
+  firebase_auth: ^4.6.0
+  cloud_firestore: ^4.7.0
+  random_string: ^2.3.1
   
 dev_dependencies:
   flutter_test:
