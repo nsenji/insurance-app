@@ -46,6 +46,8 @@ class _ComprehensiveState extends State<Comprehensive> {
 
   shownotification() {
     Fluttertoast.showToast(
+        backgroundColor: AppColors.primeColor,
+        textColor: AppColors.blackColor,
         msg: 'Fill all the fields',
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.TOP,
@@ -85,7 +87,7 @@ class _ComprehensiveState extends State<Comprehensive> {
               ],
               color: AppColors.containerColor,
               borderRadius: BorderRadius.all(Radius.circular(20.r))),
-          height: 1200.h,
+          height: 1350.h,
           width: 300.w,
           child: Column(
             children: [
