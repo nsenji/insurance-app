@@ -48,13 +48,12 @@ class _HomeState extends State<Home> {
       'assets/images/healthcare.png',
       'assets/images/3rd party auto insurance.png',
       'assets/images/life-insurance.png',
-      'assets/images/goods-insurance.png',
       'assets/images/marine.png',
-      'assets/images/credit-card.png',
+      'assets/images/goods-insurance.png',
       'assets/images/gadget.png',
+      'assets/images/credit-card.png',
       'assets/images/fire-and-burglary-insurance.png',
       'assets/images/travel.png',
-      'assets/images/key-man.png',
       'assets/images/job-loss.png',
       'assets/images/comprehensive-auto.png'
     ];

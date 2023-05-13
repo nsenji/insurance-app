@@ -15,6 +15,7 @@ import '../additional Details/Gadget.dart';
 import '../additional Details/Git.dart';
 import '../additional Details/JobLoss.dart';
 import '../additional Details/Marine.dart';
+import '../additional Details/comingSoon.dart';
 import '../additional Details/comprehensive.dart';
 import '../additional Details/health.dart';
 import '../additional Details/thirdParty.dart';
@@ -350,7 +351,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Travel()));
+                                builder: (context) => ComingSoon()));
                         break;
                       case 'job_loss':
                         Navigator.push(

@@ -32,7 +32,9 @@ getPlans(AllPlansNotifier allPlansNotifier, String planName) async {
     }
     allPlansNotifier.plansList = productPlanList;
   } else {
-    throw Exception('failed to get products');
+     final responseBody = jsonDecode(response.body);
+   final  error = responseBody['message'];
+    throw Exception('failed : $error');
   }
 }
 
