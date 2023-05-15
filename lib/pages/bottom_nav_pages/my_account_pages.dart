@@ -4,8 +4,12 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/pages/app_pages/app_settings.dart';
 import 'package:insurease/pages/app_pages/editProfile.dart';
+import 'package:insurease/pages/app_pages/welcome.dart';
 import 'package:insurease/tools/button.dart';
+import 'package:provider/provider.dart';
 
+import '../../authentication/signout.dart';
+import '../../notifiers/userObjectNotifier.dart';
 import '../../styles/colors.dart';
 import '../../tools/major_font.dart';
 import '../app_pages/notifications.dart';
@@ -20,6 +24,8 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
+    UserNotifier userNotifier =
+        Provider.of<UserNotifier>(context, listen: true);
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
@@ -62,7 +68,8 @@ class _ProfileState extends State<Profile> {
                   height: 30.h,
                   width: 300.w,
                   child: MajorFont(
-                    text: 'Thomas Jerry',
+                    text:
+                        '${userNotifier.user?.firstname} ${userNotifier.user?.lastname}',
                     size: 20,
                   ),
                 ),
@@ -71,7 +78,7 @@ class _ProfileState extends State<Profile> {
                   height: 30.h,
                   width: 300.w,
                   child: MajorFont(
-                    text: 'thomasjerry@gmail.com',
+                    text: '${userNotifier.user?.email}',
                     weight: false,
                     size: 20,
                   ),
@@ -80,7 +87,17 @@ class _ProfileState extends State<Profile> {
                   width: 100.w,
                   height: 80.h,
                   alignment: Alignment.center,
-                  child: Button(text: 'Logout'),
+                  child: InkWell(
+                      onTap: () async {
+                        await signOut();
+                        // After signing out, navigate to the login page and clear the route stack
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => Welcome()),
+                          (route) => false,
+                        );
+                      },
+                      child: Button(text: 'Logout')),
                 ),
               ],
             ),
@@ -149,8 +166,10 @@ class _ProfileState extends State<Profile> {
                     color: AppColors.greyColor,
                   ),
                   InkWell(
-                    onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const AppSettings())),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AppSettings())),
                     child: SizedBox(
                       height: 45.h,
                       width: 300.w,
@@ -174,50 +193,6 @@ class _ProfileState extends State<Profile> {
                     thickness: 1.h,
                     color: AppColors.greyColor,
                   ),
-                  // Container(
-                  //   height: 45.h,
-                  //   width: 300.w,
-                  //   color: Colors.blue,
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //     children: [
-                  //       MajorFont(
-                  //         text: 'P',
-                  //         weight: false,
-                  //         size: 20,
-                  //       ),
-                  //       Icon(
-                  //         color : AppColors.primeColor,
-                  //         Icons.arrow_forward_sharp)
-                  //     ],
-                  //   ),
-                  // ),
-                  // Divider(
-                  //   thickness: 1,
-                  //   color: AppColors.greyColor,
-                  // ),
-                  // Container(
-                  //   height: 45.h,
-                  //   width: 300.w,
-                  //   color: Colors.blue,
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //     children: [
-                  //       MajorFont(
-                  //         text: 'Profile settings',
-                  //         weight: false,
-                  //         size: 20,
-                  //       ),
-                  //       Icon(
-                  //         color : AppColors.primeColor,
-                  //         Icons.arrow_forward_sharp)
-                  //     ],
-                  //   ),
-                  // ),
-                  // Divider(
-                  //   thickness: 1,
-                  //   color: AppColors.greyColor,
-                  // )
                 ],
               ),
             ),

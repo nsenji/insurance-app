@@ -19,6 +19,7 @@ import 'package:provider/provider.dart';
 import 'api/get_products.dart';
 import 'firebase_options.dart';
 import 'notifiers/allPlansNotifier.dart';
+import 'notifiers/userObjectNotifier.dart';
 import 'pages/additional Details/FireBurglary.dart';
 import 'pages/additional Details/Gadget.dart';
 import 'pages/additional Details/Git.dart';
@@ -37,6 +38,7 @@ void main() async {
     providers: [
       ChangeNotifierProvider(create: (context) => ProductTypeNotifier()),
       ChangeNotifierProvider(create: (context) => AllPlansNotifier()),
+      ChangeNotifierProvider(create: (context) => UserNotifier()),
     ],
     child: MyApp(),
   ));
