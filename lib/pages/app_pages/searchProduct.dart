@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
+import '../../notifiers/userObjectNotifier.dart';
 import '../../styles/colors.dart';
 import '../../tools/major_font.dart';
 
@@ -27,7 +29,8 @@ class _SearchProductState extends State<SearchProduct> {
           controller: _searchController,
           decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: 'Search Product...',
+            hintText:
+                '${Provider.of<UserNotifier>(context, listen: true).user?.firstname}',
             hintStyle: TextStyle(
                 fontFamily: 'BubblegumSans',
                 fontWeight: FontWeight.normal,

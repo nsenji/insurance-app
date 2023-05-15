@@ -27,8 +27,8 @@ class _LoginPageState extends State<LoginPage> {
   bool loading = false;
   shownotification() {
     Fluttertoast.showToast(
-      backgroundColor: AppColors.primeColor,
-      textColor: AppColors.whiteColor,
+        backgroundColor: AppColors.primeColor,
+        textColor: AppColors.whiteColor,
         msg: 'Login Failed',
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.TOP,
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: TextField(
                       style: TextStyle(color: AppColors.blackColor),
                       controller: _passwordField,
-                      obscureText: true,
+                      obscureText: passwordvisible ? false : true,
                       decoration: InputDecoration(
                           //border: OutlineInputBorder(borderRadius: BorderRadius.circular(60)),
                           label: MajorFont(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:insurease/authentication/getUser.dart';
 import 'package:insurease/notifiers/productType.dart';
 import 'package:insurease/pages/app_pages/PlanCategories.dart';
 import 'package:insurease/pages/app_pages/searchProduct.dart';
@@ -10,6 +11,7 @@ import 'package:insurease/tools/major_font.dart';
 import 'package:provider/provider.dart';
 
 import '../../api/get_products.dart';
+import '../../notifiers/userObjectNotifier.dart';
 import '../../styles/colors.dart';
 import '../../tools/button.dart';
 import '../app_pages/productDetails.dart';
@@ -35,8 +37,10 @@ class _HomeState extends State<Home> {
     // await Future.delayed(Duration(seconds: 6));
     ProductTypeNotifier productType =
         Provider.of<ProductTypeNotifier>(context, listen: false);
+    UserNotifier userNotifier =
+        Provider.of<UserNotifier>(context, listen: false);
     await getProductTypes(productType);
-
+    await getUser(userNotifier);
     setState(() {
       isLoading = false;
     });
@@ -100,7 +104,8 @@ class _HomeState extends State<Home> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               MajorFont(
-                                text: 'Hi, Thomas',
+                                text:
+                                    'Hi, ${Provider.of<UserNotifier>(context).user?.lastname}',
                                 color: AppColors.primeColor,
                                 weight: false,
                               ),
@@ -108,7 +113,8 @@ class _HomeState extends State<Home> {
                                 height: 5.h,
                               ),
                               MajorFont(
-                                text: 'Ref : 234jr',
+                                text:
+                                    'Ref : ${Provider.of<UserNotifier>(context).user?.ref}',
                                 color: AppColors.blackColor,
                                 size: 15,
                                 weight: false,
