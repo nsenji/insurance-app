@@ -6,8 +6,10 @@ import 'package:insurease/pages/app_pages/app_settings.dart';
 import 'package:insurease/pages/app_pages/editProfile.dart';
 import 'package:insurease/pages/app_pages/welcome.dart';
 import 'package:insurease/tools/button.dart';
+import 'package:provider/provider.dart';
 
 import '../../authentication/signout.dart';
+import '../../notifiers/userObjectNotifier.dart';
 import '../../styles/colors.dart';
 import '../../tools/major_font.dart';
 import '../app_pages/notifications.dart';
@@ -22,6 +24,8 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
+    UserNotifier userNotifier =
+        Provider.of<UserNotifier>(context, listen: true);
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
@@ -64,7 +68,8 @@ class _ProfileState extends State<Profile> {
                   height: 30.h,
                   width: 300.w,
                   child: MajorFont(
-                    text: 'Thomas Jerry',
+                    text:
+                        '${userNotifier.user?.firstname} ${userNotifier.user?.lastname}',
                     size: 20,
                   ),
                 ),
@@ -73,7 +78,7 @@ class _ProfileState extends State<Profile> {
                   height: 30.h,
                   width: 300.w,
                   child: MajorFont(
-                    text: 'thomasjerry@gmail.com',
+                    text: '${userNotifier.user?.email}',
                     weight: false,
                     size: 20,
                   ),
