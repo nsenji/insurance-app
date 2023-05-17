@@ -19,7 +19,8 @@ Future<bool> signUp(String emailAddress, String password, String firstname,
       'ref': ref,
       'firstname': firstname,         // _usernameField.text.trim(),
       'lastname': lastname,
-      'email':emailAddress
+      'email':emailAddress,
+      'profileComplete':false
     });
     return true;
   } on FirebaseAuthException catch (e) {
