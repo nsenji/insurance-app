@@ -105,7 +105,7 @@ class _HomeState extends State<Home> {
                             children: [
                               MajorFont(
                                 text:
-                                    'Hi, ${Provider.of<UserNotifier>(context).user?.lastname}',
+                                    'Hi, ${Provider.of<UserNotifier>(context, listen: false).user?.lastname}',
                                 color: AppColors.primeColor,
                                 weight: false,
                               ),
@@ -114,7 +114,7 @@ class _HomeState extends State<Home> {
                               ),
                               MajorFont(
                                 text:
-                                    'Ref : ${Provider.of<UserNotifier>(context).user?.ref}',
+                                    'Ref : ${Provider.of<UserNotifier>(context, listen:false).user?.ref}',
                                 color: AppColors.blackColor,
                                 size: 15,
                                 weight: false,

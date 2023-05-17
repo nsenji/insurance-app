@@ -6,30 +6,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/notifiers/productType.dart';
-import 'package:insurease/pages/app_pages/PlanCategories.dart';
-import 'package:insurease/pages/bottom_nav_pages/navBar.dart';
-import 'package:insurease/pages/app_pages/productDetails.dart';
+
 import 'package:insurease/pages/app_pages/welcome.dart';
-import 'package:insurease/pages/bottom_nav_pages/myPolicies_page.dart';
-import 'package:insurease/pages/bottom_nav_pages/my_account_pages.dart';
-import 'package:insurease/tools/button.dart';
-import 'package:insurease/tools/major_font.dart';
+
 import 'package:provider/provider.dart';
 
-import 'api/get_products.dart';
 import 'firebase_options.dart';
 import 'notifiers/allPlansNotifier.dart';
 import 'notifiers/userObjectNotifier.dart';
-import 'pages/additional Details/FireBurglary.dart';
-import 'pages/additional Details/Gadget.dart';
-import 'pages/additional Details/Git.dart';
-import 'pages/additional Details/JobLoss.dart';
-import 'pages/additional Details/Marine.dart';
-import 'pages/additional Details/comprehensive.dart';
-import 'pages/additional Details/creditLife.dart';
-import 'pages/additional Details/health.dart';
-import 'pages/additional Details/thirdParty.dart';
-import 'pages/additional Details/travel.dart';
+import 'pages/bottom_nav_pages/my_account_pages.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
