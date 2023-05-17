@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:insurease/api/createCustomer.dart';
 import 'package:insurease/pages/auth_pages/login_page.dart';
 import 'package:insurease/tools/major_font.dart';
 
@@ -27,8 +28,8 @@ class _SignupPageState extends State<SignupPage> {
   bool loading = false;
   shownotification() {
     Fluttertoast.showToast(
-      backgroundColor: AppColors.primeColor,
-      textColor: AppColors.whiteColor,
+        backgroundColor: AppColors.primeColor,
+        textColor: AppColors.whiteColor,
         msg: 'Sign Up Failed',
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.TOP,
@@ -194,11 +195,12 @@ class _SignupPageState extends State<SignupPage> {
                                   loading = true;
                                 });
                                 bool shouldNavigate = await signUp(
-                                    
-                                    _email.text,
-                                    _password.text,_firstname.text,
-                                    _lastname.text,);
-                                    
+                                  _email.text,
+                                  _password.text,
+                                  _firstname.text,
+                                  _lastname.text,
+                                );
+
                                 if (shouldNavigate) {
                                   setState(() {
                                     loading = false;
@@ -217,7 +219,8 @@ class _SignupPageState extends State<SignupPage> {
                                 }
                               },
                               child: Button(text: 'Sign up')),
-                        )
+                        ),
+                        
                       ],
                     ),
                   ),

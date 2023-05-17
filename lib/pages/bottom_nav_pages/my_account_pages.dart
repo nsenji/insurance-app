@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/pages/app_pages/app_settings.dart';
+import 'package:insurease/pages/app_pages/completeProfile.dart';
 import 'package:insurease/pages/app_pages/editProfile.dart';
 import 'package:insurease/pages/app_pages/welcome.dart';
 import 'package:insurease/tools/button.dart';
@@ -113,6 +114,34 @@ class _ProfileState extends State<Profile> {
                     onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
+                            builder: (context) => CompleteProfile())),
+                    child: Container(
+                      height: 45.h,
+                      width: 300.w,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          MajorFont(
+                            text: 'Complete Profile',
+                            weight: false,
+                            size: 20,
+                            color: AppColors.blackColor,
+                          ),
+                          const Icon(
+                              color: AppColors.primeColor,
+                              Icons.arrow_forward_sharp)
+                        ],
+                      ),
+                    ),
+                  ),
+                  Divider(
+                    thickness: 1.h,
+                    color: AppColors.greyColor,
+                  ),
+                  InkWell(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
                             builder: (context) => const EditProfile())),
                     child: Container(
                       height: 45.h,
@@ -121,7 +150,7 @@ class _ProfileState extends State<Profile> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           MajorFont(
-                            text: 'Edit profile',
+                            text: 'Edit Profile',
                             weight: false,
                             size: 20,
                             color: AppColors.blackColor,
@@ -177,7 +206,7 @@ class _ProfileState extends State<Profile> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           MajorFont(
-                            text: 'App settings',
+                            text: 'App Settings',
                             weight: false,
                             size: 20,
                             color: AppColors.blackColor,
