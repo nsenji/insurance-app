@@ -67,7 +67,7 @@ class _ProfileState extends State<Profile> {
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage(
+                        image: AssetImage(
                           "assets/images/man.png",
                         ),
                       )),

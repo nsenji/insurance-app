@@ -220,7 +220,7 @@ class _GITState extends State<GIT> {
                   decoration: InputDecoration(
                       // errorText: codeIsEmpty ? 'This field is required' : null,
                       label: MajorFont(
-                    text: 'Trips per day',
+                    text: 'Trips per day if recurring',
                     weight: false,
                     size: 15,
                   )
@@ -267,7 +267,7 @@ class _GITState extends State<GIT> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0.w),
                 child: Container(
                   padding: EdgeInsets.only(top: 20.h),
                   child: InkWell(

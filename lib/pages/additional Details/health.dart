@@ -214,17 +214,17 @@ class _HealthState extends State<Health> {
                   decoration: InputDecoration(
                     // errorText: codeIsEmpty ? 'This field is required' : null,
                     label: MajorFont(
-                      text: 'Next of kin',
+                      text: 'Next of kin email',
                       weight: false,
                       size: 15,
                     ),
-                    hintText: 'name and number',
+                    
                   ),
                   keyboardType: TextInputType.name,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0.w),
                 child: Container(
                   padding: EdgeInsets.only(top: 20.h),
                   child: InkWell(

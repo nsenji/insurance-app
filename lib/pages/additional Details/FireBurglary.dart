@@ -225,7 +225,7 @@ class _FireBurglaryState extends State<FireBurglary> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding:  EdgeInsets.all(8.0.w),
                 child: Container(
                   padding: EdgeInsets.only(top: 20.h),
                   child: InkWell(
