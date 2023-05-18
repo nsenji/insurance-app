@@ -60,7 +60,7 @@ postCustomer(
   if (response.statusCode == 201) {
     final responseBody = jsonDecode(response.body);
 
-    // print(responseBody);
+    //  print(responseBody);
   } else {
     final error = jsonDecode(response.body);
 

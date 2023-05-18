@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:insurease/api/getUser.dart';
 import 'package:insurease/pages/app_pages/app_settings.dart';
 import 'package:insurease/pages/app_pages/completeProfile.dart';
 import 'package:insurease/pages/app_pages/editProfile.dart';
@@ -23,6 +24,14 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  @override
+  void initState() {
+    UserNotifier userNotifier =
+        Provider.of<UserNotifier>(context, listen: false);
+    getUser(userNotifier);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     UserNotifier userNotifier =
@@ -58,8 +67,8 @@ class _ProfileState extends State<Profile> {
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage(
-                          "assets/images/man.jpg",
+                        image: AssetImage(
+                          "assets/images/man.png",
                         ),
                       )),
                 ),

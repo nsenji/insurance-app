@@ -327,7 +327,7 @@ class _ComprehensiveState extends State<Comprehensive> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0.w),
                 child: Container(
                   padding: EdgeInsets.only(top: 20.h),
                   child: InkWell(

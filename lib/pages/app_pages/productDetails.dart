@@ -4,10 +4,13 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/notifiers/allPlansNotifier.dart';
+import 'package:insurease/notifiers/userObjectNotifier.dart';
 import 'package:insurease/pages/additional%20Details/creditLife.dart';
+import 'package:insurease/pages/app_pages/completeProfile.dart';
 import 'package:insurease/styles/colors.dart';
 import 'package:provider/provider.dart';
 
+import '../../api/getUser.dart';
 import '../../tools/button.dart';
 import '../../tools/major_font.dart';
 import '../additional Details/FireBurglary.dart';
@@ -32,6 +35,13 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
+  void initState() {
+    UserNotifier userNotifier =
+        Provider.of<UserNotifier>(context, listen: false);
+    getUser(userNotifier);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     dynamic plans = Provider.of<AllPlansNotifier>(context, listen: false)
@@ -295,84 +305,98 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
               InkWell(
                   onTap: () {
-                    switch (widget.category) {
-                      case 'git':
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => GIT()));
-                        break;
+                    if (Provider.of<UserNotifier>(context, listen: false)
+                            .user
+                            ?.profileComplete ==
+                        false) {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              content: MajorFont(
+                                text: 'You need to complete your profile first',
+                                weight: false,
+                                size: 20.5,
+                              ),
+                              actions: [
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CompleteProfile()));
+                                    },
+                                    child: Button(text: 'Complete'))
+                              ],
+                            );
+                          });
+                    } else {
+                      switch (widget.category) {
+                        case 'git':
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => GIT()));
+                          break;
 
-                      case '3rd_party_auto':
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ThirdParty()));
-                        break;
+                        case '3rd_party_auto':
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ThirdParty()));
+                          break;
 
-                      case 'credit_life':
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => CreditLife()));
-                        break;
+                        case 'credit_life':
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CreditLife()));
+                          break;
 
-                      case 'comprehensive_auto':
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Comprehensive()));
-                        break;
-                      case 'health':
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Health()));
-                        break;
-                     
-                        
-                      case 'marine':
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Marine()));
-                        break;
-                      case 'gadget':
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Gadget()));
-                        break;
-                      case 'fire_burglary':
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => FireBurglary()));
-                        break;
-                      case 'travel':
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ComingSoon()));
-                        break;
-                      case 'job_loss':
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => JobLoss()));
-                        break;
+                        case 'comprehensive_auto':
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Comprehensive()));
+                          break;
+                        case 'health':
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Health()));
+                          break;
+
+                        case 'marine':
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Marine()));
+                          break;
+                        case 'gadget':
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Gadget()));
+                          break;
+                        case 'fire_burglary':
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => FireBurglary()));
+                          break;
+                        case 'travel':
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ComingSoon()));
+                          break;
+                        case 'job_loss':
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => JobLoss()));
+                          break;
+                      }
                     }
-
-                    // if (widget.category == 'git')
-                    //   {
-                    //     Navigator.push(context,
-                    //         MaterialPageRoute(builder: (context) => GIT()))
-                    //   }
-                    // else
-                    //   {
-                    //     Navigator.push(
-                    //         context,
-                    //         MaterialPageRoute(
-                    //             builder: (context) => CreditLife()))
-                    //   }
                   },
                   child: Button(text: 'Purchase'))
             ],
