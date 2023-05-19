@@ -3,28 +3,32 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:insurease/api/buyPlan.dart';
+import 'package:insurease/notifiers/productType.dart';
+import 'package:insurease/notifiers/userObjectNotifier.dart';
 import 'package:insurease/pages/app_pages/payment.dart';
 import 'package:insurease/styles/colors.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 import '../../tools/button.dart';
 import '../../tools/major_font.dart';
 
 class Health extends StatefulWidget {
-  const Health({super.key});
+  String code;
+  Health({super.key, required this.code});
 
   @override
   State<Health> createState() => _HealthState();
 }
 
 class _HealthState extends State<Health> {
-  final TextEditingController _productCode = TextEditingController();
-  final TextEditingController _customerRef = TextEditingController();
-  final TextEditingController _paymentType = TextEditingController();
   final TextEditingController _policyStartDate = TextEditingController();
   final TextEditingController _location = TextEditingController();
   final TextEditingController _medicalHistory = TextEditingController();
-  final TextEditingController _nextofkin = TextEditingController();
+  final TextEditingController _nextofkinName = TextEditingController();
+  final TextEditingController _nextofkinEmail = TextEditingController();
+  final TextEditingController _nextofkinPhone = TextEditingController();
 
   bool codeIsEmpty = false;
   bool refIsEmpty = false;
@@ -34,12 +38,35 @@ class _HealthState extends State<Health> {
   bool historyIsEmpty = false;
   bool kinIsEmpty = false;
 
-  shownotification() {
+  shownotification1(String message) {
     Fluttertoast.showToast(
-        msg: 'Fill all the fields',
+        msg: message,
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: 4);
+  }
+
+  shownotification2(String message) {
+    Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 4);
+  }
+
+  getHealth() async {
+    String answer = await buyhealth(
+        widget.code,
+        Provider.of<UserNotifier>(context, listen: false).user!.ref,
+        _policyStartDate.text,
+        _location.text,
+        _medicalHistory.text,
+        _nextofkinName.text,
+        _nextofkinEmail.text,
+        _nextofkinPhone.text);
+
+    shownotification2(answer);
+    
   }
 
   @override
@@ -79,58 +106,6 @@ class _HealthState extends State<Health> {
           width: 300.w,
           child: Column(
             children: [
-              Padding(
-                padding: EdgeInsets.all(20.0.h),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  controller: _productCode,
-                  decoration: InputDecoration(
-                      // errorText: codeIsEmpty ? 'This field is required' : null,
-                      label: MajorFont(
-                    text: 'Product Code',
-                    weight: false,
-                    size: 15,
-                  )
-                      //hintText: 'username',
-
-                      ),
-                  keyboardType: TextInputType.name,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(17.0.h),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  controller: _customerRef,
-                  decoration: InputDecoration(
-                      // errorText: codeIsEmpty ? 'This field is required' : null,
-                      label: MajorFont(
-                    text: 'Customer ref',
-                    weight: false,
-                    size: 15,
-                  )
-                      //hintText: 'Email',
-
-                      ),
-                  keyboardType: TextInputType.emailAddress,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(17.0.h),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  obscureText: true,
-                  controller: _paymentType,
-                  decoration: InputDecoration(
-                      // errorText: codeIsEmpty ? 'This field is required' : null,
-                      label: MajorFont(
-                    text: 'Payment type',
-                    weight: false,
-                    size: 15,
-                  )),
-                  keyboardType: TextInputType.visiblePassword,
-                ),
-              ),
               Padding(
                 padding: EdgeInsets.all(17.0.h),
                 child: TextField(
@@ -210,17 +185,52 @@ class _HealthState extends State<Health> {
                 padding: EdgeInsets.all(20.0.h),
                 child: TextField(
                   style: TextStyle(color: AppColors.blackColor),
-                  controller: _nextofkin,
+                  controller: _nextofkinName,
                   decoration: InputDecoration(
                     // errorText: codeIsEmpty ? 'This field is required' : null,
                     label: MajorFont(
-                      text: 'Next of kin email',
+                      text: 'Next of kin name',
                       weight: false,
                       size: 15,
                     ),
-                    
                   ),
                   keyboardType: TextInputType.name,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(17.0.h),
+                child: TextField(
+                  style: TextStyle(color: AppColors.blackColor),
+                  controller: _nextofkinEmail,
+                  decoration: InputDecoration(
+                      // errorText: codeIsEmpty ? 'This field is required' : null,
+                      label: MajorFont(
+                    text: 'Next Of Kin Email',
+                    weight: false,
+                    size: 15,
+                  )
+                      //hintText: 'Email',
+
+                      ),
+                  keyboardType: TextInputType.emailAddress,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(17.0.h),
+                child: TextField(
+                  style: TextStyle(color: AppColors.blackColor),
+                  controller: _nextofkinPhone,
+                  decoration: InputDecoration(
+                      // errorText: codeIsEmpty ? 'This field is required' : null,
+                      label: MajorFont(
+                    text: 'Next Of Kin Phone',
+                    weight: false,
+                    size: 15,
+                  )
+                      //hintText: 'Email',
+
+                      ),
+                  keyboardType: TextInputType.emailAddress,
                 ),
               ),
               Padding(
@@ -231,15 +241,6 @@ class _HealthState extends State<Health> {
                       child: Button(text: 'Submit'),
                       onTap: () {
                         setState(() {
-                          _productCode.text.isEmpty
-                              ? codeIsEmpty = true
-                              : codeIsEmpty = false;
-                          _customerRef.text.isEmpty
-                              ? refIsEmpty = true
-                              : refIsEmpty = false;
-                          _paymentType.text.isEmpty
-                              ? payIsEmpty = true
-                              : payIsEmpty = false;
                           _policyStartDate.text.isEmpty
                               ? dateIsEmpty = true
                               : dateIsEmpty = false;
@@ -249,7 +250,7 @@ class _HealthState extends State<Health> {
                           _medicalHistory.text.isEmpty
                               ? historyIsEmpty = true
                               : historyIsEmpty = false;
-                          _nextofkin.text.isEmpty
+                          _nextofkinName.text.isEmpty
                               ? kinIsEmpty = true
                               : kinIsEmpty = false;
                         });
@@ -265,14 +266,17 @@ class _HealthState extends State<Health> {
                             ? {
                                 setState(
                                   () {
-                                    shownotification();
+                                    shownotification1('Fill all the fields');
                                   },
                                 ),
                               }
-                            : Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Payment()));
+                            : {
+                                setState(
+                                  () {
+                                    getHealth();
+                                  },
+                                )
+                              };
                       }),
                 ),
               )

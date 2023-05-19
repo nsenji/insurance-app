@@ -1,4 +1,10 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 uploadAttachments() {}
+
+const String url = "https://api.grow.curacel.co/api/v1/orders";
+const String apikey = 'Bearer 667|RC6ubQEjOfd8AIze9JTBUeg2atJNdem5QKp9sR9W';
 
 buyhealth(
   String productCode,
@@ -6,21 +12,45 @@ buyhealth(
   String? policyStartDate,
   String? preferredHospital,
   String? medicalHistory,
+  String? nextOfKinName,
   String? nextOfKinEmail,
-) {
+  String? nextOfKinphone,
+) async {
   Map<String, dynamic> data = {
-    "product_code": '',
-    "customer_ref": '',
+    "product_code": productCode,
+    "customer_ref": ref,
     "payment_type": 'wallet',
     "policy_start_date": policyStartDate,
     "preferred_hospital_location": preferredHospital,
     "medical_history": medicalHistory,
     "next_of_kin": {
-      "name": '',
+      "name": nextOfKinName,
       "email": nextOfKinEmail,
-      "phone": '',
+      "phone": nextOfKinphone,
     }
   };
+
+  String jsonData = jsonEncode(data);
+
+  final response = await http.post(Uri.parse(url),
+      headers: {
+        'accept': 'application/json',
+        'content-type': 'application/json',
+        'authorization': apikey,
+      },
+      body: jsonData);
+
+  if (response.statusCode == 201 || response.statusCode == 200) {
+    final responseBody = jsonDecode(response.body);
+    print('it went through');
+    print(responseBody['message']);
+    return responseBody['message'].toString();
+  } else {
+    final error = jsonDecode(response.body);
+    print('it didnt go through');
+    print(error['message']);
+    return error['message'].toString();
+  }
 }
 
 buygoodsInTransit(
@@ -32,7 +62,7 @@ buygoodsInTransit(
   String? tripsPerDay,
   String? pickUpLocation,
   String? dropOffLocation,
-) {
+) async {
   Map<String, dynamic> data = {
     "product_code": productCode,
     "customer_ref": ref,
@@ -44,6 +74,25 @@ buygoodsInTransit(
     "pickup_location": pickUpLocation,
     "dropoff_location": dropOffLocation,
   };
+  String jsonData = jsonEncode(data);
+
+  final response = await http.post(Uri.parse(url),
+      headers: {
+        'accept': 'application/json',
+        'content-type': 'application/json',
+        'authorization': apikey,
+      },
+      body: jsonData);
+
+  if (response.statusCode == 201) {
+    final responseBody = jsonDecode(response.body);
+    String message = responseBody.toString();
+    return message;
+  } else {
+    final error = jsonDecode(response.body);
+    String message = error.toString();
+    return message;
+  }
 }
 
 buyThirdParty(
@@ -53,7 +102,7 @@ buyThirdParty(
   String? amountInsured,
   String? driverLicence,
   String? chassisNumber,
-) {
+) async {
   Map<String, dynamic> data = {
     "product_code": productCode,
     "customer_ref": ref,
@@ -61,7 +110,27 @@ buyThirdParty(
     "policy_start_date": policyStartDate,
     "drivers_licence_number": driverLicence,
     "chassis_number": chassisNumber,
+    "attachments": []
   };
+  String jsonData = jsonEncode(data);
+
+  final response = await http.post(Uri.parse(url),
+      headers: {
+        'accept': 'application/json',
+        'content-type': 'application/json',
+        'authorization': apikey,
+      },
+      body: jsonData);
+
+  if (response.statusCode == 201) {
+    final responseBody = jsonDecode(response.body);
+    String message = responseBody.toString();
+    return message;
+  } else {
+    final error = jsonDecode(response.body);
+    String message = error.toString();
+    return message;
+  }
 }
 
 buyComprehensive(
@@ -77,7 +146,7 @@ buyComprehensive(
   String? vehicleMake,
   String? engineNumber,
   String? vehicleColor,
-) {
+) async {
   Map<String, dynamic> data = {
     "product_code": productCode,
     "customer_ref": ref,
@@ -92,6 +161,26 @@ buyComprehensive(
     "drivers_licence_number": driverLicence,
     "vehicle_color": vehicleColor,
   };
+
+  String jsonData = jsonEncode(data);
+
+  final response = await http.post(Uri.parse(url),
+      headers: {
+        'accept': 'application/json',
+        'content-type': 'application/json',
+        'authorization': apikey,
+      },
+      body: jsonData);
+
+  if (response.statusCode == 201) {
+    final responseBody = jsonDecode(response.body);
+    String message = responseBody.toString();
+    return message;
+  } else {
+    final error = jsonDecode(response.body);
+    String message = error.toString();
+    return message;
+  }
 }
 
 buyMarine(
@@ -103,7 +192,7 @@ buyMarine(
   String? tripsPerDay,
   String? pickUpLocation,
   String? dropOffLocation,
-) {
+) async {
   Map<String, dynamic> data = {
     "product_code": productCode,
     "customer_ref": ref,
@@ -113,6 +202,25 @@ buyMarine(
     "pickup_location": pickUpLocation,
     "dropoff_location": dropOffLocation,
   };
+  String jsonData = jsonEncode(data);
+
+  final response = await http.post(Uri.parse(url),
+      headers: {
+        'accept': 'application/json',
+        'content-type': 'application/json',
+        'authorization': apikey,
+      },
+      body: jsonData);
+
+  if (response.statusCode == 201) {
+    final responseBody = jsonDecode(response.body);
+    String message = responseBody.toString();
+    return message;
+  } else {
+    final error = jsonDecode(response.body);
+    String message = error.toString();
+    return message;
+  }
 }
 
 buyJobLoss(
@@ -124,7 +232,7 @@ buyJobLoss(
   String? jobRole,
   String? employmentDate,
   String? grossIncome,
-) {
+) async {
   Map<String, dynamic> data = {
     "product_code": productCode,
     "customer_ref": ref,
@@ -135,7 +243,27 @@ buyJobLoss(
     "job_role": jobRole,
     "employment_date": employmentDate,
     "gross_income": grossIncome,
+    "attachments": []
   };
+  String jsonData = jsonEncode(data);
+
+  final response = await http.post(Uri.parse(url),
+      headers: {
+        'accept': 'application/json',
+        'content-type': 'application/json',
+        'authorization': apikey,
+      },
+      body: jsonData);
+
+  if (response.statusCode == 201) {
+    final responseBody = jsonDecode(response.body);
+    String message = responseBody.toString();
+    return message;
+  } else {
+    final error = jsonDecode(response.body);
+    String message = error.toString();
+    return message;
+  }
 }
 
 buyGadget(
@@ -147,7 +275,7 @@ buyGadget(
   String? gadgetName,
   String? imei,
   String? datePurchased,
-) {
+) async {
   Map<String, dynamic> data = {
     "product_code": productCode,
     "customer_ref": ref,
@@ -158,8 +286,27 @@ buyGadget(
     "gadget_name": gadgetName,
     "imei": imei,
     "date_purchased": datePurchased,
-    
+    "attachments": []
   };
+  String jsonData = jsonEncode(data);
+
+  final response = await http.post(Uri.parse(url),
+      headers: {
+        'accept': 'application/json',
+        'content-type': 'application/json',
+        'authorization': apikey,
+      },
+      body: jsonData);
+
+  if (response.statusCode == 201) {
+    final responseBody = jsonDecode(response.body);
+    String message = responseBody.toString();
+    return message;
+  } else {
+    final error = jsonDecode(response.body);
+    String message = error.toString();
+    return message;
+  }
 }
 
 buycredit(
@@ -171,7 +318,7 @@ buycredit(
   String? monthlyLoanInstallment,
   String? businessAddress,
   String? natureOfBusiness,
-) {
+) async {
   Map<String, dynamic> data = {
     "product_code": productCode,
     "customer_ref": ref,
@@ -182,8 +329,26 @@ buycredit(
     "monthly_loan_instalment": monthlyLoanInstallment,
     "business_address": businessAddress,
     "nature_of_business": natureOfBusiness,
-    
   };
+  String jsonData = jsonEncode(data);
+
+  final response = await http.post(Uri.parse(url),
+      headers: {
+        'accept': 'application/json',
+        'content-type': 'application/json',
+        'authorization': apikey,
+      },
+      body: jsonData);
+
+  if (response.statusCode == 201) {
+    final responseBody = jsonDecode(response.body);
+    String message = responseBody.toString();
+    return message;
+  } else {
+    final error = jsonDecode(response.body);
+    String message = error.toString();
+    return message;
+  }
 }
 
 buyFire(
@@ -192,7 +357,7 @@ buyFire(
   String? policyStartDate,
   String? amountInsured,
   String? address,
-) {
+) async {
   Map<String, dynamic> data = {
     "product_code": productCode,
     "customer_ref": ref,
@@ -200,6 +365,24 @@ buyFire(
     "policy_start_date": policyStartDate,
     "asset_value": amountInsured,
     "address": address,
-    
   };
+  String jsonData = jsonEncode(data);
+
+  final response = await http.post(Uri.parse(url),
+      headers: {
+        'accept': 'application/json',
+        'content-type': 'application/json',
+        'authorization': apikey,
+      },
+      body: jsonData);
+
+  if (response.statusCode == 201) {
+    final responseBody = jsonDecode(response.body);
+    String message = responseBody.toString();
+    return message;
+  } else {
+    final error = jsonDecode(response.body);
+    String message = error.toString();
+    return message;
+  }
 }
