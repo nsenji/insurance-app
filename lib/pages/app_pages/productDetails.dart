@@ -362,7 +362,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Health()));
+                                  builder: (context) => Health(code:plans.code)));
                           break;
 
                         case 'marine':
