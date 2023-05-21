@@ -87,46 +87,118 @@ class _HomeState extends State<Home> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 20.w, top: 10.h),
+                  child: SizedBox(
+                    height: 35.h,
+                    child: MajorFont(
+                      text:
+                          'Hi, ${Provider.of<UserNotifier>(context, listen: false).user?.lastname}',
+                      color: AppColors.primeColor,
+                      weight: false,
+                      size: 17,
+                    ),
+                  ),
+                ),
                 SizedBox(
                   height: 170.h,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: AppColors.containerColor,
-                        borderRadius: BorderRadius.circular(12.r)),
-                    margin: EdgeInsets.only(
-                        left: 15.w, right: 15.w, bottom: 10.h, top: 10.h),
+                  child: Card(
+                    color: AppColors.containerColor,
+                    surfaceTintColor: AppColors.containerColor,
+                    margin: EdgeInsets.only(left: 20.w, right: 20.w),
+                    elevation: 15,
                     child: Row(children: [
                       Container(
-                        width: 200.w,
-                        margin: EdgeInsets.only(left: 7.w, top: 7.h),
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              MajorFont(
-                                text:
-                                    'Hi, ${Provider.of<UserNotifier>(context, listen: false).user?.lastname}',
-                                color: AppColors.primeColor,
-                                weight: false,
+                        width: 310.w,
+                        margin: EdgeInsets.only(left: 7.h, top: 7.h),
+                        child: Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              width: 150.w,
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      height: 4.h,
+                                    ),
+                                    MajorFont(
+                                      text:
+                                          'Ref : ${Provider.of<UserNotifier>(context, listen: false).user?.ref}',
+                                      color: AppColors.blackColor,
+                                      size: 11,
+                                      weight: false,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          top: 40.h, left: 20.w),
+                                      child: MajorFont(
+                                        text: '0 UGX',
+                                        size: 17,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.only(top: 2, left: 20.w),
+                                      child: MajorFont(
+                                        text: 'Amount Insured',
+                                        weight: false,
+                                        size: 11,
+                                        color: AppColors.blackColor,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 40.h,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 20.w),
+                                      child: Row(
+                                        children: [
+                                          MajorFont(
+                                            text: '0',
+                                            weight: false,
+                                            size: 13,
+                                          ),
+                                          SizedBox(
+                                            width: 5.w,
+                                          ),
+                                          MajorFont(
+                                            text: 'Active policies',
+                                            weight: false,
+                                            size: 11,
+                                            color: AppColors.blackColor,
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 5.h,
+                                    ),
+                                  ]),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsets.only(left: 30.w, bottom: 20.h),
+                              child: Container(
+                                height: 90.h,
+                                width: 90.w,
+                                decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/Daco_4959960.png'))),
                               ),
-                              SizedBox(
-                                height: 5.h,
-                              ),
-                              MajorFont(
-                                text:
-                                    'Ref : ${Provider.of<UserNotifier>(context, listen:false).user?.ref}',
-                                color: AppColors.blackColor,
-                                size: 15,
-                                weight: false,
-                              )
-                            ]),
+                            )
+                          ],
+                        ),
                       )
                     ]),
                   ),
                 ),
                 Container(
                   height: 30,
-                  margin: EdgeInsets.only(left: 14.w, top: 8.h, right: 15.w),
+                  margin: EdgeInsets.only(
+                      left: 14.w, top: 8.h, right: 15.w, bottom: 8.h),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -151,109 +223,88 @@ class _HomeState extends State<Home> {
                   height: 5.h,
                 ),
                 Expanded(
-                  child: ListView.builder(
-                      padding: EdgeInsets.only(left: 2.w, right: 2.w),
-                      shrinkWrap: true,
-                      itemCount: Provider.of<ProductTypeNotifier>(context,
-                              listen: false)
-                          .productList
-                          .length,
-                      itemBuilder: (_, index) {
-                        return InkWell(
-                          onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PlanCategories(
-                                        prodIndex: index,
-                                      ))),
-                          child: Container(
-                            margin: EdgeInsets.only(
-                                bottom: 2.h,
-                                top: 12.h,
-                                right: 15.w,
-                                left: 15.w),
-                            decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                      spreadRadius: 1,
-                                      color: Colors.grey.withOpacity(0.5)),
-                                ],
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12.r)),
-                            height: 100.h,
-                            child: Row(children: [
-                              Container(
-                                height: 90.h,
-                                width: 130.w,
-                                child: Center(
-                                    child: Container(
-                                  height: 55.h,
-                                  width: 75.w,
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage(icons[index]))),
-                                )),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(top: 12.h),
-                                padding: EdgeInsets.only(top: 8.h),
-                                height: 90.h,
-                                width: 195.w,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    MajorFont(
-                                      size: 22,
-                                      weight: false,
-                                      text:
-                                          '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].name}',
-                                      color: AppColors.blackColor,
-                                    ),
-                                    SizedBox(height: 4.h),
-                                    MajorFont(
-                                      weight: false,
-                                      text:
-                                          '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].premiumtype}',
-                                      color: Color.fromARGB(255, 173, 173, 173),
-                                      size: 18,
-                                    ),
-                                    SizedBox(
-                                      height: 9.h,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(bottom: 4.h),
-                                          child: Text(
-                                            'Plans',
-                                            style: TextStyle(
-                                                color: AppColors.primeColor,
-                                                fontSize: 14.sp,
-                                                fontFamily: 'BubblegumSans'),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 1.w,
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              right: 4.w, bottom: 4.h),
-                                          child: const Icon(
-                                            Icons.arrow_forward_ios,
-                                            size: 15,
-                                            color: AppColors.primeColor,
-                                          ),
-                                        )
-                                      ],
-                                    )
-                                  ],
+                  child: Scrollbar(
+                    thumbVisibility: true,
+                    child: ListView.builder(
+                        padding: EdgeInsets.only(left: 2.w, right: 2.w),
+                        shrinkWrap: true,
+                        itemCount: Provider.of<ProductTypeNotifier>(context,
+                                listen: false)
+                            .productList
+                            .length,
+                        itemBuilder: (_, index) {
+                          return InkWell(
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PlanCategories(
+                                          prodIndex: index,
+                                        ))),
+                            child: Card(
+                              surfaceTintColor: AppColors.whiteColor,
+                              color: AppColors.whiteColor,
+                              elevation: 10,
+                              margin: EdgeInsets.only(
+                                  left: 20.w, right: 20.w, bottom: 7),
+                              child: Row(children: [
+                                Container(
+                                  height: 70.h,
+                                  width: 130.w,
+                                  child: Center(
+                                      child: Container(
+                                    height: 55.h,
+                                    width: 75.w,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(icons[index]))),
+                                  )),
                                 ),
-                              )
-                            ]),
-                          ),
-                        );
-                      }),
+                                Container(
+                                  margin: EdgeInsets.only(top: 12.h),
+                                  padding: EdgeInsets.only(top: 8.h),
+                                  height: 70.h,
+                                  width: 145.w,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      MajorFont(
+                                        size: 17,
+                                        weight: false,
+                                        text:
+                                            '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].name}',
+                                        color: AppColors.blackColor,
+                                      ),
+                                      SizedBox(height: 4.h),
+                                      MajorFont(
+                                        weight: false,
+                                        text:
+                                            '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].premiumtype}',
+                                        color:
+                                            Color.fromARGB(255, 173, 173, 173),
+                                        size: 15,
+                                      ),
+                                      SizedBox(
+                                        height: 9.h,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  height: 80.h,
+                                  width: 40.w,
+                                  child: Center(
+                                      child: Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: 20,
+                                    color: AppColors.primeColor,
+                                  )),
+                                )
+                              ]),
+                            ),
+                          );
+                        }),
+                  ),
                 )
               ],
             ),

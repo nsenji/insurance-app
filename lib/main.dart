@@ -8,6 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/notifiers/productType.dart';
 
 import 'package:insurease/pages/app_pages/welcome.dart';
+import 'package:insurease/pages/bottom_nav_pages/navBar.dart';
+import 'package:insurease/styles/colors.dart';
 
 import 'package:provider/provider.dart';
 
@@ -15,7 +17,6 @@ import 'firebase_options.dart';
 import 'notifiers/allPlansNotifier.dart';
 import 'notifiers/userObjectNotifier.dart';
 import 'pages/bottom_nav_pages/my_account_pages.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,11 +44,13 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
           title: 'InsurEase',
           theme: ThemeData(
-              primarySwatch: Colors.blue,
+              useMaterial3: true,
+
+              // primarySwatch: Colors.blue,
               textTheme:
                   Typography.englishLike2018.apply(fontSizeFactor: 1.sp)),
           debugShowCheckedModeBanner: false,
-          home: Welcome()),
+          home: NavBar()),
     );
   }
 }

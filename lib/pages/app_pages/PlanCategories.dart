@@ -82,16 +82,18 @@ class _PlanCategoriesState extends State<PlanCategories> {
                                 category: name2,
                               ))),
                   child: Container(
-                    margin: EdgeInsets.only(
-                        bottom: 2.h, top: 12.h, right: 15.w, left: 15.w),
+                    margin: EdgeInsets.only(top: 10.h, right: 15.w, left: 15.w),
                     decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                              spreadRadius: 1,
-                              color: Colors.grey.withOpacity(0.5)),
+                            color: Colors.grey.withOpacity(0.2),
+                            spreadRadius: 2.r,
+                            blurRadius: 2.r,
+                            // changes position of shadow
+                          ),
                         ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12.r)),
+                        color: AppColors.containerColor,
+                        borderRadius: BorderRadius.all(Radius.circular(9.r))),
                     height: 120.h,
                     child: Row(
                       children: [
@@ -156,20 +158,23 @@ class _PlanCategoriesState extends State<PlanCategories> {
                                 color: AppColors.blackColor,
                               ),
                               SizedBox(
-                                height: 9.h,
+                                height: 5.h,
                                 width: 140.w,
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
+                                mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Text(
-                                    'Details',
-                                    style: TextStyle(
-                                        color: AppColors.primeColor,
-                                        fontSize: 14.sp,
-                                        fontFamily: 'BubblegumSans'),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
+                                  Padding(
+                                      padding: EdgeInsets.only(bottom: 3.h),
+                                      child: Text(
+                                        'Details',
+                                        style: TextStyle(
+                                            color: AppColors.primeColor,
+                                            fontSize: 14.sp,
+                                            fontFamily: 'BubblegumSans'),
+                                        overflow: TextOverflow.ellipsis,
+                                      )),
                                   SizedBox(
                                     width: 2.w,
                                   ),

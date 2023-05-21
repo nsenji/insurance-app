@@ -284,17 +284,20 @@ class _ProductDetailsState extends State<ProductDetails> {
                       width: 290.w,
                       height: 250.h,
                       // color: Colors.orange,
-                      child: SingleChildScrollView(
-                        child: Wrap(children: [
-                          Html(
-                            data: plans.description,
-                            style: {
-                              "body": Style(
-                                  color: Colors.black,
-                                  fontFamily: 'BubblegumSans'),
-                            },
-                          )
-                        ]),
+                      child: Scrollbar(
+                        thumbVisibility: true,
+                        child: SingleChildScrollView(
+                          child: Wrap(children: [
+                            Html(
+                              data: plans.description,
+                              style: {
+                                "body": Style(
+                                    color: Colors.black,
+                                    fontFamily: 'BubblegumSans'),
+                              },
+                            )
+                          ]),
+                        ),
                       ),
                     )
                   ],
@@ -362,7 +365,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Health(code:plans.code)));
+                                  builder: (context) =>
+                                      Health(code: plans.code)));
                           break;
 
                         case 'marine':
