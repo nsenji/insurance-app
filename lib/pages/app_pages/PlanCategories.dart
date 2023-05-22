@@ -82,7 +82,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
                                 category: name2,
                               ))),
                   child: Container(
-                    margin: EdgeInsets.only(top: 10.h, right: 15.w, left: 15.w),
+                    margin: EdgeInsets.only(top: 13.h, right: 15.w, left: 15.w),
                     decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(

@@ -40,6 +40,7 @@ class _HealthState extends State<Health> {
 
   shownotification1(String message) {
     Fluttertoast.showToast(
+      backgroundColor: AppColors.primeColor,
         msg: message,
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.TOP,
