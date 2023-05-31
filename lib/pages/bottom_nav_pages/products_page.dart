@@ -59,6 +59,7 @@ class _HomeState extends State<Home> {
       'assets/images/fire-and-burglary-insurance.png',
       'assets/images/travel.png',
       'assets/images/job-loss.png',
+      'assets/images/comprehensive-auto.png',
       'assets/images/comprehensive-auto.png'
     ];
 
@@ -226,10 +227,11 @@ class _HomeState extends State<Home> {
                   child: Scrollbar(
                     thumbVisibility: true,
                     child: ListView.builder(
+                        primary: true,
                         padding: EdgeInsets.only(left: 2.w, right: 2.w),
                         shrinkWrap: true,
                         itemCount: Provider.of<ProductTypeNotifier>(context,
-                                listen: false)
+                                listen: true)
                             .productList
                             .length,
                         itemBuilder: (_, index) {

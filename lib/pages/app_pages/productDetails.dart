@@ -62,6 +62,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             icon: const Icon(Icons.arrow_back)),
       ),
       body: SingleChildScrollView(
+        primary: true,
         child: Container(
           margin: EdgeInsets.only(left: 20.w, right: 20.w),
           height: 785.h,
@@ -287,6 +288,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       child: Scrollbar(
                         thumbVisibility: true,
                         child: SingleChildScrollView(
+                          primary: true,
                           child: Wrap(children: [
                             Html(
                               data: plans.description,

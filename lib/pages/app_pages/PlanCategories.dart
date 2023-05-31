@@ -165,16 +165,14 @@ class _PlanCategoriesState extends State<PlanCategories> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Padding(
-                                      padding: EdgeInsets.only(bottom: 3.h),
-                                      child: Text(
-                                        'Details',
-                                        style: TextStyle(
-                                            color: AppColors.primeColor,
-                                            fontSize: 14.sp,
-                                            fontFamily: 'BubblegumSans'),
-                                        overflow: TextOverflow.ellipsis,
-                                      )),
+                                  Text(
+                                    'Details',
+                                    style: TextStyle(
+                                        color: AppColors.primeColor,
+                                        fontSize: 14.sp,
+                                        fontFamily: 'BubblegumSans'),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
                                   SizedBox(
                                     width: 2.w,
                                   ),
