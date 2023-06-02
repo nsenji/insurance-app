@@ -88,25 +88,25 @@ class _HomeState extends State<Home> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 20.w, top: 10.h),
-                  child: SizedBox(
-                    height: 35.h,
-                    child: MajorFont(
-                      text:
-                          'Hi, ${Provider.of<UserNotifier>(context, listen: false).user?.lastname}',
-                      color: AppColors.primeColor,
-                      weight: false,
-                      size: 17,
-                    ),
-                  ),
-                ),
+                // Padding(
+                //   padding: EdgeInsets.only(left: 20.w, top: 10.h),
+                //   child: SizedBox(
+                //     height: 35.h,
+                //     child: MajorFont(
+                //       text:
+                //           'Hi, ${Provider.of<UserNotifier>(context, listen: false).user?.lastname}',
+                //       color: AppColors.primeColor,
+                //       weight: false,
+                //       size: 17,
+                //     ),
+                //   ),
+                // ),
                 SizedBox(
                   height: 170.h,
                   child: Card(
                     color: AppColors.containerColor,
                     surfaceTintColor: AppColors.containerColor,
-                    margin: EdgeInsets.only(left: 20.w, right: 20.w),
+                    margin: EdgeInsets.only(left: 20.w, right: 20.w, top: 10.h),
                     elevation: 15,
                     child: Row(children: [
                       Container(
@@ -115,14 +115,21 @@ class _HomeState extends State<Home> {
                         child: Row(
                           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
+                            SizedBox(
                               width: 150.w,
                               child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+                                    MajorFont(
+                                      text:
+                                          '${Provider.of<UserNotifier>(context, listen: false).user?.firstname} ${Provider.of<UserNotifier>(context, listen: false).user?.lastname}',
+                                      color: AppColors.primeColor,
+                                      size: 14,
+                                      weight: false,
+                                    ),
                                     SizedBox(
-                                      height: 4.h,
+                                      height: 2.h,
                                     ),
                                     MajorFont(
                                       text:
@@ -131,63 +138,65 @@ class _HomeState extends State<Home> {
                                       size: 11,
                                       weight: false,
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 40.h, left: 20.w),
-                                      child: MajorFont(
-                                        text: '0 UGX',
-                                        size: 17,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 2, left: 20.w),
-                                      child: MajorFont(
-                                        text: 'Amount Insured',
-                                        weight: false,
-                                        size: 11,
-                                        color: AppColors.blackColor,
-                                      ),
-                                    ),
                                     SizedBox(
-                                      height: 40.h,
+                                      height: 88.h,
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(left: 20.w),
+                                    IntrinsicHeight(
                                       child: Row(
                                         children: [
-                                          MajorFont(
-                                            text: '0',
-                                            weight: false,
-                                            size: 13,
+                                          Column(
+                                            children: [
+                                              MajorFont(
+                                                text: '0',
+                                                weight: false,
+                                                size: 14,
+                                              ),
+                                              MajorFont(
+                                                  text: 'Claims',
+                                                  weight: false,
+                                                  size: 12,
+                                                  color: AppColors.blackColor),
+                                            ],
                                           ),
                                           SizedBox(
-                                            width: 5.w,
+                                            width: 12.w,
+                                            child: VerticalDivider(
+                                              width: 7.w,
+                                              thickness: 1.w,
+                                              color: AppColors.blackColor,
+                                              endIndent: 3,
+                                            ),
                                           ),
-                                          MajorFont(
-                                            text: 'Active policies',
-                                            weight: false,
-                                            size: 11,
-                                            color: AppColors.blackColor,
-                                          )
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              MajorFont(
+                                                text: '0',
+                                                weight: false,
+                                                size: 14,
+                                              ),
+                                              MajorFont(
+                                                  text: 'Active',
+                                                  weight: false,
+                                                  color: AppColors.blackColor,
+                                                  size: 12),
+                                            ],
+                                          ),
                                         ],
                                       ),
-                                    ),
-                                    SizedBox(
-                                      height: 5.h,
-                                    ),
+                                    )
                                   ]),
                             ),
                             Padding(
                               padding:
-                                  EdgeInsets.only(left: 30.w, bottom: 20.h),
+                                  EdgeInsets.only(bottom: 95.h, left: 100.w),
                               child: Container(
-                                height: 90.h,
-                                width: 90.w,
+                                height: 60.h,
+                                width: 60.w,
                                 decoration: const BoxDecoration(
                                     image: DecorationImage(
                                         image: AssetImage(
-                                            'assets/images/Daco_4959960.png'))),
+                                            'assets/images/insuance_image_green.png'))),
                               ),
                             )
                           ],

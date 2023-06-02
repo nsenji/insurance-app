@@ -91,6 +91,8 @@ flutter:
      - assets/images/travel.png
      - assets/images/tangerine-logo.png
      - assets/images/Daco_4959960.png
+     - assets/images/insuance_image_green.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
