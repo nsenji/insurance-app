@@ -125,7 +125,7 @@ class _HomeState extends State<Home> {
                                       text:
                                           '${Provider.of<UserNotifier>(context, listen: false).user?.firstname} ${Provider.of<UserNotifier>(context, listen: false).user?.lastname}',
                                       color: AppColors.primeColor,
-                                      size: 14,
+                                      size: 17,
                                       weight: false,
                                     ),
                                     SizedBox(
@@ -176,7 +176,7 @@ class _HomeState extends State<Home> {
                                                 size: 14,
                                               ),
                                               MajorFont(
-                                                  text: 'Active',
+                                                  text: 'Policies',
                                                   weight: false,
                                                   color: AppColors.blackColor,
                                                   size: 12),
