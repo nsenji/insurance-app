@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:insurease/api/createCustomer.dart';
 import 'package:insurease/pages/auth_pages/login_page.dart';
@@ -65,35 +64,35 @@ class _SignupPageState extends State<SignupPage> {
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 17.h, left: 17.w),
-                    height: 130.h,
-                    width: 180.w,
+                    margin: EdgeInsets.only(top: 17, left: 17),
+                    height: 130,
+                    width: 180,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             fit: BoxFit.contain,
                             image: AssetImage('assets/images/auth.png'))),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 30.h, left: 30.w),
+                    margin: EdgeInsets.only(top: 30, left: 30),
                     decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.2),
-                            spreadRadius: 2.r,
-                            blurRadius: 2.r,
+                            spreadRadius: 2,
+                            blurRadius: 2,
                             // changes position of shadow
                           ),
                         ],
                         color: AppColors.containerColor,
-                        borderRadius: BorderRadius.all(Radius.circular(20.r))),
-                    // color: Colors.white,
-                    height: 465.h,
-                    width: 300.w,
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    // color: Colorshite,
+                    height: 465,
+                    width: 300,
 
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(20.0.h),
+                          padding: EdgeInsets.all(20.0),
                           child: TextField(
                             style: TextStyle(color: AppColors.blackColor),
                             controller: _firstname,
@@ -113,7 +112,7 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(17.0.h),
+                          padding: EdgeInsets.all(17.0),
                           child: TextField(
                             style: TextStyle(color: AppColors.blackColor),
                             controller: _lastname,
@@ -133,7 +132,7 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(17.0.h),
+                          padding: EdgeInsets.all(17.0),
                           child: TextField(
                             style: TextStyle(color: AppColors.blackColor),
                             controller: _email,
@@ -150,7 +149,7 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(17.0.h),
+                          padding: EdgeInsets.all(17.0),
                           child: TextField(
                             obscureText: passwordvisible ? false : true,
                             style: TextStyle(color: AppColors.blackColor),
@@ -188,7 +187,7 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.only(top: 20.h),
+                          padding: EdgeInsets.only(top: 20),
                           child: InkWell(
                               onTap: () async {
                                 setState(() {

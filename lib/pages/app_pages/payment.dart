@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/styles/colors.dart';
 
 import '../../tools/major_font.dart';
@@ -18,7 +17,7 @@ class _PaymentState extends State<Payment> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.h,
+        elevation: 0,
         backgroundColor: AppColors.whiteColor,
         title: MajorFont(
           text: 'AXA PRADO 1',

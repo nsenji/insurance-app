@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/notifiers/allPlansNotifier.dart';
 import 'package:insurease/notifiers/userObjectNotifier.dart';
 import 'package:insurease/pages/additional%20Details/creditLife.dart';
@@ -49,7 +48,7 @@ class _ProductDetailsState extends State<ProductDetails> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
-        elevation: 0.h,
+        elevation: 0,
         backgroundColor: AppColors.whiteColor,
         title: MajorFont(
           text: 'Details',
@@ -64,15 +63,15 @@ class _ProductDetailsState extends State<ProductDetails> {
       body: SingleChildScrollView(
         primary: true,
         child: Container(
-          margin: EdgeInsets.only(left: 20.w, right: 20.w),
-          height: 785.h,
-          width: 360.w,
+          margin: EdgeInsets.only(left: 20, right: 20),
+          height: 785,
+          width: 360,
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(top: 15.h),
-                height: 100.h,
-                width: 150.w,
+                margin: EdgeInsets.only(top: 15),
+                height: 100,
+                width: 150,
                 decoration: BoxDecoration(
                     border: Border.all(color: AppColors.greyColor),
                     image: DecorationImage(
@@ -87,8 +86,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                             : NetworkImage('${plans.logoUrl}'))),
               ),
               Container(
-                width: 320.w,
-                height: 50.h,
+                width: 320,
+                height: 50,
                 // color: Colors.yellow,
                 child: Center(
                     child: SingleChildScrollView(
@@ -100,29 +99,29 @@ class _ProductDetailsState extends State<ProductDetails> {
                 )),
               ),
               Container(
-                padding: EdgeInsets.only(top: 10.h),
-                margin: EdgeInsets.only(left: 10.w, right: 10.w),
-                width: 320.w,
-                height: 200.h,
+                padding: EdgeInsets.only(top: 10),
+                margin: EdgeInsets.only(left: 10, right: 10),
+                width: 320,
+                height: 200,
                 decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.2),
-                        spreadRadius: 2.r,
-                        blurRadius: 2.r,
+                        spreadRadius: 2,
+                        blurRadius: 2,
                         // changes position of shadow
                       ),
                     ],
                     color: AppColors.containerColor,
-                    borderRadius: BorderRadius.all(Radius.circular(9.r))),
+                    borderRadius: BorderRadius.all(Radius.circular(9))),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
-                      padding: EdgeInsets.only(left: 8.w),
-                      height: 180.h,
-                      width: 140.w,
+                      padding: EdgeInsets.only(left: 8),
+                      height: 180,
+                      width: 140,
                       // color: Colors.cyan,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,7 +132,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             size: 17,
                           ),
                           SizedBox(
-                            height: 8.h,
+                            height: 8,
                           ),
                           MajorFont(
                             text: 'Code',
@@ -141,7 +140,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             size: 17,
                           ),
                           SizedBox(
-                            height: 8.h,
+                            height: 8,
                           ),
                           MajorFont(
                             text: 'Insurer',
@@ -149,7 +148,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             size: 17,
                           ),
                           SizedBox(
-                            height: 8.h,
+                            height: 8,
                           ),
                           MajorFont(
                             text: 'Premium rate',
@@ -157,7 +156,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             size: 17,
                           ),
                           SizedBox(
-                            height: 8.h,
+                            height: 8,
                           ),
                           MajorFont(
                             text: 'Premium type',
@@ -165,7 +164,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             size: 17,
                           ),
                           SizedBox(
-                            height: 8.h,
+                            height: 8,
                           ),
                           MajorFont(
                             text: 'Duration (months)',
@@ -173,15 +172,15 @@ class _ProductDetailsState extends State<ProductDetails> {
                             size: 17,
                           ),
                           SizedBox(
-                            height: 8.h,
+                            height: 8,
                           ),
                         ],
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(right: 8.w),
-                      height: 180.h,
-                      width: 140.w,
+                      padding: EdgeInsets.only(right: 8),
+                      height: 180,
+                      width: 140,
                       // color: Colors.pink,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -194,7 +193,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             flowover: true,
                           ),
                           SizedBox(
-                            height: 8.h,
+                            height: 8,
                           ),
                           MajorFont(
                             text: '${plans.code}',
@@ -204,7 +203,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             flowover: true,
                           ),
                           SizedBox(
-                            height: 8.h,
+                            height: 8,
                           ),
                           MajorFont(
                             text: '${plans.insurer}',
@@ -214,7 +213,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             flowover: true,
                           ),
                           SizedBox(
-                            height: 8.h,
+                            height: 8,
                           ),
                           MajorFont(
                             text: '${plans.premiumRate}',
@@ -223,7 +222,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             color: AppColors.blackColor,
                           ),
                           SizedBox(
-                            height: 8.h,
+                            height: 8,
                           ),
                           MajorFont(
                             text: '${plans.premiumType}',
@@ -232,7 +231,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             color: AppColors.blackColor,
                           ),
                           SizedBox(
-                            height: 8.h,
+                            height: 8,
                           ),
                           MajorFont(
                             text: '${plans.coverDuration}',
@@ -241,7 +240,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             color: AppColors.blackColor,
                           ),
                           SizedBox(
-                            height: 8.h,
+                            height: 8,
                           ),
                         ],
                       ),
@@ -250,29 +249,29 @@ class _ProductDetailsState extends State<ProductDetails> {
                 ),
               ),
               SizedBox(
-                height: 10.h,
+                height: 10,
               ),
               Container(
-                margin: EdgeInsets.only(left: 10.w, right: 10.w),
-                width: 320.w,
-                height: 280.h,
+                margin: EdgeInsets.only(left: 10, right: 10),
+                width: 320,
+                height: 280,
                 decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.2),
-                        spreadRadius: 2.r,
-                        blurRadius: 2.r,
+                        spreadRadius: 2,
+                        blurRadius: 2,
                         // changes position of shadow
                       ),
                     ],
                     color: AppColors.containerColor,
-                    borderRadius: BorderRadius.all(Radius.circular(9.r))),
+                    borderRadius: BorderRadius.all(Radius.circular(9))),
                 child: Column(
                   children: [
                     Container(
-                      padding: EdgeInsets.only(left: 8.w, top: 8.h),
-                      height: 30.h,
-                      width: 320.w,
+                      padding: EdgeInsets.only(left: 8, top: 8),
+                      height: 30,
+                      width: 320,
                       child: MajorFont(
                         text: 'Description',
                         weight: false,
@@ -281,9 +280,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(left: 5.w, right: 5.w),
-                      width: 290.w,
-                      height: 250.h,
+                      padding: EdgeInsets.only(left: 5, right: 5),
+                      width: 290,
+                      height: 250,
                       // color: Colors.orange,
                       child: Scrollbar(
                         thumbVisibility: true,
@@ -306,7 +305,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 ),
               ),
               SizedBox(
-                height: 30.h,
+                height: 30,
               ),
               InkWell(
                   onTap: () {

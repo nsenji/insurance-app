@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../styles/colors.dart';
 
@@ -27,7 +26,7 @@ class MajorFont extends StatelessWidget {
           color: color,
           fontFamily: 'BubblegumSans',
           fontWeight: weight ? FontWeight.bold : FontWeight.normal,
-          fontSize: size.sp),
+          fontSize: size),
       overflow: flowover ? TextOverflow.ellipsis : null,
     );
   }

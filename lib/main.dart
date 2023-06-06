@@ -4,7 +4,6 @@ import 'dart:developer';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/notifiers/productType.dart';
 
 import 'package:insurease/pages/app_pages/welcome.dart';
@@ -37,20 +36,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(360, 740),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context, child) => MaterialApp(
-          title: 'InsurEase',
-          theme: ThemeData(
-
-              // primarySwatch: Colors.blue,
-              textTheme:
-                  Typography.englishLike2018.apply(fontSizeFactor: 1.sp)),
-          debugShowCheckedModeBanner: false,
-          home: NavBar()),
-    );
+    return MaterialApp(
+        title: 'InsurEase', debugShowCheckedModeBanner: false, home: NavBar());
   }
 }
 

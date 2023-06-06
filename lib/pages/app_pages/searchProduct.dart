@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../../notifiers/userObjectNotifier.dart';
@@ -22,7 +21,7 @@ class _SearchProductState extends State<SearchProduct> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
-        elevation: 3.h,
+        elevation: 3,
         backgroundColor: AppColors.whiteColor,
         title: TextField(
           style: TextStyle(color: AppColors.blackColor),
@@ -34,7 +33,7 @@ class _SearchProductState extends State<SearchProduct> {
             hintStyle: TextStyle(
                 fontFamily: 'BubblegumSans',
                 fontWeight: FontWeight.normal,
-                fontSize: 15.sp),
+                fontSize: 15),
             // Add a clear button to the search bar
             suffixIcon: IconButton(
               color: AppColors.primeColor,

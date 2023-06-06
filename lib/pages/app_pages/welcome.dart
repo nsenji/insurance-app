@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/pages/auth_pages/login_page.dart';
 import 'package:insurease/pages/auth_pages/signup_page.dart';
 import 'package:insurease/tools/major_font.dart';
@@ -23,12 +22,12 @@ class _WelcomeState extends State<Welcome> {
         backgroundColor: AppColors.whiteColor,
         body: Stack(children: [
           Positioned(
-            top: 70.h,
-            left: 30.w,
-            right: 30.w,
+            top: 70,
+            left: 30,
+            right: 30,
             child: Container(
-              height: 400.h,
-              width: 300.w,
+              height: 400,
+              width: 300,
               decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.fill,
@@ -36,15 +35,15 @@ class _WelcomeState extends State<Welcome> {
             ),
           ),
           Positioned(
-            top: 500.h,
-            left: 30.w,
-            right: 30.w,
+            top: 500,
+            left: 30,
+            right: 30,
             child: Column(
               children: [
                 Container(
-                    padding: EdgeInsets.only(left: 13.w),
-                    width: 250.w,
-                    height: 17.h,
+                    padding: EdgeInsets.only(left: 13),
+                    width: 250,
+                    height: 17,
                     child: MajorFont(
                       text: 'PROTECT YOUR FUTURE TODAY WITH',
                       size: 14,
@@ -52,9 +51,9 @@ class _WelcomeState extends State<Welcome> {
                       color: Colors.black87,
                     )),
                 Container(
-                    padding: EdgeInsets.only(left: 32.w),
-                    width: 250.w,
-                    height: 17.h,
+                    padding: EdgeInsets.only(left: 32),
+                    width: 250,
+                    height: 17,
                     child: MajorFont(
                       text: 'COMPREHENSIVE INSURANCE.',
                       size: 14,
@@ -62,12 +61,12 @@ class _WelcomeState extends State<Welcome> {
                       color: Colors.black87,
                     )),
                 SizedBox(
-                  height: 14.h,
+                  height: 14,
                 ),
                 Container(
-                    padding: EdgeInsets.only(left: 41.w),
-                    width: 190.w,
-                    height: 19.h,
+                    padding: EdgeInsets.only(left: 41),
+                    width: 190,
+                    height: 19,
                     child: MajorFont(
                       text: 'Select your coverage.',
                       size: 14,
@@ -75,8 +74,8 @@ class _WelcomeState extends State<Welcome> {
                       color: AppColors.primeColor,
                     )),
                 SizedBox(
-                  width: 200.w,
-                  height: 100.h,
+                  width: 200,
+                  height: 100,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

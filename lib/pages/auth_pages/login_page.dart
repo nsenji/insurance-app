@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:insurease/authentication/login.dart';
 import 'package:insurease/pages/bottom_nav_pages/navBar.dart';
@@ -64,9 +63,9 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 20.h, left: 17.w),
-                    height: 130.h,
-                    width: 180.w,
+                    margin: EdgeInsets.only(top: 20, left: 17),
+                    height: 130,
+                    width: 180,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             fit: BoxFit.contain,
@@ -74,26 +73,26 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Container(
                     margin:
-                        EdgeInsets.only(bottom: 40.h, left: 30.w, top: 30.h),
+                        EdgeInsets.only(bottom: 40, left: 30, top: 30),
                     decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.withOpacity(0.2.r),
-                            spreadRadius: 2.r,
-                            blurRadius: 2.r,
+                            color: Colors.grey.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 2,
                             // changes position of shadow
                           ),
                         ],
                         color: AppColors.containerColor,
-                        borderRadius: BorderRadius.all(Radius.circular(20.r))),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
                     // color: Colors.white,
-                    height: 320.h,
-                    width: 300.w,
+                    height: 320,
+                    width: 300,
 
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(20.0.h),
+                          padding: EdgeInsets.all(20.0),
                           child: TextField(
                             style: TextStyle(color: AppColors.blackColor),
                             controller: _emailField,
@@ -111,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(20.0.h),
+                          padding: EdgeInsets.all(20.0),
                           child: TextField(
                             style: TextStyle(color: AppColors.blackColor),
                             controller: _passwordField,
@@ -147,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.only(top: 38.h),
+                          padding: EdgeInsets.only(top: 38),
                           child: InkWell(
                               onTap: () async {
                                 setState(() {

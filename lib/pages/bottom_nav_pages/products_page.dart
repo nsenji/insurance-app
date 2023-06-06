@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/api/getUser.dart';
 import 'package:insurease/notifiers/productType.dart';
 import 'package:insurease/pages/app_pages/PlanCategories.dart';
@@ -66,7 +65,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
-        elevation: 0.h,
+        elevation: 0,
         backgroundColor: AppColors.whiteColor,
         title: MajorFont(
           text: 'Home',
@@ -90,21 +89,21 @@ class _HomeState extends State<Home> {
               children: [
                 
                 SizedBox(
-                  height: 170.h,
+                  height: 170,
                   child: Card(
                     color: AppColors.containerColor,
                     surfaceTintColor: AppColors.containerColor,
-                    margin: EdgeInsets.only(left: 20.w, right: 20.w, top: 10.h),
+                    margin: EdgeInsets.only(left: 20, right: 20, top: 10),
                     elevation: 15,
                     child: Row(children: [
                       Container(
-                        width: 310.w,
-                        margin: EdgeInsets.only(left: 7.h, top: 7.h),
+                        width: 310,
+                        margin: EdgeInsets.only(left: 7, top: 7),
                         child: Row(
                           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             SizedBox(
-                              width: 150.w,
+                              width: 150,
                               child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,7 +116,7 @@ class _HomeState extends State<Home> {
                                       weight: false,
                                     ),
                                     SizedBox(
-                                      height: 2.h,
+                                      height: 2,
                                     ),
                                     MajorFont(
                                       text:
@@ -127,7 +126,7 @@ class _HomeState extends State<Home> {
                                       weight: false,
                                     ),
                                     SizedBox(
-                                      height: 88.h,
+                                      height: 88,
                                     ),
                                     IntrinsicHeight(
                                       child: Row(
@@ -147,10 +146,10 @@ class _HomeState extends State<Home> {
                                             ],
                                           ),
                                           SizedBox(
-                                            width: 12.w,
+                                            width: 12,
                                             child: VerticalDivider(
-                                              width: 7.w,
-                                              thickness: 1.w,
+                                              width: 7,
+                                              thickness: 1,
                                               color: AppColors.blackColor,
                                               endIndent: 3,
                                             ),
@@ -177,10 +176,10 @@ class _HomeState extends State<Home> {
                             ),
                             Padding(
                               padding:
-                                  EdgeInsets.only(bottom: 95.h, left: 100.w),
+                                  EdgeInsets.only(bottom: 95, left: 100),
                               child: Container(
-                                height: 60.h,
-                                width: 60.w,
+                                height: 60,
+                                width: 60,
                                 decoration: const BoxDecoration(
                                     image: DecorationImage(
                                         image: AssetImage(
@@ -196,7 +195,7 @@ class _HomeState extends State<Home> {
                 Container(
                   height: 30,
                   margin: EdgeInsets.only(
-                      left: 14.w, top: 8.h, right: 15.w, bottom: 8.h),
+                      left: 14, top: 8, right: 15, bottom: 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -218,14 +217,14 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: 5,
                 ),
                 Expanded(
                   child: Scrollbar(
                     thumbVisibility: true,
                     child: ListView.builder(
                         primary: true,
-                        padding: EdgeInsets.only(left: 2.w, right: 2.w),
+                        padding: EdgeInsets.only(left: 2, right: 2),
                         shrinkWrap: true,
                         itemCount: Provider.of<ProductTypeNotifier>(context,
                                 listen: true)
@@ -244,25 +243,25 @@ class _HomeState extends State<Home> {
                               color: AppColors.whiteColor,
                               elevation: 10,
                               margin: EdgeInsets.only(
-                                  left: 20.w, right: 20.w, bottom: 7),
+                                  left: 20, right: 20, bottom: 7),
                               child: Row(children: [
                                 Container(
-                                  height: 70.h,
-                                  width: 130.w,
+                                  height: 70,
+                                  width: 130,
                                   child: Center(
                                       child: Container(
-                                    height: 55.h,
-                                    width: 75.w,
+                                    height: 55,
+                                    width: 75,
                                     decoration: BoxDecoration(
                                         image: DecorationImage(
                                             image: AssetImage(icons[index]))),
                                   )),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(top: 12.h),
-                                  padding: EdgeInsets.only(top: 8.h),
-                                  height: 70.h,
-                                  width: 145.w,
+                                  margin: EdgeInsets.only(top: 12),
+                                  padding: EdgeInsets.only(top: 8),
+                                  height: 70,
+                                  width: 145,
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -274,7 +273,7 @@ class _HomeState extends State<Home> {
                                             '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].name}',
                                         color: AppColors.blackColor,
                                       ),
-                                      SizedBox(height: 4.h),
+                                      SizedBox(height: 4),
                                       MajorFont(
                                         weight: false,
                                         text:
@@ -284,14 +283,14 @@ class _HomeState extends State<Home> {
                                         size: 15,
                                       ),
                                       SizedBox(
-                                        height: 9.h,
+                                        height: 9,
                                       ),
                                     ],
                                   ),
                                 ),
                                 Container(
-                                  height: 80.h,
-                                  width: 40.w,
+                                  height: 80,
+                                  width: 40,
                                   child: Center(
                                       child: Icon(
                                     Icons.arrow_forward_ios,

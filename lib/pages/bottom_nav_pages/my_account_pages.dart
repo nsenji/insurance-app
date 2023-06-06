@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/api/getUser.dart';
 import 'package:insurease/pages/app_pages/app_settings.dart';
 import 'package:insurease/pages/app_pages/completeProfile.dart';
@@ -39,7 +38,7 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
-        elevation: 0.h,
+        elevation: 0,
         backgroundColor: AppColors.whiteColor,
         title: MajorFont(
           text: 'My account',
@@ -54,15 +53,15 @@ class _ProfileState extends State<Profile> {
       body: Column(
         children: [
           Container(
-            width: 300.w,
-            margin: EdgeInsets.only(left: 32.w),
+            width: 300,
+            margin: EdgeInsets.only(left: 32),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  margin: EdgeInsets.only(top: 20.h),
-                  height: 80.h,
-                  width: 80.w,
+                  margin: EdgeInsets.only(top: 20),
+                  height: 80,
+                  width: 80,
                   decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
@@ -74,9 +73,9 @@ class _ProfileState extends State<Profile> {
                 ),
                 Container(
                   alignment: Alignment.center,
-                  margin: EdgeInsets.only(top: 14.h),
-                  height: 30.h,
-                  width: 300.w,
+                  margin: EdgeInsets.only(top: 14),
+                  height: 30,
+                  width: 300,
                   child: MajorFont(
                     text:
                         '${userNotifier.user?.firstname} ${userNotifier.user?.lastname}',
@@ -85,8 +84,8 @@ class _ProfileState extends State<Profile> {
                 ),
                 Container(
                   alignment: Alignment.center,
-                  height: 30.h,
-                  width: 300.w,
+                  height: 30,
+                  width: 300,
                   child: MajorFont(
                     text: '${userNotifier.user?.email}',
                     weight: false,
@@ -94,8 +93,8 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
                 Container(
-                  width: 100.w,
-                  height: 80.h,
+                  width: 100,
+                  height: 80,
                   alignment: Alignment.center,
                   child: InkWell(
                       onTap: () async {
@@ -114,9 +113,9 @@ class _ProfileState extends State<Profile> {
           ),
           SingleChildScrollView(
             child: Container(
-              margin: EdgeInsets.only(left: 32.w),
-              width: 300.w,
-              height: 340.h,
+              margin: EdgeInsets.only(left: 32),
+              width: 300,
+              height: 340,
               child: Column(
                 children: [
                   InkWell(
@@ -125,8 +124,8 @@ class _ProfileState extends State<Profile> {
                         MaterialPageRoute(
                             builder: (context) => CompleteProfile())),
                     child: Container(
-                      height: 45.h,
-                      width: 300.w,
+                      height: 45,
+                      width: 300,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -144,7 +143,7 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   Divider(
-                    thickness: 1.h,
+                    thickness: 1,
                     color: AppColors.greyColor,
                   ),
                   InkWell(
@@ -153,8 +152,8 @@ class _ProfileState extends State<Profile> {
                         MaterialPageRoute(
                             builder: (context) => const EditProfile())),
                     child: Container(
-                      height: 45.h,
-                      width: 300.w,
+                      height: 45,
+                      width: 300,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -172,7 +171,7 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   Divider(
-                    thickness: 1.h,
+                    thickness: 1,
                     color: AppColors.greyColor,
                   ),
                   InkWell(
@@ -181,8 +180,8 @@ class _ProfileState extends State<Profile> {
                         MaterialPageRoute(
                             builder: (context) => const Notifications())),
                     child: Container(
-                      height: 45.h,
-                      width: 300.w,
+                      height: 45,
+                      width: 300,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -200,7 +199,7 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   Divider(
-                    thickness: 1.h,
+                    thickness: 1,
                     color: AppColors.greyColor,
                   ),
                   InkWell(
@@ -209,8 +208,8 @@ class _ProfileState extends State<Profile> {
                         MaterialPageRoute(
                             builder: (context) => const AppSettings())),
                     child: SizedBox(
-                      height: 45.h,
-                      width: 300.w,
+                      height: 45,
+                      width: 300,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -228,7 +227,7 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   Divider(
-                    thickness: 1.h,
+                    thickness: 1,
                     color: AppColors.greyColor,
                   ),
                 ],

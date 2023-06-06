@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:insurease/pages/app_pages/payment.dart';
 import 'package:insurease/styles/colors.dart';
@@ -48,7 +47,7 @@ class _FireBurglaryState extends State<FireBurglary> {
       resizeToAvoidBottomInset: true,
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
-        elevation: 0.h,
+        elevation: 0,
         backgroundColor: AppColors.whiteColor,
         title: MajorFont(
           text: 'Additional details',
@@ -63,24 +62,24 @@ class _FireBurglaryState extends State<FireBurglary> {
       body: SingleChildScrollView(
         child: Container(
           margin:
-              EdgeInsets.only(top: 30.h, left: 30.w, right: 20.w, bottom: 30.h),
+              EdgeInsets.only(top: 30, left: 30, right: 20, bottom: 30),
           decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.2),
-                  spreadRadius: 2.r,
-                  blurRadius: 2.r,
+                  spreadRadius: 2,
+                  blurRadius: 2,
                   // changes position of shadow
                 ),
               ],
               color: AppColors.containerColor,
-              borderRadius: BorderRadius.all(Radius.circular(20.r))),
-          height: 790.h,
-          width: 300.w,
+              borderRadius: BorderRadius.all(Radius.circular(20))),
+          height: 790,
+          width: 300,
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.all(20.0.h),
+                padding: EdgeInsets.all(20.0),
                 child: TextField(
                   style: TextStyle(color: AppColors.blackColor),
                   controller: _productCode,
@@ -98,7 +97,7 @@ class _FireBurglaryState extends State<FireBurglary> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(17.0.h),
+                padding: EdgeInsets.all(17.0),
                 child: TextField(
                   style: TextStyle(color: AppColors.blackColor),
                   controller: _customerRef,
@@ -116,7 +115,7 @@ class _FireBurglaryState extends State<FireBurglary> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(17.0.h),
+                padding: EdgeInsets.all(17.0),
                 child: TextField(
                   style: TextStyle(color: AppColors.blackColor),
                   obscureText: true,
@@ -132,7 +131,7 @@ class _FireBurglaryState extends State<FireBurglary> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(17.0.h),
+                padding: EdgeInsets.all(17.0),
                 child: TextField(
                   style: TextStyle(color: AppColors.blackColor),
                   controller: _policyStartDate,
@@ -173,7 +172,7 @@ class _FireBurglaryState extends State<FireBurglary> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(20.0.h),
+                padding: EdgeInsets.all(20.0),
                 child: TextField(
                   style: TextStyle(color: AppColors.blackColor),
                   controller: _assetValue,
@@ -191,7 +190,7 @@ class _FireBurglaryState extends State<FireBurglary> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(20.0.h),
+                padding: EdgeInsets.all(20.0),
                 child: TextField(
                   style: TextStyle(color: AppColors.blackColor),
                   controller: _address,
@@ -207,7 +206,7 @@ class _FireBurglaryState extends State<FireBurglary> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(20.0.h),
+                padding: EdgeInsets.all(20.0),
                 child: TextField(
                   style: TextStyle(color: AppColors.blackColor),
                   controller: _attachments,
@@ -225,9 +224,9 @@ class _FireBurglaryState extends State<FireBurglary> {
                 ),
               ),
               Padding(
-                padding:  EdgeInsets.all(8.0.w),
+                padding:  EdgeInsets.all(8.0),
                 child: Container(
-                  padding: EdgeInsets.only(top: 20.h),
+                  padding: EdgeInsets.only(top: 20),
                   child: InkWell(
                       child: Button(text: 'Submit'),
                       onTap: () {
