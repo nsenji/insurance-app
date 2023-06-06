@@ -87,23 +87,20 @@ class _HomeState extends State<Home> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                
                 SizedBox(
-                  height: 170,
                   child: Card(
                     color: AppColors.containerColor,
                     surfaceTintColor: AppColors.containerColor,
-                    margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                    margin: const EdgeInsets.only(
+                        left: 20, right: 20, top: 10, bottom: 3),
                     elevation: 15,
-                    child: Row(children: [
-                      Container(
-                        width: 310,
-                        margin: EdgeInsets.only(left: 7, top: 7),
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: IntrinsicHeight(
                         child: Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            SizedBox(
-                              width: 150,
+                            Expanded(
                               child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -174,28 +171,32 @@ class _HomeState extends State<Home> {
                                     )
                                   ]),
                             ),
-                            Padding(
-                              padding:
-                                  EdgeInsets.only(bottom: 95, left: 100),
-                              child: Container(
-                                height: 60,
-                                width: 60,
-                                decoration: const BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/insuance_image_green.png'))),
-                              ),
-                            )
+                            Expanded(
+                                child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.topRight,
+                                  child: Container(
+                                    height: 60,
+                                    width: 60,
+                                    decoration: const BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                'assets/images/insuance_image_green.png'))),
+                                  ),
+                                ),
+                              ],
+                            ))
                           ],
                         ),
-                      )
-                    ]),
+                      ),
+                    ),
                   ),
                 ),
                 Container(
                   height: 30,
-                  margin: EdgeInsets.only(
-                      left: 14, top: 8, right: 15, bottom: 8),
+                  margin:
+                      EdgeInsets.only(left: 14, top: 13, right: 15, bottom: 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -243,7 +244,7 @@ class _HomeState extends State<Home> {
                               color: AppColors.whiteColor,
                               elevation: 10,
                               margin: EdgeInsets.only(
-                                  left: 20, right: 20, bottom: 7),
+                                  left: 20, right: 20, bottom: 7, top: 5),
                               child: Row(children: [
                                 Container(
                                   height: 70,
@@ -288,15 +289,18 @@ class _HomeState extends State<Home> {
                                     ],
                                   ),
                                 ),
-                                Container(
-                                  height: 80,
-                                  width: 40,
-                                  child: Center(
-                                      child: Icon(
-                                    Icons.arrow_forward_ios,
-                                    size: 20,
-                                    color: AppColors.primeColor,
-                                  )),
+                                const Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsets.only(right: 15),
+                                    child: Align(
+                                        alignment:
+                                            AlignmentDirectional.centerEnd,
+                                        child: Icon(
+                                          Icons.arrow_forward_ios,
+                                          size: 20,
+                                          color: AppColors.primeColor,
+                                        )),
+                                  ),
                                 )
                               ]),
                             ),
