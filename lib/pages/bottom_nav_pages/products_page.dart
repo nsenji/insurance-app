@@ -88,19 +88,7 @@ class _HomeState extends State<Home> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Padding(
-                //   padding: EdgeInsets.only(left: 20.w, top: 10.h),
-                //   child: SizedBox(
-                //     height: 35.h,
-                //     child: MajorFont(
-                //       text:
-                //           'Hi, ${Provider.of<UserNotifier>(context, listen: false).user?.lastname}',
-                //       color: AppColors.primeColor,
-                //       weight: false,
-                //       size: 17,
-                //     ),
-                //   ),
-                // ),
+                
                 SizedBox(
                   height: 170.h,
                   child: Card(
