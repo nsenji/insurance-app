@@ -63,7 +63,6 @@ class _ProductDetailsState extends State<ProductDetails> {
       body: SingleChildScrollView(
         primary: true,
         child: Container(
-          margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
           height: 785,
           child: Center(
             child: Column(
@@ -100,10 +99,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                   )),
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: 10),
-                  margin: EdgeInsets.only(left: 10, right: 10),
-                  width: 320,
-                  height: 200,
+                  margin: const EdgeInsets.only(left: 30, right: 30),
+                  height: 185,
                   decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -115,133 +112,62 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ],
                       color: AppColors.containerColor,
                       borderRadius: BorderRadius.all(Radius.circular(9))),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.only(left: 8),
-                        height: 180,
-                        width: 140,
-                        // color: Colors.cyan,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            MajorFont(
-                              text: 'Category',
-                              weight: false,
-                              size: 17,
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            MajorFont(
-                              text: 'Code',
-                              weight: false,
-                              size: 17,
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            MajorFont(
-                              text: 'Insurer',
-                              weight: false,
-                              size: 17,
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            MajorFont(
-                              text: 'Premium rate',
-                              weight: false,
-                              size: 17,
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            MajorFont(
-                              text: 'Premium type',
-                              weight: false,
-                              size: 17,
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            MajorFont(
-                              text: 'Duration (months)',
-                              weight: false,
-                              size: 17,
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                          ],
-                        ),
-                      ),
-                      const Expanded(child: SizedBox()),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 8),
-                          child: SizedBox(
-                            // padding: EdgeInsets.only(right: 8),
-                            height: 180,
-
-                            // color: Colors.pink,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          // color: Colors.cyan,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 8),
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 MajorFont(
-                                  text: '${widget.category}',
+                                  text: 'Category',
                                   weight: false,
-                                  size: 16,
-                                  color: AppColors.blackColor,
-                                  flowover: true,
+                                  size: 17,
                                 ),
                                 SizedBox(
                                   height: 8,
                                 ),
                                 MajorFont(
-                                  text: '${plans.code}',
+                                  text: 'Code',
                                   weight: false,
-                                  size: 16,
-                                  color: AppColors.blackColor,
-                                  flowover: true,
+                                  size: 17,
                                 ),
                                 SizedBox(
                                   height: 8,
                                 ),
                                 MajorFont(
-                                  text: '${plans.insurer}',
+                                  text: 'Insurer',
                                   weight: false,
-                                  size: 16,
-                                  color: AppColors.blackColor,
-                                  flowover: true,
+                                  size: 17,
                                 ),
                                 SizedBox(
                                   height: 8,
                                 ),
                                 MajorFont(
-                                  text: '${plans.premiumRate}',
+                                  text: 'Premium rate',
                                   weight: false,
-                                  size: 16,
-                                  color: AppColors.blackColor,
+                                  size: 17,
                                 ),
                                 SizedBox(
                                   height: 8,
                                 ),
                                 MajorFont(
-                                  text: '${plans.premiumType}',
+                                  text: 'Premium type',
                                   weight: false,
-                                  size: 16,
-                                  color: AppColors.blackColor,
+                                  size: 17,
                                 ),
                                 SizedBox(
                                   height: 8,
                                 ),
                                 MajorFont(
-                                  text: '${plans.coverDuration}',
+                                  text: 'Duration (months)',
                                   weight: false,
-                                  size: 16,
-                                  color: AppColors.blackColor,
+                                  size: 17,
                                 ),
                                 SizedBox(
                                   height: 8,
@@ -250,16 +176,89 @@ class _ProductDetailsState extends State<ProductDetails> {
                             ),
                           ),
                         ),
-                      )
-                    ],
+                        // const Expanded(child: SizedBox()),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: SizedBox(
+                              // padding: EdgeInsets.only(right: 8),
+                              height: 180,
+
+                              // color: Colors.pink,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  MajorFont(
+                                    text: '${widget.category}',
+                                    weight: false,
+                                    size: 16,
+                                    color: AppColors.blackColor,
+                                    flowover: true,
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  MajorFont(
+                                    text: '${plans.code}',
+                                    weight: false,
+                                    size: 16,
+                                    color: AppColors.blackColor,
+                                    flowover: true,
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  MajorFont(
+                                    text: '${plans.insurer}',
+                                    weight: false,
+                                    size: 16,
+                                    color: AppColors.blackColor,
+                                    flowover: true,
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  MajorFont(
+                                    text: '${plans.premiumRate}',
+                                    weight: false,
+                                    size: 16,
+                                    color: AppColors.blackColor,
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  MajorFont(
+                                    text: '${plans.premiumType}',
+                                    weight: false,
+                                    size: 16,
+                                    color: AppColors.blackColor,
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  MajorFont(
+                                    text: '${plans.coverDuration}',
+                                    weight: false,
+                                    size: 16,
+                                    color: AppColors.blackColor,
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 10, right: 10),
-                  width: 320,
+                  margin: const EdgeInsets.only(left: 30, right: 30),
                   height: 280,
                   decoration: BoxDecoration(
                       boxShadow: [
@@ -277,17 +276,18 @@ class _ProductDetailsState extends State<ProductDetails> {
                       Container(
                         padding: EdgeInsets.only(left: 8, top: 8),
                         height: 30,
-                        width: 320,
-                        child: MajorFont(
-                          text: 'Description',
-                          weight: false,
-                          size: 12,
-                          color: Colors.grey,
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: MajorFont(
+                            text: 'Description',
+                            weight: false,
+                            size: 12,
+                            color: Colors.grey,
+                          ),
                         ),
                       ),
                       Container(
                         padding: EdgeInsets.only(left: 5, right: 5),
-                        width: 290,
                         height: 250,
                         // color: Colors.orange,
                         child: Scrollbar(
@@ -309,7 +309,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                     ],
                   ),
                 ),
-                const Expanded(child: SizedBox()),
+                const SizedBox(
+                  height: 40,
+                ),
                 InkWell(
                     onTap: () {
                       if (Provider.of<UserNotifier>(context, listen: false)

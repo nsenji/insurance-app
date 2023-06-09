@@ -72,333 +72,337 @@ class _ComprehensiveState extends State<Comprehensive> {
             icon: const Icon(Icons.arrow_back)),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          margin:
-              EdgeInsets.only(top: 30, left: 30, right: 20, bottom: 30),
-          decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.2),
-                  spreadRadius: 2,
-                  blurRadius: 2,
-                  // changes position of shadow
-                ),
-              ],
-              color: AppColors.containerColor,
-              borderRadius: BorderRadius.all(Radius.circular(20))),
-          height: 1350,
-          width: 300,
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(20.0),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  controller: _productCode,
-                  decoration: InputDecoration(
-                      // errorText: codeIsEmpty ? 'This field is required' : null,
-                      label: MajorFont(
-                    text: 'Product Code',
-                    weight: false,
-                    size: 15,
-                  )
-                      //hintText: 'username',
-
-                      ),
-                  keyboardType: TextInputType.name,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(17.0),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  controller: _customerRef,
-                  decoration: InputDecoration(
-                      // errorText: codeIsEmpty ? 'This field is required' : null,
-                      label: MajorFont(
-                    text: 'Customer ref',
-                    weight: false,
-                    size: 15,
-                  )
-                      //hintText: 'Email',
-
-                      ),
-                  keyboardType: TextInputType.emailAddress,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(17.0),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  obscureText: true,
-                  controller: _paymentType,
-                  decoration: InputDecoration(
-                      // errorText: codeIsEmpty ? 'This field is required' : null,
-                      label: MajorFont(
-                    text: 'Payment type',
-                    weight: false,
-                    size: 15,
-                  )),
-                  keyboardType: TextInputType.visiblePassword,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(17.0),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  controller: _policyStartDate,
-                  decoration: InputDecoration(
-                    // errorText: codeIsEmpty ? 'This field is required' : null,
-                    label: MajorFont(
-                      text: 'Policy Start Date',
-                      weight: false,
-                      size: 15,
+        child: Center(
+          child: Container(
+            margin:
+                EdgeInsets.only(top: 30, left: 30, right: 30, bottom: 30),
+            decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.2),
+                    spreadRadius: 2,
+                    blurRadius: 2,
+                    // changes position of shadow
+                  ),
+                ],
+                color: AppColors.containerColor,
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            height: 1350,
+          
+            child: Center(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: TextField(
+                      style: TextStyle(color: AppColors.blackColor),
+                      controller: _productCode,
+                      decoration: InputDecoration(
+                          // errorText: codeIsEmpty ? 'This field is required' : null,
+                          label: MajorFont(
+                        text: 'Product Code',
+                        weight: false,
+                        size: 15,
+                      )
+                          //hintText: 'username',
+                    
+                          ),
+                      keyboardType: TextInputType.name,
                     ),
                   ),
-                  readOnly: true,
-                  onTap: () async {
-                    DateTime? pickedDate = await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime(
-                            2020), //DateTime.now() - not to allow to choose before today.
-                        lastDate: DateTime(2101));
-
-                    if (pickedDate != null) {
-                      print(
-                          pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
-                      String formattedDate =
-                          DateFormat('yyyy-MM-dd').format(pickedDate);
-                      print(
-                          formattedDate); //formatted date output using intl package =>  2021-03-16
-                      //you can implement different kind of Date Format here according to your requirement
-
-                      setState(() {
-                        _policyStartDate.text =
-                            formattedDate; //set output date to TextField value.
-                      });
-                    } else {
-                      print("Date is not selected");
-                    }
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(20.0),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  controller: _assetvalue,
-                  decoration: InputDecoration(
-                      // errorText: codeIsEmpty ? 'This field is required' : null,
-                      label: MajorFont(
-                    text: 'Value of vehicle',
-                    weight: false,
-                    size: 15,
-                  )
-                      //hintText: 'username',
-
-                      ),
-                  keyboardType: TextInputType.name,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(20.0),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  controller: _regNumber,
-                  decoration: InputDecoration(
-                    // errorText: codeIsEmpty ? 'This field is required' : null,
-                    label: MajorFont(
-                      text: 'vehicle registration number',
-                      weight: false,
-                      size: 15,
+                  Padding(
+                    padding: EdgeInsets.all(17.0),
+                    child: TextField(
+                      style: TextStyle(color: AppColors.blackColor),
+                      controller: _customerRef,
+                      decoration: InputDecoration(
+                          // errorText: codeIsEmpty ? 'This field is required' : null,
+                          label: MajorFont(
+                        text: 'Customer ref',
+                        weight: false,
+                        size: 15,
+                      )
+                          //hintText: 'Email',
+                    
+                          ),
+                      keyboardType: TextInputType.emailAddress,
                     ),
                   ),
-                  keyboardType: TextInputType.name,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(20.0),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  controller: _vehicleClass,
-                  decoration: InputDecoration(
-                      // errorText: codeIsEmpty ? 'This field is required' : null,
-                      label: MajorFont(
-                    text: 'Vehicle class',
-                    weight: false,
-                    size: 15,
-                  )
-                      //hintText: 'username',
-
+                  Padding(
+                    padding: EdgeInsets.all(17.0),
+                    child: TextField(
+                      style: TextStyle(color: AppColors.blackColor),
+                      obscureText: true,
+                      controller: _paymentType,
+                      decoration: InputDecoration(
+                          // errorText: codeIsEmpty ? 'This field is required' : null,
+                          label: MajorFont(
+                        text: 'Payment type',
+                        weight: false,
+                        size: 15,
+                      )),
+                      keyboardType: TextInputType.visiblePassword,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(17.0),
+                    child: TextField(
+                      style: TextStyle(color: AppColors.blackColor),
+                      controller: _policyStartDate,
+                      decoration: InputDecoration(
+                        // errorText: codeIsEmpty ? 'This field is required' : null,
+                        label: MajorFont(
+                          text: 'Policy Start Date',
+                          weight: false,
+                          size: 15,
+                        ),
                       ),
-                  keyboardType: TextInputType.name,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(20.0),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  controller: _vehicleMake,
-                  decoration: InputDecoration(
-                      // errorText: codeIsEmpty ? 'This field is required' : null,
-                      label: MajorFont(
-                    text: 'Vehicle make',
-                    weight: false,
-                    size: 15,
-                  )
-                      //hintText: 'username',
-
+                      readOnly: true,
+                      onTap: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(
+                                2020), //DateTime.now() - not to allow to choose before today.
+                            lastDate: DateTime(2101));
+                    
+                        if (pickedDate != null) {
+                          print(
+                              pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                          String formattedDate =
+                              DateFormat('yyyy-MM-dd').format(pickedDate);
+                          print(
+                              formattedDate); //formatted date output using intl package =>  2021-03-16
+                          //you can implement different kind of Date Format here according to your requirement
+                    
+                          setState(() {
+                            _policyStartDate.text =
+                                formattedDate; //set output date to TextField value.
+                          });
+                        } else {
+                          print("Date is not selected");
+                        }
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: TextField(
+                      style: TextStyle(color: AppColors.blackColor),
+                      controller: _assetvalue,
+                      decoration: InputDecoration(
+                          // errorText: codeIsEmpty ? 'This field is required' : null,
+                          label: MajorFont(
+                        text: 'Value of vehicle',
+                        weight: false,
+                        size: 15,
+                      )
+                          //hintText: 'username',
+                    
+                          ),
+                      keyboardType: TextInputType.name,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: TextField(
+                      style: TextStyle(color: AppColors.blackColor),
+                      controller: _regNumber,
+                      decoration: InputDecoration(
+                        // errorText: codeIsEmpty ? 'This field is required' : null,
+                        label: MajorFont(
+                          text: 'vehicle registration number',
+                          weight: false,
+                          size: 15,
+                        ),
                       ),
-                  keyboardType: TextInputType.name,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(20.0),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  controller: _chassisNumber,
-                  decoration: InputDecoration(
-                      // errorText: codeIsEmpty ? 'This field is required' : null,
-                      label: MajorFont(
-                    text: 'Chassis number',
-                    weight: false,
-                    size: 15,
+                      keyboardType: TextInputType.name,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: TextField(
+                      style: TextStyle(color: AppColors.blackColor),
+                      controller: _vehicleClass,
+                      decoration: InputDecoration(
+                          // errorText: codeIsEmpty ? 'This field is required' : null,
+                          label: MajorFont(
+                        text: 'Vehicle class',
+                        weight: false,
+                        size: 15,
+                      )
+                          //hintText: 'username',
+                    
+                          ),
+                      keyboardType: TextInputType.name,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: TextField(
+                      style: TextStyle(color: AppColors.blackColor),
+                      controller: _vehicleMake,
+                      decoration: InputDecoration(
+                          // errorText: codeIsEmpty ? 'This field is required' : null,
+                          label: MajorFont(
+                        text: 'Vehicle make',
+                        weight: false,
+                        size: 15,
+                      )
+                          //hintText: 'username',
+                    
+                          ),
+                      keyboardType: TextInputType.name,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: TextField(
+                      style: TextStyle(color: AppColors.blackColor),
+                      controller: _chassisNumber,
+                      decoration: InputDecoration(
+                          // errorText: codeIsEmpty ? 'This field is required' : null,
+                          label: MajorFont(
+                        text: 'Chassis number',
+                        weight: false,
+                        size: 15,
+                      )
+                          //hintText: 'username',
+                    
+                          ),
+                      keyboardType: TextInputType.name,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: TextField(
+                      style: TextStyle(color: AppColors.blackColor),
+                      controller: _engineNumber,
+                      decoration: InputDecoration(
+                          // errorText: codeIsEmpty ? 'This field is required' : null,
+                          label: MajorFont(
+                        text: 'Engine number',
+                        weight: false,
+                        size: 15,
+                      )
+                          //hintText: 'username',
+                    
+                          ),
+                      keyboardType: TextInputType.name,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: TextField(
+                      style: TextStyle(color: AppColors.blackColor),
+                      controller: _driversLicenceNumber,
+                      decoration: InputDecoration(
+                          // errorText: codeIsEmpty ? 'This field is required' : null,
+                          label: MajorFont(
+                        text: 'Driver licence number',
+                        weight: false,
+                        size: 15,
+                      )
+                          //hintText: 'username',
+                    
+                          ),
+                      keyboardType: TextInputType.name,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: TextField(
+                      style: TextStyle(color: AppColors.blackColor),
+                      controller: _vehicleColor,
+                      decoration: InputDecoration(
+                          // errorText: codeIsEmpty ? 'This field is required' : null,
+                          label: MajorFont(
+                        text: 'Vehicle color',
+                        weight: false,
+                        size: 15,
+                      )
+                          //hintText: 'username',
+                    
+                          ),
+                      keyboardType: TextInputType.name,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Container(
+                      padding: EdgeInsets.only(top: 20),
+                      child: InkWell(
+                          child: Button(text: 'Submit'),
+                          onTap: () {
+                            setState(() {
+                              _productCode.text.isEmpty
+                                  ? codeIsEmpty = true
+                                  : codeIsEmpty = false;
+                              _customerRef.text.isEmpty
+                                  ? refIsEmpty = true
+                                  : refIsEmpty = false;
+                              _paymentType.text.isEmpty
+                                  ? payIsEmpty = true
+                                  : payIsEmpty = false;
+                              _policyStartDate.text.isEmpty
+                                  ? dateIsEmpty = true
+                                  : dateIsEmpty = false;
+                              _assetvalue.text.isEmpty
+                                  ? assetIsEmpty = true
+                                  : assetIsEmpty = false;
+                              _regNumber.text.isEmpty
+                                  ? regIsEmpty = true
+                                  : regIsEmpty = false;
+                              _vehicleClass.text.isEmpty
+                                  ? classIsEmpty = true
+                                  : classIsEmpty = false;
+                              _vehicleMake.text.isEmpty
+                                  ? makeIsEmpty = true
+                                  : makeIsEmpty = false;
+                              _chassisNumber.text.isEmpty
+                                  ? chassisIsEmpty = true
+                                  : chassisIsEmpty = false;
+                              _engineNumber.text.isEmpty
+                                  ? engineIsEmpty = true
+                                  : engineIsEmpty = false;
+                              _driversLicenceNumber.text.isEmpty
+                                  ? licenceIsEmpty = true
+                                  : licenceIsEmpty = false;
+                              _vehicleColor.text.isEmpty
+                                  ? colorIsEmpty = true
+                                  : colorIsEmpty = false;
+                            });
+                            bool somefalse = codeIsEmpty ||
+                                refIsEmpty ||
+                                payIsEmpty ||
+                                dateIsEmpty ||
+                                assetIsEmpty ||
+                                regIsEmpty ||
+                                classIsEmpty ||
+                                makeIsEmpty ||
+                                chassisIsEmpty ||
+                                engineIsEmpty ||
+                                licenceIsEmpty ||
+                                colorIsEmpty;
+                    
+                            somefalse
+                                ? {
+                                    setState(
+                                      () {
+                                        shownotification();
+                                      },
+                                    ),
+                                  }
+                                : Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Payment()));
+                          }),
+                    ),
                   )
-                      //hintText: 'username',
-
-                      ),
-                  keyboardType: TextInputType.name,
-                ),
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.all(20.0),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  controller: _engineNumber,
-                  decoration: InputDecoration(
-                      // errorText: codeIsEmpty ? 'This field is required' : null,
-                      label: MajorFont(
-                    text: 'Engine number',
-                    weight: false,
-                    size: 15,
-                  )
-                      //hintText: 'username',
-
-                      ),
-                  keyboardType: TextInputType.name,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(20.0),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  controller: _driversLicenceNumber,
-                  decoration: InputDecoration(
-                      // errorText: codeIsEmpty ? 'This field is required' : null,
-                      label: MajorFont(
-                    text: 'Driver licence number',
-                    weight: false,
-                    size: 15,
-                  )
-                      //hintText: 'username',
-
-                      ),
-                  keyboardType: TextInputType.name,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(20.0),
-                child: TextField(
-                  style: TextStyle(color: AppColors.blackColor),
-                  controller: _vehicleColor,
-                  decoration: InputDecoration(
-                      // errorText: codeIsEmpty ? 'This field is required' : null,
-                      label: MajorFont(
-                    text: 'Vehicle color',
-                    weight: false,
-                    size: 15,
-                  )
-                      //hintText: 'username',
-
-                      ),
-                  keyboardType: TextInputType.name,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Container(
-                  padding: EdgeInsets.only(top: 20),
-                  child: InkWell(
-                      child: Button(text: 'Submit'),
-                      onTap: () {
-                        setState(() {
-                          _productCode.text.isEmpty
-                              ? codeIsEmpty = true
-                              : codeIsEmpty = false;
-                          _customerRef.text.isEmpty
-                              ? refIsEmpty = true
-                              : refIsEmpty = false;
-                          _paymentType.text.isEmpty
-                              ? payIsEmpty = true
-                              : payIsEmpty = false;
-                          _policyStartDate.text.isEmpty
-                              ? dateIsEmpty = true
-                              : dateIsEmpty = false;
-                          _assetvalue.text.isEmpty
-                              ? assetIsEmpty = true
-                              : assetIsEmpty = false;
-                          _regNumber.text.isEmpty
-                              ? regIsEmpty = true
-                              : regIsEmpty = false;
-                          _vehicleClass.text.isEmpty
-                              ? classIsEmpty = true
-                              : classIsEmpty = false;
-                          _vehicleMake.text.isEmpty
-                              ? makeIsEmpty = true
-                              : makeIsEmpty = false;
-                          _chassisNumber.text.isEmpty
-                              ? chassisIsEmpty = true
-                              : chassisIsEmpty = false;
-                          _engineNumber.text.isEmpty
-                              ? engineIsEmpty = true
-                              : engineIsEmpty = false;
-                          _driversLicenceNumber.text.isEmpty
-                              ? licenceIsEmpty = true
-                              : licenceIsEmpty = false;
-                          _vehicleColor.text.isEmpty
-                              ? colorIsEmpty = true
-                              : colorIsEmpty = false;
-                        });
-                        bool somefalse = codeIsEmpty ||
-                            refIsEmpty ||
-                            payIsEmpty ||
-                            dateIsEmpty ||
-                            assetIsEmpty ||
-                            regIsEmpty ||
-                            classIsEmpty ||
-                            makeIsEmpty ||
-                            chassisIsEmpty ||
-                            engineIsEmpty ||
-                            licenceIsEmpty ||
-                            colorIsEmpty;
-
-                        somefalse
-                            ? {
-                                setState(
-                                  () {
-                                    shownotification();
-                                  },
-                                ),
-                              }
-                            : Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Payment()));
-                      }),
-                ),
-              )
-            ],
+            ),
           ),
         ),
       ),

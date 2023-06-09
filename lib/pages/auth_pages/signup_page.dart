@@ -64,7 +64,7 @@ class _SignupPageState extends State<SignupPage> {
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.only(
-                      left: 20, right: 20, top: 20, bottom: 20),
+                      left: 30, right: 30, top: 20, bottom: 20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -86,7 +86,6 @@ class _SignupPageState extends State<SignupPage> {
                                 BorderRadius.all(Radius.circular(20))),
                         // color: Colorshite,
                         height: 465,
-                        width: 300,
 
                         child: Column(
                           children: [

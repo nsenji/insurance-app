@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
           : SingleChildScrollView(
               child: Center(
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
+                  padding: const EdgeInsets.only(top: 40, left: 30, right: 30),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -88,7 +88,6 @@ class _LoginPageState extends State<LoginPage> {
                                   BorderRadius.all(Radius.circular(20))),
                           // color: Colors.white,
                           height: 320,
-                          width: 300,
 
                           child: Column(
                             children: [

@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'InsurEase', debugShowCheckedModeBanner: false, home: NavBar());
+        title: 'InsurEase', debugShowCheckedModeBanner: false, home: Welcome());
   }
 }
 
