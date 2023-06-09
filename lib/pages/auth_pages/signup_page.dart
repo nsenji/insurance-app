@@ -61,169 +61,170 @@ class _SignupPageState extends State<SignupPage> {
               ),
             )
           : SingleChildScrollView(
-              child: Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(top: 17, left: 17),
-                    height: 130,
-                    width: 180,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            fit: BoxFit.contain,
-                            image: AssetImage('assets/images/auth.png'))),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 30, left: 30),
-                    decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            spreadRadius: 2,
-                            blurRadius: 2,
-                            // changes position of shadow
-                          ),
-                        ],
-                        color: AppColors.containerColor,
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                    // color: Colorshite,
-                    height: 465,
-                    width: 300,
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      left: 20, right: 20, top: 20, bottom: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/images/auth.png'),
+                      const SizedBox(height: 20),
+                      Container(
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.2),
+                                spreadRadius: 2,
+                                blurRadius: 2,
+                                // changes position of shadow
+                              ),
+                            ],
+                            color: AppColors.containerColor,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        // color: Colorshite,
+                        height: 465,
+                        width: 300,
 
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(20.0),
-                          child: TextField(
-                            style: TextStyle(color: AppColors.blackColor),
-                            controller: _firstname,
-                            decoration: InputDecoration(
-                                // border: OutlineInputBorder(
-                                //   //borderRadius: BorderRadius.circular(60)
-                                // ),
-                                label: MajorFont(
-                              text: 'First Name',
-                              weight: false,
-                              size: 15,
-                            )
-                                //hintText: 'username',
-
-                                ),
-                            keyboardType: TextInputType.name,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(17.0),
-                          child: TextField(
-                            style: TextStyle(color: AppColors.blackColor),
-                            controller: _lastname,
-                            decoration: InputDecoration(
-                                // border: OutlineInputBorder(
-                                //   //borderRadius: BorderRadius.circular(60)
-                                // ),
-                                label: MajorFont(
-                              text: 'Last Name',
-                              weight: false,
-                              size: 15,
-                            )
-                                //hintText: 'Email',
-
-                                ),
-                            keyboardType: TextInputType.name,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(17.0),
-                          child: TextField(
-                            style: TextStyle(color: AppColors.blackColor),
-                            controller: _email,
-                            decoration: InputDecoration(
-                                // border: OutlineInputBorder(
-                                //   //borderRadius: BorderRadius.circular(60)
-                                // ),
-                                label: MajorFont(
-                              text: 'Email',
-                              weight: false,
-                              size: 15,
-                            )),
-                            keyboardType: TextInputType.emailAddress,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(17.0),
-                          child: TextField(
-                            obscureText: passwordvisible ? false : true,
-                            style: TextStyle(color: AppColors.blackColor),
-                            controller: _password,
-                            decoration: InputDecoration(
-                                // border: OutlineInputBorder(
-                                //   //borderRadius: BorderRadius.circular(60)
-                                // ),
-                                label: MajorFont(
-                                  text: 'Password',
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: TextField(
+                                style: TextStyle(color: AppColors.blackColor),
+                                controller: _firstname,
+                                decoration: InputDecoration(
+                                    // border: OutlineInputBorder(
+                                    //   //borderRadius: BorderRadius.circular(60)
+                                    // ),
+                                    label: MajorFont(
+                                  text: 'First Name',
                                   weight: false,
                                   size: 15,
-                                ),
-                                suffixIcon: IconButton(
-                                  onPressed: () {
-                                    if (passwordvisible == true) {
+                                )
+                                    //hintText: 'username',
+
+                                    ),
+                                keyboardType: TextInputType.name,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(17.0),
+                              child: TextField(
+                                style: TextStyle(color: AppColors.blackColor),
+                                controller: _lastname,
+                                decoration: InputDecoration(
+                                    // border: OutlineInputBorder(
+                                    //   //borderRadius: BorderRadius.circular(60)
+                                    // ),
+                                    label: MajorFont(
+                                  text: 'Last Name',
+                                  weight: false,
+                                  size: 15,
+                                )
+                                    //hintText: 'Email',
+
+                                    ),
+                                keyboardType: TextInputType.name,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(17.0),
+                              child: TextField(
+                                style: TextStyle(color: AppColors.blackColor),
+                                controller: _email,
+                                decoration: InputDecoration(
+                                    // border: OutlineInputBorder(
+                                    //   //borderRadius: BorderRadius.circular(60)
+                                    // ),
+                                    label: MajorFont(
+                                  text: 'Email',
+                                  weight: false,
+                                  size: 15,
+                                )),
+                                keyboardType: TextInputType.emailAddress,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(17.0),
+                              child: TextField(
+                                obscureText: passwordvisible ? false : true,
+                                style: TextStyle(color: AppColors.blackColor),
+                                controller: _password,
+                                decoration: InputDecoration(
+                                    // border: OutlineInputBorder(
+                                    //   //borderRadius: BorderRadius.circular(60)
+                                    // ),
+                                    label: MajorFont(
+                                      text: 'Password',
+                                      weight: false,
+                                      size: 15,
+                                    ),
+                                    suffixIcon: IconButton(
+                                      onPressed: () {
+                                        if (passwordvisible == true) {
+                                          setState(() {
+                                            passwordvisible = false;
+                                          });
+                                        } else {
+                                          setState(() {
+                                            passwordvisible = true;
+                                          });
+                                        }
+                                      },
+                                      icon: Icon(
+                                        passwordvisible
+                                            ? Icons.visibility
+                                            : Icons.visibility_off,
+                                        color: AppColors.primeColor,
+                                        size: 15,
+                                      ),
+                                    )),
+                                keyboardType: TextInputType.emailAddress,
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(top: 20),
+                              child: InkWell(
+                                  onTap: () async {
+                                    setState(() {
+                                      loading = true;
+                                    });
+                                    bool shouldNavigate = await signUp(
+                                      _email.text,
+                                      _password.text,
+                                      _firstname.text,
+                                      _lastname.text,
+                                    );
+
+                                    if (shouldNavigate) {
                                       setState(() {
-                                        passwordvisible = false;
+                                        loading = false;
                                       });
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  LoginPage()));
                                     } else {
                                       setState(() {
-                                        passwordvisible = true;
+                                        loading = false;
+                                      });
+                                      setState(() {
+                                        shownotification();
                                       });
                                     }
                                   },
-                                  icon: Icon(
-                                    passwordvisible
-                                        ? Icons.visibility
-                                        : Icons.visibility_off,
-                                    color: AppColors.primeColor,
-                                    size: 15,
-                                  ),
-                                )),
-                            keyboardType: TextInputType.emailAddress,
-                          ),
+                                  child: Button(text: 'Sign up')),
+                            ),
+                          ],
                         ),
-                        Container(
-                          padding: EdgeInsets.only(top: 20),
-                          child: InkWell(
-                              onTap: () async {
-                                setState(() {
-                                  loading = true;
-                                });
-                                bool shouldNavigate = await signUp(
-                                  _email.text,
-                                  _password.text,
-                                  _firstname.text,
-                                  _lastname.text,
-                                );
-
-                                if (shouldNavigate) {
-                                  setState(() {
-                                    loading = false;
-                                  });
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => LoginPage()));
-                                } else {
-                                  setState(() {
-                                    loading = false;
-                                  });
-                                  setState(() {
-                                    shownotification();
-                                  });
-                                }
-                              },
-                              child: Button(text: 'Sign up')),
-                        ),
-                        
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
     );

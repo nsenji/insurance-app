@@ -59,6 +59,8 @@ class _HomeState extends State<Home> {
       'assets/images/travel.png',
       'assets/images/job-loss.png',
       'assets/images/comprehensive-auto.png',
+      'assets/images/comprehensive-auto.png',
+      'assets/images/comprehensive-auto.png',
       'assets/images/comprehensive-auto.png'
     ];
 
@@ -248,7 +250,7 @@ class _HomeState extends State<Home> {
                               child: Row(children: [
                                 Container(
                                   height: 70,
-                                  width: 130,
+                                  width: 100,
                                   child: Center(
                                       child: Container(
                                     height: 55,
