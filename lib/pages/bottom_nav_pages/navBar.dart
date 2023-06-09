@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/pages/app_pages/welcome.dart';
 import 'package:insurease/pages/bottom_nav_pages/myPolicies_page.dart';
 import 'package:insurease/pages/bottom_nav_pages/products_page.dart';
@@ -52,13 +51,13 @@ class _NavBarState extends State<NavBar> {
           selectedLabelStyle: TextStyle(
             fontFamily: 'BubblegumSans',
             ),
-          selectedFontSize: 10.sp,
-          unselectedFontSize: 10.sp,
+          selectedFontSize: 10,
+          unselectedFontSize: 10,
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.white,
           currentIndex: nowIndex,
           onTap: onTap,
-          elevation: 0.sp,
+          elevation: 0,
           showSelectedLabels:true,
           showUnselectedLabels: true,
           selectedItemColor: Color.fromARGB(193, 0, 0, 0),

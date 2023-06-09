@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/api/getUser.dart';
 import 'package:insurease/notifiers/productType.dart';
 import 'package:insurease/pages/app_pages/PlanCategories.dart';
@@ -59,13 +58,16 @@ class _HomeState extends State<Home> {
       'assets/images/fire-and-burglary-insurance.png',
       'assets/images/travel.png',
       'assets/images/job-loss.png',
+      'assets/images/comprehensive-auto.png',
+      'assets/images/comprehensive-auto.png',
+      'assets/images/comprehensive-auto.png',
       'assets/images/comprehensive-auto.png'
     ];
 
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
-        elevation: 0.h,
+        elevation: 0,
         backgroundColor: AppColors.whiteColor,
         title: MajorFont(
           text: 'Home',
@@ -87,41 +89,33 @@ class _HomeState extends State<Home> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 20.w, top: 10.h),
-                  child: SizedBox(
-                    height: 35.h,
-                    child: MajorFont(
-                      text:
-                          'Hi, ${Provider.of<UserNotifier>(context, listen: false).user?.lastname}',
-                      color: AppColors.primeColor,
-                      weight: false,
-                      size: 17,
-                    ),
-                  ),
-                ),
                 SizedBox(
-                  height: 170.h,
                   child: Card(
                     color: AppColors.containerColor,
                     surfaceTintColor: AppColors.containerColor,
-                    margin: EdgeInsets.only(left: 20.w, right: 20.w),
+                    margin: const EdgeInsets.only(
+                        left: 20, right: 20, top: 10, bottom: 3),
                     elevation: 15,
-                    child: Row(children: [
-                      Container(
-                        width: 310.w,
-                        margin: EdgeInsets.only(left: 7.h, top: 7.h),
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: IntrinsicHeight(
                         child: Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
-                              width: 150.w,
+                            Expanded(
                               child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+                                    MajorFont(
+                                      text:
+                                          '${Provider.of<UserNotifier>(context, listen: false).user?.firstname} ${Provider.of<UserNotifier>(context, listen: false).user?.lastname}',
+                                      color: AppColors.primeColor,
+                                      size: 17,
+                                      weight: false,
+                                    ),
                                     SizedBox(
-                                      height: 4.h,
+                                      height: 2,
                                     ),
                                     MajorFont(
                                       text:
@@ -130,75 +124,81 @@ class _HomeState extends State<Home> {
                                       size: 11,
                                       weight: false,
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 40.h, left: 20.w),
-                                      child: MajorFont(
-                                        text: '0 UGX',
-                                        size: 17,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 2, left: 20.w),
-                                      child: MajorFont(
-                                        text: 'Amount Insured',
-                                        weight: false,
-                                        size: 11,
-                                        color: AppColors.blackColor,
-                                      ),
-                                    ),
                                     SizedBox(
-                                      height: 40.h,
+                                      height: 88,
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(left: 20.w),
+                                    IntrinsicHeight(
                                       child: Row(
                                         children: [
-                                          MajorFont(
-                                            text: '0',
-                                            weight: false,
-                                            size: 13,
+                                          Column(
+                                            children: [
+                                              MajorFont(
+                                                text: '0',
+                                                weight: false,
+                                                size: 14,
+                                              ),
+                                              MajorFont(
+                                                  text: 'Claims',
+                                                  weight: false,
+                                                  size: 12,
+                                                  color: AppColors.blackColor),
+                                            ],
                                           ),
                                           SizedBox(
-                                            width: 5.w,
+                                            width: 12,
+                                            child: VerticalDivider(
+                                              width: 7,
+                                              thickness: 1,
+                                              color: AppColors.blackColor,
+                                              endIndent: 3,
+                                            ),
                                           ),
-                                          MajorFont(
-                                            text: 'Active policies',
-                                            weight: false,
-                                            size: 11,
-                                            color: AppColors.blackColor,
-                                          )
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              MajorFont(
+                                                text: '0',
+                                                weight: false,
+                                                size: 14,
+                                              ),
+                                              MajorFont(
+                                                  text: 'Policies',
+                                                  weight: false,
+                                                  color: AppColors.blackColor,
+                                                  size: 12),
+                                            ],
+                                          ),
                                         ],
                                       ),
-                                    ),
-                                    SizedBox(
-                                      height: 5.h,
-                                    ),
+                                    )
                                   ]),
                             ),
-                            Padding(
-                              padding:
-                                  EdgeInsets.only(left: 30.w, bottom: 20.h),
-                              child: Container(
-                                height: 90.h,
-                                width: 90.w,
-                                decoration: const BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/Daco_4959960.png'))),
-                              ),
-                            )
+                            Expanded(
+                                child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.topRight,
+                                  child: Container(
+                                    height: 60,
+                                    width: 60,
+                                    decoration: const BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                'assets/images/insuance_image_green.png'))),
+                                  ),
+                                ),
+                              ],
+                            ))
                           ],
                         ),
-                      )
-                    ]),
+                      ),
+                    ),
                   ),
                 ),
                 Container(
                   height: 30,
-                  margin: EdgeInsets.only(
-                      left: 14.w, top: 8.h, right: 15.w, bottom: 8.h),
+                  margin:
+                      EdgeInsets.only(left: 14, top: 13, right: 15, bottom: 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -220,16 +220,17 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: 5,
                 ),
                 Expanded(
                   child: Scrollbar(
                     thumbVisibility: true,
                     child: ListView.builder(
-                        padding: EdgeInsets.only(left: 2.w, right: 2.w),
+                        primary: true,
+                        padding: EdgeInsets.only(left: 2, right: 2),
                         shrinkWrap: true,
                         itemCount: Provider.of<ProductTypeNotifier>(context,
-                                listen: false)
+                                listen: true)
                             .productList
                             .length,
                         itemBuilder: (_, index) {
@@ -245,25 +246,25 @@ class _HomeState extends State<Home> {
                               color: AppColors.whiteColor,
                               elevation: 10,
                               margin: EdgeInsets.only(
-                                  left: 20.w, right: 20.w, bottom: 7),
+                                  left: 20, right: 20, bottom: 7, top: 5),
                               child: Row(children: [
                                 Container(
-                                  height: 70.h,
-                                  width: 130.w,
+                                  height: 70,
+                                  width: 100,
                                   child: Center(
                                       child: Container(
-                                    height: 55.h,
-                                    width: 75.w,
+                                    height: 55,
+                                    width: 75,
                                     decoration: BoxDecoration(
                                         image: DecorationImage(
                                             image: AssetImage(icons[index]))),
                                   )),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(top: 12.h),
-                                  padding: EdgeInsets.only(top: 8.h),
-                                  height: 70.h,
-                                  width: 145.w,
+                                  margin: EdgeInsets.only(top: 12),
+                                  padding: EdgeInsets.only(top: 8),
+                                  height: 70,
+                                  width: 145,
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -275,7 +276,7 @@ class _HomeState extends State<Home> {
                                             '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].name}',
                                         color: AppColors.blackColor,
                                       ),
-                                      SizedBox(height: 4.h),
+                                      SizedBox(height: 4),
                                       MajorFont(
                                         weight: false,
                                         text:
@@ -285,20 +286,23 @@ class _HomeState extends State<Home> {
                                         size: 15,
                                       ),
                                       SizedBox(
-                                        height: 9.h,
+                                        height: 9,
                                       ),
                                     ],
                                   ),
                                 ),
-                                Container(
-                                  height: 80.h,
-                                  width: 40.w,
-                                  child: Center(
-                                      child: Icon(
-                                    Icons.arrow_forward_ios,
-                                    size: 20,
-                                    color: AppColors.primeColor,
-                                  )),
+                                const Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsets.only(right: 15),
+                                    child: Align(
+                                        alignment:
+                                            AlignmentDirectional.centerEnd,
+                                        child: Icon(
+                                          Icons.arrow_forward_ios,
+                                          size: 20,
+                                          color: AppColors.primeColor,
+                                        )),
+                                  ),
                                 )
                               ]),
                             ),

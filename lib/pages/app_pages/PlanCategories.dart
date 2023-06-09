@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insurease/api/get_plans.dart';
 import 'package:insurease/pages/app_pages/productDetails.dart';
 import 'package:insurease/styles/colors.dart';
@@ -48,7 +47,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
-        elevation: 0.h,
+        elevation: 0,
         backgroundColor: AppColors.whiteColor,
         title: MajorFont(
           text: '$name2 insurance plans',
@@ -67,7 +66,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
               ),
             )
           : ListView.builder(
-              padding: EdgeInsets.only(left: 2.w, right: 2.w),
+              padding: EdgeInsets.only(left: 2, right: 2),
               shrinkWrap: true,
               itemCount: Provider.of<AllPlansNotifier>(context, listen: false)
                   .plansList
@@ -82,25 +81,26 @@ class _PlanCategoriesState extends State<PlanCategories> {
                                 category: name2,
                               ))),
                   child: Container(
-                    margin: EdgeInsets.only(top: 13.h, right: 15.w, left: 15.w),
+                    margin: EdgeInsets.only(top: 13, right: 15, left: 15),
                     decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.2),
-                            spreadRadius: 2.r,
-                            blurRadius: 2.r,
+                            spreadRadius: 2,
+                            blurRadius: 2,
                             // changes position of shadow
                           ),
                         ],
                         color: AppColors.containerColor,
-                        borderRadius: BorderRadius.all(Radius.circular(9.r))),
-                    height: 120.h,
+                        borderRadius: BorderRadius.all(Radius.circular(9))),
+                    height: 120,
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(left: 9.w),
-                          height: 100.h,
-                          width: 130.w,
+                          margin: EdgeInsets.only(left: 9),
+                          height: 100,
+                          width: 130,
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                   fit: BoxFit.contain,
@@ -115,77 +115,81 @@ class _PlanCategoriesState extends State<PlanCategories> {
                                       : NetworkImage(
                                           '${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].logoUrl}'))),
                         ),
-                        SizedBox(
-                          height: 100.h,
-                          width: 22.w,
+                        const Expanded(
+                          flex: 1,
+                          child: SizedBox(
+                            height: 100,
+                          ),
                         ),
-                        Container(
-                          height: 100.h,
-                          width: 160.w,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              MajorFont(
-                                text:
-                                    '${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].title}',
-                                size: 17,
-                                weight: false,
-                                color: AppColors.primeColor,
-                                flowover: true,
-                              ),
-                              SizedBox(
-                                height: 9.h,
-                                width: 140.w,
-                              ),
-                              MajorFont(
-                                text:
-                                    'By : ${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].insurer}',
-                                weight: false,
-                                size: 17,
-                                flowover: true,
-                                color: AppColors.blackColor,
-                              ),
-                              SizedBox(
-                                height: 9.h,
-                                width: 140.w,
-                              ),
-                              MajorFont(
-                                text:
-                                    'Type : ${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].premiumType}',
-                                weight: false,
-                                size: 17,
-                                flowover: true,
-                                color: AppColors.blackColor,
-                              ),
-                              SizedBox(
-                                height: 5.h,
-                                width: 140.w,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                      padding: EdgeInsets.only(bottom: 3.h),
-                                      child: Text(
-                                        'Details',
-                                        style: TextStyle(
-                                            color: AppColors.primeColor,
-                                            fontSize: 14.sp,
-                                            fontFamily: 'BubblegumSans'),
-                                        overflow: TextOverflow.ellipsis,
-                                      )),
-                                  SizedBox(
-                                    width: 2.w,
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward_ios,
-                                    size: 15,
-                                    color: AppColors.primeColor,
-                                  )
-                                ],
-                              )
-                            ],
+                        Expanded(
+                          flex: 5,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 10, right: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                MajorFont(
+                                  text:
+                                      '${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].title}',
+                                  size: 17,
+                                  weight: false,
+                                  color: AppColors.primeColor,
+                                  flowover: true,
+                                ),
+                                const SizedBox(
+                                  height: 14,
+                                  width: 140,
+                                ),
+                                MajorFont(
+                                  text:
+                                      'By : ${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].insurer}',
+                                  weight: false,
+                                  size: 17,
+                                  flowover: true,
+                                  color: AppColors.blackColor,
+                                ),
+                                SizedBox(
+                                  height: 9,
+                                  width: 140,
+                                ),
+                                MajorFont(
+                                  text:
+                                      'Type : ${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].premiumType}',
+                                  weight: false,
+                                  size: 17,
+                                  flowover: true,
+                                  color: AppColors.blackColor,
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                  width: 140,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                        padding: EdgeInsets.only(bottom: 3),
+                                        child: Text(
+                                          'Details',
+                                          style: TextStyle(
+                                              color: AppColors.primeColor,
+                                              fontSize: 14,
+                                              fontFamily: 'BubblegumSans'),
+                                          overflow: TextOverflow.ellipsis,
+                                        )),
+                                    SizedBox(
+                                      width: 2,
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 15,
+                                      color: AppColors.primeColor,
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         )
                       ],

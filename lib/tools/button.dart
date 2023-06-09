@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Button extends StatelessWidget {
   double width;
@@ -14,8 +13,8 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(children: [
       Container(
-          height: height.h,
-          width: width.w,
+          height: height,
+          width: width,
           decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(
@@ -27,7 +26,7 @@ class Button extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'BubblegumSans',
-                    fontSize: 15.sp)),
+                    fontSize: 15)),
           ))
     ]);
   }
