@@ -74,11 +74,10 @@ class _HomeState extends State<Home> {
           color: AppColors.blackColor,
           weight: false,
         ),
-        leading: IconButton(
-            color: AppColors.blackColor,
-            onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.arrow_back)),
+        
       ),
+      drawer: const Icon(Icons.menu,
+      color: AppColors.blackColor,),
       body: isLoading
           ? const Center(
               child: CircularProgressIndicator(
