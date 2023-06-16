@@ -79,7 +79,6 @@ class _GITState extends State<GIT> {
                 ],
                 color: AppColors.containerColor,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            height: 1070,
             child: Center(
               child: Column(
                 children: [
@@ -327,6 +326,11 @@ class _GITState extends State<GIT> {
                           }),
                     ),
                   )
+                  ,
+                    Padding(
+                      padding: EdgeInsets.all(25.0),
+                      
+                    ),
                 ],
               ),
             ),

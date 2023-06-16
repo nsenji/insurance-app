@@ -35,8 +35,15 @@ class _EditProfileState extends State<EditProfile> {
             icon: const Icon(Icons.arrow_back)),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [],
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(13),
+            child: Column(
+              children: [
+                
+              ],
+            ),
+          ),
         ),
       ),
       backgroundColor: AppColors.whiteColor,

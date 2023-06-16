@@ -74,7 +74,6 @@ class _TravelState extends State<Travel> {
                 ],
                 color: AppColors.containerColor,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            height: 780,
             child: Center(
               child: Column(
                 children: [
@@ -276,6 +275,11 @@ class _TravelState extends State<Travel> {
                           }),
                     ),
                   )
+                  ,
+                    Padding(
+                      padding: EdgeInsets.all(25.0),
+                      
+                    ),
                 ],
               ),
             ),

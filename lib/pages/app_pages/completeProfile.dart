@@ -97,8 +97,8 @@ class _CompleteProfileState extends State<CompleteProfile> {
             )
           : SingleChildScrollView(
               child: Container(
-                margin: EdgeInsets.only(
-                    top: 30, left: 30, right: 20, bottom: 30),
+                margin:
+                    EdgeInsets.only(top: 30, left: 30, right: 30, bottom: 30),
                 decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
@@ -110,8 +110,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     ],
                     color: AppColors.containerColor,
                     borderRadius: BorderRadius.all(Radius.circular(20))),
-                height: 850,
-                width: 300,
+                // height: 850,
                 child: Column(
                   children: [
                     Padding(
@@ -328,7 +327,11 @@ class _CompleteProfileState extends State<CompleteProfile> {
                                     };
                             }),
                       ),
-                    )
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.all(25.0),
+                      
+                    ),
                   ],
                 ),
               ),

@@ -85,7 +85,6 @@ class _SignupPageState extends State<SignupPage> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                         // color: Colorshite,
-                        height: 465,
 
                         child: Column(
                           children: [
@@ -218,6 +217,11 @@ class _SignupPageState extends State<SignupPage> {
                                   },
                                   child: Button(text: 'Sign up')),
                             ),
+                            
+                    Padding(
+                      padding: EdgeInsets.all(25.0),
+                      
+                    ),
                           ],
                         ),
                       ),

@@ -87,7 +87,6 @@ class _LoginPageState extends State<LoginPage> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20))),
                           // color: Colors.white,
-                          height: 320,
 
                           child: Column(
                             children: [
@@ -175,7 +174,12 @@ class _LoginPageState extends State<LoginPage> {
                                       }
                                     },
                                     child: Button(text: 'Login')),
-                              )
+                              ),
+                              
+                    Padding(
+                      padding: EdgeInsets.all(25.0),
+                      
+                    ),
                             ],
                           ),
                         ),

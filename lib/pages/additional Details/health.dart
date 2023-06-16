@@ -101,7 +101,6 @@ class _HealthState extends State<Health> {
                 ],
                 color: AppColors.containerColor,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            height: 700,
             child: Center(
               child: Column(
                 children: [
@@ -280,6 +279,11 @@ class _HealthState extends State<Health> {
                           }),
                     ),
                   )
+                  ,
+                    Padding(
+                      padding: EdgeInsets.all(25.0),
+                      
+                    ),
                 ],
               ),
             ),

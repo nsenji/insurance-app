@@ -79,7 +79,6 @@ class _CreditLifeState extends State<CreditLife> {
                 ],
                 color: AppColors.containerColor,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            height:1070,
             
             child: Center(
               child: Column(
@@ -328,6 +327,11 @@ class _CreditLifeState extends State<CreditLife> {
                           }),
                     ),
                   )
+                  ,
+                    Padding(
+                      padding: EdgeInsets.all(25.0),
+                      
+                    ),
                 ],
               ),
             ),
