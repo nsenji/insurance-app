@@ -41,4 +41,17 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
+
+
+// [to build an apk for the different mobile architectures]
 // flutter build apk --split-per-abi
+
+// before updating the flutter version make sure you can see the version that were used in that
+// current project and note them down so that you can easily revert to them once you want to work 
+// on that particular project again
+
+// [to run this project in the future when you have an updated flutter and dart version]
+// run flutter downrgade
+// then run flutter --version   then the dart version will also dowgrade accordingly
+// 
