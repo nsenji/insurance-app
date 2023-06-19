@@ -31,12 +31,21 @@ class _NotificationsState extends State<Notifications> {
         ),
       ),
       body: Center(
-        child: MajorFont(
-          text: 'you dont have any notifications...',
-          weight: false,
-          size: 20,
-          color: AppColors.blackColor,
+        child: Padding(
+        padding: const EdgeInsets.only(bottom: 140),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.notifications,
+            size: 150,
+            color: AppColors.greyColor,
+            ),
+            SizedBox(height: 15,),
+            MajorFont(text: 'You have no notifications.',weight: false,color: Color.fromARGB(255, 189, 184, 184),),
+          ],
         ),
+      ),
       ),
     );
   }

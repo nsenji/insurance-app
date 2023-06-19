@@ -30,7 +30,21 @@ class _AppSettingsState extends State<AppSettings> {
         ),
       ),
       body: Center(
-        child: MajorFont(text: 'coming soon...', weight: false,color: AppColors.blackColor,),
+        child: Padding(
+        padding: const EdgeInsets.only(bottom: 140),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.settings,
+            size: 150,
+            color: AppColors.greyColor,
+            ),
+            SizedBox(height: 15,),
+            MajorFont(text: 'Coming soon...',weight: false,color: Color.fromARGB(255, 189, 184, 184),),
+          ],
+        ),
+      ),
       ),
     );
   }
