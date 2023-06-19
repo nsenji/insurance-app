@@ -156,14 +156,12 @@ class _LoginPageState extends State<LoginPage> {
                                           _passwordField.text.trim());
 
                                       if (shouldNavigate) {
-                                        setState(() {
-                                          loading = false;
-                                        });
+                                        
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    NavBar()));
+                                                    const NavBar()));
                                       } else {
                                         setState(() {
                                           loading = false;

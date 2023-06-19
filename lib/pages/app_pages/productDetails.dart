@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:flutter_html/flutter_html.dart';
 import 'package:insurease/notifiers/allPlansNotifier.dart';
 import 'package:insurease/notifiers/userObjectNotifier.dart';
@@ -9,7 +8,7 @@ import 'package:insurease/pages/app_pages/completeProfile.dart';
 import 'package:insurease/styles/colors.dart';
 import 'package:provider/provider.dart';
 
-import '../../api/getUser.dart';
+import '../../authentication/getUser.dart';
 import '../../tools/button.dart';
 import '../../tools/major_font.dart';
 import '../additional Details/FireBurglary.dart';

@@ -5,6 +5,7 @@ class UserObject {
   String email = '';
   dynamic profileComplete = false;
 
+  UserObject();
   UserObject.fromMap(data) {
     firstname = data['firstname'];
     lastname = data['lastname'];
