@@ -88,8 +88,16 @@ class _HomeState extends State<Home> {
         child: SafeArea(
           child: ListView(
             padding: EdgeInsets.zero,
-            children: const [
-              ListTile(title: Text('item 1'),)
+            children:  [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: AppColors.containerColor
+                ),
+                child: Center(
+                child: Text('coming soon...'),
+              )),
+
+              ListTile(title: Text(''),)
             ],
           ),
         ),

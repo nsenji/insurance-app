@@ -75,7 +75,7 @@ class _HealthState extends State<Health> {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.containerColor,
         title: MajorFont(
           text: 'Additional details',
           color: AppColors.blackColor,

@@ -79,7 +79,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.containerColor,
         title: MajorFont(
           text: 'Complete profile',
           color: AppColors.blackColor,

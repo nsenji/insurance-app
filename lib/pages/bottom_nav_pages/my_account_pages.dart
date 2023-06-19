@@ -39,7 +39,7 @@ class _ProfileState extends State<Profile> {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.containerColor,
         title: MajorFont(
           text: 'My account',
           color: AppColors.blackColor,
@@ -112,7 +112,7 @@ class _ProfileState extends State<Profile> {
                   ],
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 25,
                 ),
                 Center(
                   child: SizedBox(
