@@ -17,11 +17,12 @@ class _AppSettingsState extends State<AppSettings> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
+        elevation: 0,
         leading: IconButton(
             color: AppColors.blackColor,
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back)),
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.containerColor,
         title: MajorFont(
           text: 'Settings',
           color: AppColors.blackColor,
@@ -29,7 +30,7 @@ class _AppSettingsState extends State<AppSettings> {
         ),
       ),
       body: Center(
-        child: MajorFont(text: 'This is going to be the app settings page'),
+        child: MajorFont(text: 'coming soon...', weight: false,color: AppColors.blackColor,),
       ),
     );
   }

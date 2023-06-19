@@ -18,27 +18,24 @@ class _NotificationsState extends State<Notifications> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
+        elevation: 0,
         leading: IconButton(
             color: AppColors.blackColor,
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back)),
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.containerColor,
         title: MajorFont(
           text: 'Notifications',
           color: AppColors.blackColor,
           weight: false,
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.only(top: 40, left: 65),
-          height: 300,
-          width: 250,
-          child: MajorFont(
-            text: 'you dont have any notifications',
-            weight: false,
-            size: 20,
-          ),
+      body: Center(
+        child: MajorFont(
+          text: 'you dont have any notifications...',
+          weight: false,
+          size: 20,
+          color: AppColors.blackColor,
         ),
       ),
     );

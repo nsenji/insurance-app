@@ -24,26 +24,11 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final TextEditingController _searchController = TextEditingController();
-  bool isLoading = true;
+  bool isLoading = false;
 
-  @override
-  void initState() {
-    super.initState();
-    loadData();
-  }
+ 
 
-  void loadData() async {
-    // await Future.delayed(Duration(seconds: 6));
-    ProductTypeNotifier productType =
-        Provider.of<ProductTypeNotifier>(context, listen: false);
-    UserNotifier userNotifier =
-        Provider.of<UserNotifier>(context, listen: false);
-    await getProductTypes(productType);
-    await getUser(userNotifier);
-    setState(() {
-      isLoading = false;
-    });
-  }
+  
 
   @override
   Widget build(BuildContext context) {
