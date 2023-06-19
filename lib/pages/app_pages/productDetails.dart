@@ -33,6 +33,8 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
+
+
   void initState() {
     UserNotifier userNotifier =
         Provider.of<UserNotifier>(context, listen: false);
@@ -319,22 +321,35 @@ class _ProductDetailsState extends State<ProductDetails> {
                           context: context,
                           builder: (context) {
                             return AlertDialog(
-                              content: MajorFont(
-                                text:
-                                    'You need to complete your profile first',
-                                weight: false,
-                                size: 20.5,
+                              backgroundColor: AppColors.containerColor,
+                              iconColor: Colors.red,
+                              icon: Icon(Icons.warning,size: 39,),
+                              content: Padding(
+                                padding: const EdgeInsets.only(left: 14),
+                                child: MajorFont(
+                                  text:
+                                      'Complete your profile first !',
+                                  weight: false,
+                                  size: 20.5,
+                                  color: AppColors.blackColor,
+                                ),
                               ),
                               actions: [
                                 InkWell(
                                     onTap: () {
-                                      Navigator.push(
+                                      
+                                    },
+                                    child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: AppColors.primeColor ,
+                                      ),
+                                      onPressed: (){
+                                        Navigator.push(
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
                                                   CompleteProfile()));
-                                    },
-                                    child: Button(text: 'Complete'))
+                                      }, child: MajorFont(text: 'Complete', weight: false,size: 18,color: AppColors.whiteColor,)))
                               ],
                             );
                           });

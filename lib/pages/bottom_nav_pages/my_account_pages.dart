@@ -73,7 +73,7 @@ class _ProfileState extends State<Profile> {
                     ),
                     Container(
                       alignment: Alignment.center,
-                      margin: EdgeInsets.only(top: 14),
+                      margin: const EdgeInsets.only(top: 14),
                       height: 30,
                       width: 300,
                       child: MajorFont(
@@ -90,6 +90,7 @@ class _ProfileState extends State<Profile> {
                         text: '${userNotifier.user?.email}',
                         weight: false,
                         size: 20,
+                        color: AppColors.blackColor,
                       ),
                     ),
                     Container(
@@ -103,7 +104,7 @@ class _ProfileState extends State<Profile> {
                             Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Welcome()),
+                                  builder: (context) => const Welcome()),
                               (route) => false,
                             );
                           },
@@ -111,40 +112,48 @@ class _ProfileState extends State<Profile> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Center(
                   child: SizedBox(
-                    height: 340,
                     child: Column(
                       children: [
                         InkWell(
                           onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => CompleteProfile())),
+                                  builder: (context) =>
+                                      const CompleteProfile())),
                           child: Container(
-                            height: 45,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                MajorFont(
-                                  text: 'Complete Profile',
-                                  weight: false,
-                                  size: 20,
-                                  color: AppColors.blackColor,
-                                ),
-                                const Icon(
-                                    color: AppColors.primeColor,
-                                    Icons.arrow_forward_sharp)
-                              ],
+                            decoration: BoxDecoration(
+                              color: AppColors.containerColor,
+                              borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(16),
+                                  topRight: Radius.circular(16)),
+                              border: Border.all(color: AppColors.greyColor),
+                            ),
+                            height: 65,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 10, right: 10),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  MajorFont(
+                                    text: 'Complete Profile',
+                                    weight: false,
+                                    size: 20,
+                                    color: AppColors.blackColor,
+                                  ),
+                                  const Icon(
+                                      color: AppColors.primeColor,
+                                      Icons.arrow_forward_sharp)
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        Divider(
-                          thickness: 1,
-                          color: AppColors.greyColor,
                         ),
                         InkWell(
                           onTap: () => Navigator.push(
@@ -152,26 +161,40 @@ class _ProfileState extends State<Profile> {
                               MaterialPageRoute(
                                   builder: (context) => const EditProfile())),
                           child: Container(
-                            height: 45,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                MajorFont(
-                                  text: 'Edit Profile',
-                                  weight: false,
-                                  size: 20,
-                                  color: AppColors.blackColor,
-                                ),
-                                const Icon(
-                                    color: AppColors.primeColor,
-                                    Icons.arrow_forward_sharp)
-                              ],
+                            decoration: const BoxDecoration(
+                              color: AppColors.containerColor,
+                              border: Border(
+                                  right: BorderSide(
+                                    color: AppColors.greyColor,
+                                  ),
+                                  left: BorderSide(
+                                    color: AppColors.greyColor,
+                                  ),
+                                  bottom: BorderSide(
+                                    color: AppColors.greyColor,
+                                  )),
+                            ),
+                            height: 65,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 10, right: 10),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  MajorFont(
+                                    text: 'Edit Profile',
+                                    weight: false,
+                                    size: 20,
+                                    color: AppColors.blackColor,
+                                  ),
+                                  const Icon(
+                                      color: AppColors.primeColor,
+                                      Icons.arrow_forward_sharp)
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        Divider(
-                          thickness: 1,
-                          color: AppColors.greyColor,
                         ),
                         InkWell(
                           onTap: () => Navigator.push(
@@ -179,53 +202,84 @@ class _ProfileState extends State<Profile> {
                               MaterialPageRoute(
                                   builder: (context) => const Notifications())),
                           child: Container(
-                            height: 45,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                MajorFont(
-                                  text: 'Notifications',
-                                  weight: false,
-                                  size: 20,
-                                  color: AppColors.blackColor,
-                                ),
-                                const Icon(
-                                    color: AppColors.primeColor,
-                                    Icons.arrow_forward_sharp)
-                              ],
+                            decoration: const BoxDecoration(
+                              color: AppColors.containerColor,
+                              border: Border(
+                                  right: BorderSide(
+                                    color: AppColors.greyColor,
+                                  ),
+                                  left: BorderSide(
+                                    color: AppColors.greyColor,
+                                  )),
+                            ),
+                            height: 65,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 10, right: 10),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  MajorFont(
+                                    text: 'Notifications',
+                                    weight: false,
+                                    size: 20,
+                                    color: AppColors.blackColor,
+                                  ),
+                                  const Icon(
+                                      color: AppColors.primeColor,
+                                      Icons.arrow_forward_sharp)
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        Divider(
-                          thickness: 1,
-                          color: AppColors.greyColor,
                         ),
                         InkWell(
                           onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const AppSettings())),
-                          child: SizedBox(
-                            height: 45,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                MajorFont(
-                                  text: 'App Settings',
-                                  weight: false,
-                                  size: 20,
-                                  color: AppColors.blackColor,
-                                ),
-                                const Icon(
-                                    color: AppColors.primeColor,
-                                    Icons.arrow_forward_sharp)
-                              ],
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              color: AppColors.containerColor,
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(16),
+                                  bottomRight: Radius.circular(16)),
+                              border: Border(
+                                  bottom: BorderSide(
+                                    color: AppColors.greyColor,
+                                  ),
+                                  right: BorderSide(
+                                    color: AppColors.greyColor,
+                                  ),
+                                  left: BorderSide(
+                                    color: AppColors.greyColor,
+                                  ),
+                                  top: BorderSide(
+                                    color: AppColors.greyColor,
+                                  )),
+                            ),
+                            height: 65,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 10, right: 10),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  MajorFont(
+                                    text: 'App Settings',
+                                    weight: false,
+                                    size: 20,
+                                    color: AppColors.blackColor,
+                                  ),
+                                  const Icon(
+                                      color: AppColors.primeColor,
+                                      Icons.arrow_forward_sharp)
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        Divider(
-                          thickness: 1,
-                          color: AppColors.greyColor,
                         ),
                       ],
                     ),

@@ -17,11 +17,12 @@ class _AppSettingsState extends State<AppSettings> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
+        elevation: 0,
         leading: IconButton(
             color: AppColors.blackColor,
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back)),
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.containerColor,
         title: MajorFont(
           text: 'Settings',
           color: AppColors.blackColor,
@@ -29,7 +30,21 @@ class _AppSettingsState extends State<AppSettings> {
         ),
       ),
       body: Center(
-        child: MajorFont(text: 'This is going to be the app settings page'),
+        child: Padding(
+        padding: const EdgeInsets.only(bottom: 140),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.settings,
+            size: 150,
+            color: AppColors.greyColor,
+            ),
+            SizedBox(height: 15,),
+            MajorFont(text: 'Coming soon...',weight: false,color: Color.fromARGB(255, 189, 184, 184),),
+          ],
+        ),
+      ),
       ),
     );
   }

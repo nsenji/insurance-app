@@ -8,7 +8,9 @@ import 'package:insurease/tools/major_font.dart';
 import 'package:provider/provider.dart';
 
 import '../../api/get_products.dart';
+import '../../authentication/getUser.dart';
 import '../../notifiers/productType.dart';
+import '../../notifiers/userObjectNotifier.dart';
 import '../../styles/colors.dart';
 import '../../tools/button.dart';
 
@@ -22,6 +24,16 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailField = TextEditingController();
   final TextEditingController _passwordField = TextEditingController();
+
+  Future loadData() async {
+    // await Future.delayed(Duration(seconds: 6));
+    ProductTypeNotifier productType =
+        Provider.of<ProductTypeNotifier>(context, listen: false);
+    UserNotifier userNotifier =
+        Provider.of<UserNotifier>(context, listen: false);
+    await getProductTypes(productType);
+    await getUser(userNotifier);
+  }
 
   bool loading = false;
   shownotification() {
@@ -155,13 +167,14 @@ class _LoginPageState extends State<LoginPage> {
                                           _emailField.text.trim(),
                                           _passwordField.text.trim());
 
+                                      await loadData();
+
                                       if (shouldNavigate) {
-                                        
-                                        Navigator.push(
+                                        Navigator.pushAndRemoveUntil(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const NavBar()));
+                                                    const NavBar()), ((route) => false));
                                       } else {
                                         setState(() {
                                           loading = false;
@@ -173,11 +186,9 @@ class _LoginPageState extends State<LoginPage> {
                                     },
                                     child: Button(text: 'Login')),
                               ),
-                              
-                    Padding(
-                      padding: EdgeInsets.all(25.0),
-                      
-                    ),
+                              Padding(
+                                padding: EdgeInsets.all(25.0),
+                              ),
                             ],
                           ),
                         ),

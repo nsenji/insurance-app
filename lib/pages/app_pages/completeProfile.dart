@@ -92,8 +92,17 @@ class _CompleteProfileState extends State<CompleteProfile> {
       ),
       body: user2?.profileComplete == true
           ? Center(
-              child: MajorFont(
-                  text: 'your profile is complete ...', weight: false),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 100),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset('assets/images/green tick.png', width: 100,height: 100,),
+                    MajorFont(
+                        text: 'your profile is complete', weight: false),
+                  ],
+                ),
+              ),
             )
           : SingleChildScrollView(
               child: Container(
