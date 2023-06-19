@@ -75,7 +75,6 @@ class _MarineState extends State<Marine> {
                 ],
                 color: AppColors.containerColor,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            height: 800,
             child: Center(
               child: Column(
                 children: [
@@ -276,6 +275,11 @@ class _MarineState extends State<Marine> {
                           }),
                     ),
                   )
+                  ,
+                    Padding(
+                      padding: EdgeInsets.all(25.0),
+                      
+                    ),
                 ],
               ),
             ),

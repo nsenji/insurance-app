@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:insurease/api/updateUser.dart';
+import 'package:insurease/authentication/updateUser.dart';
 import 'package:insurease/pages/app_pages/payment.dart';
 import 'package:insurease/pages/bottom_nav_pages/navBar.dart';
 import 'package:insurease/styles/colors.dart';
@@ -79,7 +79,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.containerColor,
         title: MajorFont(
           text: 'Complete profile',
           color: AppColors.blackColor,
@@ -97,8 +97,8 @@ class _CompleteProfileState extends State<CompleteProfile> {
             )
           : SingleChildScrollView(
               child: Container(
-                margin: EdgeInsets.only(
-                    top: 30, left: 30, right: 20, bottom: 30),
+                margin:
+                    EdgeInsets.only(top: 30, left: 30, right: 30, bottom: 30),
                 decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
@@ -110,8 +110,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     ],
                     color: AppColors.containerColor,
                     borderRadius: BorderRadius.all(Radius.circular(20))),
-                height: 850,
-                width: 300,
+                // height: 850,
                 child: Column(
                   children: [
                     Padding(
@@ -328,7 +327,11 @@ class _CompleteProfileState extends State<CompleteProfile> {
                                     };
                             }),
                       ),
-                    )
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.all(25.0),
+                      
+                    ),
                   ],
                 ),
               ),

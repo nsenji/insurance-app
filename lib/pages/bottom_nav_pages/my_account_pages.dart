@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:insurease/api/getUser.dart';
+import 'package:insurease/authentication/getUser.dart';
 import 'package:insurease/pages/app_pages/app_settings.dart';
 import 'package:insurease/pages/app_pages/completeProfile.dart';
 import 'package:insurease/pages/app_pages/editProfile.dart';
@@ -39,7 +39,7 @@ class _ProfileState extends State<Profile> {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.containerColor,
         title: MajorFont(
           text: 'My account',
           color: AppColors.blackColor,
@@ -67,7 +67,7 @@ class _ProfileState extends State<Profile> {
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: AssetImage(
-                              "assets/images/man.png",
+                              "assets/images/placeholder.png",
                             ),
                           )),
                     ),
@@ -112,7 +112,7 @@ class _ProfileState extends State<Profile> {
                   ],
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 25,
                 ),
                 Center(
                   child: SizedBox(

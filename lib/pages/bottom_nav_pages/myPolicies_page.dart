@@ -4,6 +4,8 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:insurease/tools/major_font.dart';
 
 import '../../styles/colors.dart';
+import 'TabBar_widgets/claimsTab.dart';
+import 'TabBar_widgets/policiesTab.dart';
 
 class Policies extends StatefulWidget {
   const Policies({super.key});
@@ -12,33 +14,62 @@ class Policies extends StatefulWidget {
   State<Policies> createState() => _PoliciesState();
 }
 
-class _PoliciesState extends State<Policies> {
+class _PoliciesState extends State<Policies> with TickerProviderStateMixin {
+  late final TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.whiteColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        elevation: 1,
-        backgroundColor: AppColors.whiteColor,
-        title: MajorFont(
-          text: 'My policies',
-          color: AppColors.blackColor,
-          weight: false,
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.only(top: 40, left: 65),
-          height: 300,
-          width: 250,
-          child: MajorFont(
-            text: 'you dont have any policies',
-            weight: false,
-            size: 20,
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: AppColors.whiteColor,
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            elevation: 0,
+            backgroundColor: AppColors.containerColor,
+            title: Row(
+              children: [
+                Image.asset('assets/images/curacel image.png',
+                width: 120,
+                height: 100,
+                color: AppColors.primeColor,
+                ),
+                
+              ],
+            ),
+            bottom: TabBar(
+                labelColor: AppColors.primeColor,
+                unselectedLabelColor: AppColors.blackColor,
+                indicatorPadding: EdgeInsets.only(left: 15, right: 15),
+                indicatorColor: AppColors.primeColor,
+                controller: _tabController,
+                tabs: [
+                  Tab(
+                      child: Text(
+                    'Policies',
+                    style: TextStyle(fontFamily: 'BubblegumSans', fontSize: 20),
+                  )),
+                  Tab(
+                      child: Text(
+                    'Claims',
+                    style: TextStyle(fontFamily: 'BubblegumSans', fontSize: 20),
+                  )),
+                ]),
           ),
-        ),
-      ),
+          body: TabBarView(
+              controller: _tabController,
+              children: [PoliciesTab(), ClaimsTab()])),
     );
   }
 }

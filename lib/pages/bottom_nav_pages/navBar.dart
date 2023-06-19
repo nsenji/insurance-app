@@ -60,8 +60,8 @@ class _NavBarState extends State<NavBar> {
           elevation: 0,
           showSelectedLabels:true,
           showUnselectedLabels: true,
-          selectedItemColor: Color.fromARGB(193, 0, 0, 0),
-          unselectedItemColor: Colors.grey.withOpacity(0.5),
+          selectedItemColor: AppColors.primeColor,
+          unselectedItemColor: Color.fromARGB(255, 51, 49, 49).withOpacity(0.5),
           items: [
             BottomNavigationBarItem(label: "Products", icon: Icon(Icons.home)),
             BottomNavigationBarItem(label: "My Policies", icon: Icon(Icons.policy)),

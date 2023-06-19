@@ -87,7 +87,6 @@ class _LoginPageState extends State<LoginPage> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20))),
                           // color: Colors.white,
-                          height: 320,
 
                           child: Column(
                             children: [
@@ -157,14 +156,12 @@ class _LoginPageState extends State<LoginPage> {
                                           _passwordField.text.trim());
 
                                       if (shouldNavigate) {
-                                        setState(() {
-                                          loading = false;
-                                        });
+                                        
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    NavBar()));
+                                                    const NavBar()));
                                       } else {
                                         setState(() {
                                           loading = false;
@@ -175,7 +172,12 @@ class _LoginPageState extends State<LoginPage> {
                                       }
                                     },
                                     child: Button(text: 'Login')),
-                              )
+                              ),
+                              
+                    Padding(
+                      padding: EdgeInsets.all(25.0),
+                      
+                    ),
                             ],
                           ),
                         ),

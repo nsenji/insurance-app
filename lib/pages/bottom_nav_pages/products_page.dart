@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:insurease/api/getUser.dart';
+import 'package:insurease/authentication/getUser.dart';
 import 'package:insurease/notifiers/productType.dart';
 import 'package:insurease/pages/app_pages/PlanCategories.dart';
 import 'package:insurease/pages/app_pages/searchProduct.dart';
@@ -67,6 +67,12 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 20),
+            child: Icon(Icons.notifications_outlined,size: 25,),
+          )
+        ],
         elevation: 0,
         backgroundColor: AppColors.whiteColor,
         title: MajorFont(
@@ -74,243 +80,263 @@ class _HomeState extends State<Home> {
           color: AppColors.blackColor,
           weight: false,
         ),
-        
+        iconTheme: const IconThemeData(
+          color: Colors.black
+        )
       ),
-      drawer: const Icon(Icons.menu,
-      color: AppColors.blackColor,),
+      drawer: Drawer(
+        child: SafeArea(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children:  [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: AppColors.containerColor
+                ),
+                child: Center(
+                child: Text('coming soon...'),
+              )),
+
+              ListTile(title: Text(''),)
+            ],
+          ),
+        ),
+      ),
       body: isLoading
           ? const Center(
               child: CircularProgressIndicator(
                 color: AppColors.primeColor,
               ),
             )
-          : Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  child: Card(
-                    color: AppColors.containerColor,
-                    surfaceTintColor: AppColors.containerColor,
-                    margin: const EdgeInsets.only(
-                        left: 20, right: 20, top: 10, bottom: 3),
-                    elevation: 15,
-                    child: Padding(
-                      padding: EdgeInsets.all(10),
-                      child: IntrinsicHeight(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Expanded(
-                              child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    MajorFont(
-                                      text:
-                                          '${Provider.of<UserNotifier>(context, listen: false).user?.firstname} ${Provider.of<UserNotifier>(context, listen: false).user?.lastname}',
-                                      color: AppColors.primeColor,
-                                      size: 17,
-                                      weight: false,
-                                    ),
-                                    SizedBox(
-                                      height: 2,
-                                    ),
-                                    MajorFont(
-                                      text:
-                                          'Ref : ${Provider.of<UserNotifier>(context, listen: false).user?.ref}',
-                                      color: AppColors.blackColor,
-                                      size: 11,
-                                      weight: false,
-                                    ),
-                                    SizedBox(
-                                      height: 88,
-                                    ),
-                                    IntrinsicHeight(
-                                      child: Row(
-                                        children: [
-                                          Column(
-                                            children: [
-                                              MajorFont(
-                                                text: '0',
-                                                weight: false,
-                                                size: 14,
-                                              ),
-                                              MajorFont(
-                                                  text: 'Claims',
-                                                  weight: false,
-                                                  size: 12,
-                                                  color: AppColors.blackColor),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            width: 12,
-                                            child: VerticalDivider(
-                                              width: 7,
-                                              thickness: 1,
-                                              color: AppColors.blackColor,
-                                              endIndent: 3,
-                                            ),
-                                          ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              MajorFont(
-                                                text: '0',
-                                                weight: false,
-                                                size: 14,
-                                              ),
-                                              MajorFont(
-                                                  text: 'Policies',
-                                                  weight: false,
-                                                  color: AppColors.blackColor,
-                                                  size: 12),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    )
-                                  ]),
-                            ),
-                            Expanded(
+          : SafeArea(
+            child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    child: Card(
+                      color: AppColors.containerColor,
+                      surfaceTintColor: AppColors.containerColor,
+                      margin: const EdgeInsets.only(
+                          left: 20, right: 20, top: 10, bottom: 3),
+                      elevation: 15,
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: IntrinsicHeight(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Expanded(
                                 child: Column(
-                              children: [
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: Container(
-                                    height: 60,
-                                    width: 60,
-                                    decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                'assets/images/insuance_image_green.png'))),
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      MajorFont(
+                                        text:
+                                            '${Provider.of<UserNotifier>(context, listen: false).user?.firstname} ${Provider.of<UserNotifier>(context, listen: false).user?.lastname}',
+                                        color: AppColors.primeColor,
+                                        size: 17,
+                                        weight: false,
+                                      ),
+                                      SizedBox(
+                                        height: 2,
+                                      ),
+                                      MajorFont(
+                                        text:
+                                            'Ref : ${Provider.of<UserNotifier>(context, listen: false).user?.ref}',
+                                        color: AppColors.blackColor,
+                                        size: 11,
+                                        weight: false,
+                                      ),
+                                      SizedBox(
+                                        height: 88,
+                                      ),
+                                      IntrinsicHeight(
+                                        child: Row(
+                                          children: [
+                                            Column(
+                                              children: [
+                                                MajorFont(
+                                                  text: '0',
+                                                  weight: false,
+                                                  size: 14,
+                                                ),
+                                                MajorFont(
+                                                    text: 'Claims',
+                                                    weight: false,
+                                                    size: 12,
+                                                    color: AppColors.blackColor),
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              width: 12,
+                                              child: VerticalDivider(
+                                                width: 7,
+                                                thickness: 1,
+                                                color: AppColors.blackColor,
+                                                endIndent: 3,
+                                              ),
+                                            ),
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                MajorFont(
+                                                  text: '0',
+                                                  weight: false,
+                                                  size: 14,
+                                                ),
+                                                MajorFont(
+                                                    text: 'Policies',
+                                                    weight: false,
+                                                    color: AppColors.blackColor,
+                                                    size: 12),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                    ]),
+                              ),
+                              Expanded(
+                                  child: Column(
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topRight,
+                                    child: Container(
+                                      height: 60,
+                                      width: 60,
+                                      decoration: const BoxDecoration(
+                                          image: DecorationImage(
+                                              image: AssetImage(
+                                                  'assets/images/insuance_image_green.png'))),
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ))
-                          ],
+                                ],
+                              ))
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                Container(
-                  height: 30,
-                  margin:
-                      EdgeInsets.only(left: 14, top: 13, right: 15, bottom: 8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      MajorFont(
-                        text: 'Select insurance product',
-                        weight: false,
-                        size: 15,
-                        color: AppColors.primeColor,
-                      ),
-                      IconButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SearchProduct()));
-                          },
-                          icon: Icon(Icons.search))
-                    ],
+                  Container(
+                    height: 30,
+                    margin:
+                        EdgeInsets.only(left: 14, top: 13, right: 15, bottom: 8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        MajorFont(
+                          text: 'Select insurance product',
+                          weight: false,
+                          size: 15,
+                          color: AppColors.primeColor,
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SearchProduct()));
+                            },
+                            icon: Icon(Icons.search))
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Expanded(
-                  child: Scrollbar(
-                    thumbVisibility: true,
-                    child: ListView.builder(
-                        primary: true,
-                        padding: EdgeInsets.only(left: 2, right: 2),
-                        shrinkWrap: true,
-                        itemCount: Provider.of<ProductTypeNotifier>(context,
-                                listen: true)
-                            .productList
-                            .length,
-                        itemBuilder: (_, index) {
-                          return InkWell(
-                            onTap: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => PlanCategories(
-                                          prodIndex: index,
-                                        ))),
-                            child: Card(
-                              surfaceTintColor: AppColors.whiteColor,
-                              color: AppColors.whiteColor,
-                              elevation: 10,
-                              margin: EdgeInsets.only(
-                                  left: 20, right: 20, bottom: 7, top: 5),
-                              child: Row(children: [
-                                Container(
-                                  height: 70,
-                                  width: 100,
-                                  child: Center(
-                                      child: Container(
-                                    height: 55,
-                                    width: 75,
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(icons[index]))),
-                                  )),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 12),
-                                  padding: EdgeInsets.only(top: 8),
-                                  height: 70,
-                                  width: 145,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      MajorFont(
-                                        size: 17,
-                                        weight: false,
-                                        text:
-                                            '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].name}',
-                                        color: AppColors.blackColor,
-                                      ),
-                                      SizedBox(height: 4),
-                                      MajorFont(
-                                        weight: false,
-                                        text:
-                                            '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].premiumtype}',
-                                        color:
-                                            Color.fromARGB(255, 173, 173, 173),
-                                        size: 15,
-                                      ),
-                                      SizedBox(
-                                        height: 9,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                const Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsets.only(right: 15),
-                                    child: Align(
-                                        alignment:
-                                            AlignmentDirectional.centerEnd,
-                                        child: Icon(
-                                          Icons.arrow_forward_ios,
-                                          size: 20,
-                                          color: AppColors.primeColor,
-                                        )),
-                                  ),
-                                )
-                              ]),
-                            ),
-                          );
-                        }),
+                  SizedBox(
+                    height: 5,
                   ),
-                )
-              ],
-            ),
+                  Expanded(
+                    child: Scrollbar(
+                      thumbVisibility: true,
+                      child: ListView.builder(
+                          primary: true,
+                          padding: EdgeInsets.only(left: 2, right: 2),
+                          shrinkWrap: true,
+                          itemCount: Provider.of<ProductTypeNotifier>(context,
+                                  listen: true)
+                              .productList
+                              .length,
+                          itemBuilder: (_, index) {
+                            return InkWell(
+                              onTap: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => PlanCategories(
+                                            prodIndex: index,
+                                          ))),
+                              child: Card(
+                                surfaceTintColor: AppColors.whiteColor,
+                                color: AppColors.whiteColor,
+                                elevation: 10,
+                                margin: EdgeInsets.only(
+                                    left: 20, right: 20, bottom: 7, top: 5),
+                                child: Row(children: [
+                                  Container(
+                                    height: 70,
+                                    width: 100,
+                                    child: Center(
+                                        child: Container(
+                                      height: 55,
+                                      width: 75,
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                              image: AssetImage(icons[index]))),
+                                    )),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(top: 12),
+                                    padding: EdgeInsets.only(top: 8),
+                                    height: 70,
+                                    width: 145,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        MajorFont(
+                                          size: 17,
+                                          weight: false,
+                                          text:
+                                              '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].name}',
+                                          color: AppColors.blackColor,
+                                        ),
+                                        SizedBox(height: 4),
+                                        MajorFont(
+                                          weight: false,
+                                          text:
+                                              '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].premiumtype}',
+                                          color:
+                                              Color.fromARGB(255, 173, 173, 173),
+                                          size: 15,
+                                        ),
+                                        SizedBox(
+                                          height: 9,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  const Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsets.only(right: 15),
+                                      child: Align(
+                                          alignment:
+                                              AlignmentDirectional.centerEnd,
+                                          child: Icon(
+                                            Icons.arrow_forward_ios,
+                                            size: 20,
+                                            color: AppColors.primeColor,
+                                          )),
+                                    ),
+                                  )
+                                ]),
+                              ),
+                            );
+                          }),
+                    ),
+                  )
+                ],
+              ),
+          ),
     );
   }
 }

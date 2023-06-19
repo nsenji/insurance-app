@@ -75,7 +75,6 @@ class _FireBurglaryState extends State<FireBurglary> {
                 ],
                 color: AppColors.containerColor,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            height: 790,
             child: Center(
               child: Column(
                 children: [
@@ -277,6 +276,11 @@ class _FireBurglaryState extends State<FireBurglary> {
                           }),
                     ),
                   )
+                  ,
+                    Padding(
+                      padding: EdgeInsets.all(25.0),
+                      
+                    ),
                 ],
               ),
             ),

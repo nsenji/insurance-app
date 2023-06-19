@@ -74,7 +74,6 @@ class _ThirdPartyState extends State<ThirdParty> {
                 ],
                 color: AppColors.containerColor,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            height: 790,
             child: Column(
               children: [
                 Padding(
@@ -275,6 +274,11 @@ class _ThirdPartyState extends State<ThirdParty> {
                         }),
                   ),
                 )
+                ,
+                    Padding(
+                      padding: EdgeInsets.all(25.0),
+                      
+                    ),
               ],
             ),
           ),

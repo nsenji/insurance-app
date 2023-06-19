@@ -87,7 +87,6 @@ class _ComprehensiveState extends State<Comprehensive> {
                 ],
                 color: AppColors.containerColor,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            height: 1350,
           
             child: Center(
               child: Column(
@@ -400,6 +399,11 @@ class _ComprehensiveState extends State<Comprehensive> {
                           }),
                     ),
                   )
+                  ,
+                    Padding(
+                      padding: EdgeInsets.all(25.0),
+                      
+                    ),
                 ],
               ),
             ),

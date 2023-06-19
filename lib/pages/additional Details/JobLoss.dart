@@ -81,7 +81,6 @@ class _JobLossState extends State<JobLoss> {
                 ],
                 color: AppColors.containerColor,
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            height: 1060,
             child: Center(
               child: Column(
                 children: [
@@ -372,6 +371,11 @@ class _JobLossState extends State<JobLoss> {
                           }),
                     ),
                   )
+                  ,
+                    Padding(
+                      padding: EdgeInsets.all(25.0),
+                      
+                    ),
                 ],
               ),
             ),
