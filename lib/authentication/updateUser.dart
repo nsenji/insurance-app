@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../models/userObject.dart';
-import '../notifiers/userObjectNotifier.dart';
 
 updateUser() async {
   var db = FirebaseFirestore.instance;

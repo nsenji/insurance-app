@@ -20,7 +20,6 @@ import '../additional Details/comingSoon.dart';
 import '../additional Details/comprehensive.dart';
 import '../additional Details/health.dart';
 import '../additional Details/thirdParty.dart';
-import '../additional Details/travel.dart';
 
 class ProductDetails extends StatefulWidget {
   dynamic planIndex;
@@ -35,6 +34,7 @@ class ProductDetails extends StatefulWidget {
 class _ProductDetailsState extends State<ProductDetails> {
 
 
+  @override
   void initState() {
     UserNotifier userNotifier =
         Provider.of<UserNotifier>(context, listen: false);
@@ -68,7 +68,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
-                margin: EdgeInsets.only(top: 15),
+                margin: const EdgeInsets.only(top: 15),
                 height: 100,
                 width: 150,
                 decoration: BoxDecoration(
@@ -80,11 +80,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     .plansList[widget.planIndex]
                                     .insurer ==
                                 'Tangerine'
-                            ? AssetImage('assets/images/tangerine-logo.png')
+                            ? const AssetImage('assets/images/tangerine-logo.png')
                                 as ImageProvider<Object>
                             : NetworkImage('${plans.logoUrl}'))),
               ),
-              Container(
+              SizedBox(
                 width: 320,
                 height: 50,
                 // color: Colors.yellow,
@@ -110,7 +110,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ),
                     ],
                     color: AppColors.containerColor,
-                    borderRadius: BorderRadius.all(Radius.circular(9))),
+                    borderRadius: const BorderRadius.all(Radius.circular(9))),
                 child: Padding(
                   padding: const EdgeInsets.only(top: 8),
                   child: Row(
@@ -128,7 +128,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 weight: false,
                                 size: 17,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 8,
                               ),
                               MajorFont(
@@ -136,7 +136,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 weight: false,
                                 size: 17,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 8,
                               ),
                               MajorFont(
@@ -144,7 +144,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 weight: false,
                                 size: 17,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 8,
                               ),
                               MajorFont(
@@ -152,7 +152,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 weight: false,
                                 size: 17,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 8,
                               ),
                               MajorFont(
@@ -160,7 +160,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 weight: false,
                                 size: 17,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 8,
                               ),
                               MajorFont(
@@ -168,7 +168,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 weight: false,
                                 size: 17,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 8,
                               ),
                             ],
@@ -194,7 +194,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   color: AppColors.blackColor,
                                   flowover: true,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 8,
                                 ),
                                 MajorFont(
@@ -204,7 +204,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   color: AppColors.blackColor,
                                   flowover: true,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 8,
                                 ),
                                 MajorFont(
@@ -214,7 +214,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   color: AppColors.blackColor,
                                   flowover: true,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 8,
                                 ),
                                 MajorFont(
@@ -223,7 +223,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   size: 16,
                                   color: AppColors.blackColor,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 8,
                                 ),
                                 MajorFont(
@@ -232,7 +232,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   size: 16,
                                   color: AppColors.blackColor,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 8,
                                 ),
                                 MajorFont(
@@ -241,7 +241,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   size: 16,
                                   color: AppColors.blackColor,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 8,
                                 ),
                               ],
@@ -253,7 +253,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Container(
@@ -269,11 +269,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ),
                     ],
                     color: AppColors.containerColor,
-                    borderRadius: BorderRadius.all(Radius.circular(9))),
+                    borderRadius: const BorderRadius.all(Radius.circular(9))),
                 child: Column(
                   children: [
                     Container(
-                      padding: EdgeInsets.only(left: 8, top: 8),
+                      padding: const EdgeInsets.only(left: 8, top: 8),
                       height: 30,
                       child: Align(
                         alignment: Alignment.centerLeft,
@@ -286,7 +286,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(left: 5, right: 5),
+                      padding: const EdgeInsets.only(left: 5, right: 5),
                       height: 250,
                       // color: Colors.orange,
                       child: Scrollbar(
@@ -323,7 +323,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             return AlertDialog(
                               backgroundColor: AppColors.containerColor,
                               iconColor: Colors.red,
-                              icon: Icon(Icons.warning,size: 39,),
+                              icon: const Icon(Icons.warning,size: 39,),
                               content: Padding(
                                 padding: const EdgeInsets.only(left: 14),
                                 child: MajorFont(
@@ -348,7 +348,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  CompleteProfile()));
+                                                  const CompleteProfile()));
                                       }, child: MajorFont(text: 'Complete', weight: false,size: 18,color: AppColors.whiteColor,)))
                               ],
                             );
@@ -357,28 +357,28 @@ class _ProductDetailsState extends State<ProductDetails> {
                       switch (widget.category) {
                         case 'git':
                           Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => GIT()));
+                              MaterialPageRoute(builder: (context) => const GIT()));
                           break;
 
                         case '3rd_party_auto':
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => ThirdParty()));
+                                  builder: (context) => const ThirdParty()));
                           break;
 
                         case 'credit_life':
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => CreditLife()));
+                                  builder: (context) => const CreditLife()));
                           break;
 
                         case 'comprehensive_auto':
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Comprehensive()));
+                                  builder: (context) => const Comprehensive()));
                           break;
                         case 'health':
                           Navigator.push(
@@ -392,31 +392,31 @@ class _ProductDetailsState extends State<ProductDetails> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Marine()));
+                                  builder: (context) => const Marine()));
                           break;
                         case 'gadget':
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Gadget()));
+                                  builder: (context) => const Gadget()));
                           break;
                         case 'fire_burglary':
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => FireBurglary()));
+                                  builder: (context) => const FireBurglary()));
                           break;
                         case 'travel':
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => ComingSoon()));
+                                  builder: (context) => const ComingSoon()));
                           break;
                         case 'job_loss':
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => JobLoss()));
+                                  builder: (context) => const JobLoss()));
                           break;
                       }
                     }

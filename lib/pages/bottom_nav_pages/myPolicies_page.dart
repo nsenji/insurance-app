@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:insurease/tools/major_font.dart';
 
 import '../../styles/colors.dart';
 import 'TabBar_widgets/claimsTab.dart';
@@ -51,10 +48,10 @@ class _PoliciesState extends State<Policies> with TickerProviderStateMixin {
             bottom: TabBar(
                 labelColor: AppColors.primeColor,
                 unselectedLabelColor: AppColors.blackColor,
-                indicatorPadding: EdgeInsets.only(left: 15, right: 15),
+                indicatorPadding: const EdgeInsets.only(left: 15, right: 15),
                 indicatorColor: AppColors.primeColor,
                 controller: _tabController,
-                tabs: [
+                tabs: const [
                   Tab(
                       child: Text(
                     'Policies',
@@ -69,7 +66,7 @@ class _PoliciesState extends State<Policies> with TickerProviderStateMixin {
           ),
           body: TabBarView(
               controller: _tabController,
-              children: [PoliciesTab(), ClaimsTab()])),
+              children: const [PoliciesTab(), ClaimsTab()])),
     );
   }
 }

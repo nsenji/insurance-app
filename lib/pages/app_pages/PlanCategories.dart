@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:insurease/api/get_plans.dart';
 import 'package:insurease/pages/app_pages/productDetails.dart';
 import 'package:insurease/styles/colors.dart';
@@ -66,7 +64,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
               ),
             )
           : ListView.builder(
-              padding: EdgeInsets.only(left: 2, right: 2),
+              padding: const EdgeInsets.only(left: 2, right: 2),
               shrinkWrap: true,
               itemCount: Provider.of<AllPlansNotifier>(context, listen: false)
                   .plansList
@@ -81,7 +79,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
                                 category: name2,
                               ))),
                   child: Container(
-                    margin: EdgeInsets.only(top: 13, right: 15, left: 15),
+                    margin: const EdgeInsets.only(top: 13, right: 15, left: 15),
                     decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
@@ -92,13 +90,13 @@ class _PlanCategoriesState extends State<PlanCategories> {
                           ),
                         ],
                         color: AppColors.containerColor,
-                        borderRadius: BorderRadius.all(Radius.circular(9))),
+                        borderRadius: const BorderRadius.all(Radius.circular(9))),
                     height: 120,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(left: 9),
+                          margin: const EdgeInsets.only(left: 9),
                           height: 100,
                           width: 130,
                           decoration: BoxDecoration(
@@ -109,7 +107,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
                                               .plansList[index]
                                               .insurer ==
                                           'Tangerine'
-                                      ? AssetImage(
+                                      ? const AssetImage(
                                               'assets/images/tangerine-logo.png')
                                           as ImageProvider<Object>
                                       : NetworkImage(
@@ -148,7 +146,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
                                   flowover: true,
                                   color: AppColors.blackColor,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 9,
                                   width: 140,
                                 ),
@@ -160,14 +158,14 @@ class _PlanCategoriesState extends State<PlanCategories> {
                                   flowover: true,
                                   color: AppColors.blackColor,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 5,
                                   width: 140,
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   mainAxisSize: MainAxisSize.max,
-                                  children: [
+                                  children: const [
                                     Padding(
                                         padding: EdgeInsets.only(bottom: 3),
                                         child: Text(

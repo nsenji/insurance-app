@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:insurease/authentication/getUser.dart';
 import 'package:insurease/notifiers/productType.dart';
 import 'package:insurease/pages/app_pages/PlanCategories.dart';
 import 'package:insurease/pages/app_pages/searchProduct.dart';
-import 'package:insurease/pages/app_pages/welcome.dart';
 import 'package:insurease/tools/major_font.dart';
 import 'package:provider/provider.dart';
 
-import '../../api/get_products.dart';
 import '../../notifiers/userObjectNotifier.dart';
 import '../../styles/colors.dart';
-import '../../tools/button.dart';
-import '../app_pages/productDetails.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -73,7 +66,7 @@ class _HomeState extends State<Home> {
         child: SafeArea(
           child: ListView(
             padding: EdgeInsets.zero,
-            children:  [
+            children:  const [
               DrawerHeader(
                 decoration: BoxDecoration(
                   color: AppColors.containerColor
@@ -106,7 +99,7 @@ class _HomeState extends State<Home> {
                           left: 20, right: 20, top: 10, bottom: 3),
                       elevation: 15,
                       child: Padding(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         child: IntrinsicHeight(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -123,7 +116,7 @@ class _HomeState extends State<Home> {
                                         size: 17,
                                         weight: false,
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 2,
                                       ),
                                       MajorFont(
@@ -133,7 +126,7 @@ class _HomeState extends State<Home> {
                                         size: 11,
                                         weight: false,
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 88,
                                       ),
                                       IntrinsicHeight(
@@ -153,7 +146,7 @@ class _HomeState extends State<Home> {
                                                     color: AppColors.blackColor),
                                               ],
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               width: 12,
                                               child: VerticalDivider(
                                                 width: 7,
@@ -207,7 +200,7 @@ class _HomeState extends State<Home> {
                   Container(
                     height: 30,
                     margin:
-                        EdgeInsets.only(left: 14, top: 13, right: 15, bottom: 8),
+                        const EdgeInsets.only(left: 14, top: 13, right: 15, bottom: 8),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -222,13 +215,13 @@ class _HomeState extends State<Home> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => SearchProduct()));
+                                      builder: (context) => const SearchProduct()));
                             },
-                            icon: Icon(Icons.search))
+                            icon: const Icon(Icons.search))
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Expanded(
@@ -236,7 +229,7 @@ class _HomeState extends State<Home> {
                       thumbVisibility: true,
                       child: ListView.builder(
                           primary: true,
-                          padding: EdgeInsets.only(left: 2, right: 2),
+                          padding: const EdgeInsets.only(left: 2, right: 2),
                           shrinkWrap: true,
                           itemCount: Provider.of<ProductTypeNotifier>(context,
                                   listen: true)
@@ -254,10 +247,10 @@ class _HomeState extends State<Home> {
                                 surfaceTintColor: AppColors.whiteColor,
                                 color: AppColors.whiteColor,
                                 elevation: 10,
-                                margin: EdgeInsets.only(
+                                margin: const EdgeInsets.only(
                                     left: 20, right: 20, bottom: 7, top: 5),
                                 child: Row(children: [
-                                  Container(
+                                  SizedBox(
                                     height: 70,
                                     width: 100,
                                     child: Center(
@@ -270,8 +263,8 @@ class _HomeState extends State<Home> {
                                     )),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(top: 12),
-                                    padding: EdgeInsets.only(top: 8),
+                                    margin: const EdgeInsets.only(top: 12),
+                                    padding: const EdgeInsets.only(top: 8),
                                     height: 70,
                                     width: 145,
                                     child: Column(
@@ -285,16 +278,16 @@ class _HomeState extends State<Home> {
                                               '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].name}',
                                           color: AppColors.blackColor,
                                         ),
-                                        SizedBox(height: 4),
+                                        const SizedBox(height: 4),
                                         MajorFont(
                                           weight: false,
                                           text:
                                               '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].premiumtype}',
                                           color:
-                                              Color.fromARGB(255, 173, 173, 173),
+                                              const Color.fromARGB(255, 173, 173, 173),
                                           size: 15,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 9,
                                         ),
                                       ],

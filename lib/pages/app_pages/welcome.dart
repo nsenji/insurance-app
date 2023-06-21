@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:insurease/pages/auth_pages/login_page.dart';
 import 'package:insurease/pages/auth_pages/signup_page.dart';
 import 'package:insurease/tools/major_font.dart';
@@ -41,7 +39,7 @@ class _WelcomeState extends State<Welcome> {
               weight: false,
               color: Colors.black87,
             ),
-            SizedBox(
+            const SizedBox(
               height: 14,
             ),
             MajorFont(
@@ -58,7 +56,7 @@ class _WelcomeState extends State<Welcome> {
                 children: [
                   InkWell(
                       onTap: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage())),
+                          MaterialPageRoute(builder: (context) => const LoginPage())),
                       child: Button(
                         text: 'Login',
                         width: 95,
@@ -66,7 +64,7 @@ class _WelcomeState extends State<Welcome> {
                       )),
                   InkWell(
                     onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SignupPage())),
+                        MaterialPageRoute(builder: (context) => const SignupPage())),
                     child: Button(
                       text: 'Sign up',
                       width: 95,

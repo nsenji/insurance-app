@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:insurease/pages/app_pages/payment.dart';
 import 'package:insurease/styles/colors.dart';
@@ -62,7 +60,7 @@ class _ThirdPartyState extends State<ThirdParty> {
       body: SingleChildScrollView(
         child: Center(
           child: Container(
-            margin: EdgeInsets.only(top: 30, left: 30, right: 30, bottom: 30),
+            margin: const EdgeInsets.only(top: 30, left: 30, right: 30, bottom: 30),
             decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
@@ -73,13 +71,13 @@ class _ThirdPartyState extends State<ThirdParty> {
                   ),
                 ],
                 color: AppColors.containerColor,
-                borderRadius: BorderRadius.all(Radius.circular(20))),
+                borderRadius: const BorderRadius.all(Radius.circular(20))),
             child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: TextField(
-                    style: TextStyle(color: AppColors.blackColor),
+                    style: const TextStyle(color: AppColors.blackColor),
                     controller: _productCode,
                     decoration: InputDecoration(
                         // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -95,9 +93,9 @@ class _ThirdPartyState extends State<ThirdParty> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(17.0),
+                  padding: const EdgeInsets.all(17.0),
                   child: TextField(
-                    style: TextStyle(color: AppColors.blackColor),
+                    style: const TextStyle(color: AppColors.blackColor),
                     controller: _customerRef,
                     decoration: InputDecoration(
                         // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -113,9 +111,9 @@ class _ThirdPartyState extends State<ThirdParty> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(17.0),
+                  padding: const EdgeInsets.all(17.0),
                   child: TextField(
-                    style: TextStyle(color: AppColors.blackColor),
+                    style: const TextStyle(color: AppColors.blackColor),
                     obscureText: true,
                     controller: _paymentType,
                     decoration: InputDecoration(
@@ -129,9 +127,9 @@ class _ThirdPartyState extends State<ThirdParty> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(17.0),
+                  padding: const EdgeInsets.all(17.0),
                   child: TextField(
-                    style: TextStyle(color: AppColors.blackColor),
+                    style: const TextStyle(color: AppColors.blackColor),
                     controller: _policyStartDate,
                     decoration: InputDecoration(
                       // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -170,9 +168,9 @@ class _ThirdPartyState extends State<ThirdParty> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: TextField(
-                    style: TextStyle(color: AppColors.blackColor),
+                    style: const TextStyle(color: AppColors.blackColor),
                     controller: _driversLicence,
                     decoration: InputDecoration(
                         // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -188,9 +186,9 @@ class _ThirdPartyState extends State<ThirdParty> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: TextField(
-                    style: TextStyle(color: AppColors.blackColor),
+                    style: const TextStyle(color: AppColors.blackColor),
                     controller: _chassisNumber,
                     decoration: InputDecoration(
                       // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -204,9 +202,9 @@ class _ThirdPartyState extends State<ThirdParty> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: TextField(
-                    style: TextStyle(color: AppColors.blackColor),
+                    style: const TextStyle(color: AppColors.blackColor),
                     controller: _attachments,
                     decoration: InputDecoration(
                         // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -222,9 +220,9 @@ class _ThirdPartyState extends State<ThirdParty> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    padding: EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.only(top: 20),
                     child: InkWell(
                         child: Button(text: 'Submit'),
                         onTap: () {
@@ -270,12 +268,12 @@ class _ThirdPartyState extends State<ThirdParty> {
                               : Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Payment()));
+                                      builder: (context) => const Payment()));
                         }),
                   ),
                 )
                 ,
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.all(25.0),
                       
                     ),

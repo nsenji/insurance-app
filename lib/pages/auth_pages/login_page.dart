@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:insurease/authentication/login.dart';
 import 'package:insurease/pages/bottom_nav_pages/navBar.dart';
@@ -15,7 +13,7 @@ import '../../styles/colors.dart';
 import '../../tools/button.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -97,15 +95,15 @@ class _LoginPageState extends State<LoginPage> {
                               ],
                               color: AppColors.containerColor,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(20))),
+                                  const BorderRadius.all(Radius.circular(20))),
                           // color: Colors.white,
 
                           child: Column(
                             children: [
                               Padding(
-                                padding: EdgeInsets.all(20.0),
+                                padding: const EdgeInsets.all(20.0),
                                 child: TextField(
-                                  style: TextStyle(color: AppColors.blackColor),
+                                  style: const TextStyle(color: AppColors.blackColor),
                                   controller: _emailField,
                                   obscureText: false,
                                   decoration: InputDecoration(
@@ -121,9 +119,9 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.all(20.0),
+                                padding: const EdgeInsets.all(20.0),
                                 child: TextField(
-                                  style: TextStyle(color: AppColors.blackColor),
+                                  style: const TextStyle(color: AppColors.blackColor),
                                   controller: _passwordField,
                                   obscureText: passwordvisible ? false : true,
                                   decoration: InputDecoration(
@@ -157,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.only(top: 38),
+                                padding: const EdgeInsets.only(top: 38),
                                 child: InkWell(
                                     onTap: () async {
                                       setState(() {
@@ -186,7 +184,7 @@ class _LoginPageState extends State<LoginPage> {
                                     },
                                     child: Button(text: 'Login')),
                               ),
-                              Padding(
+                              const Padding(
                                 padding: EdgeInsets.all(25.0),
                               ),
                             ],

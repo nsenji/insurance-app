@@ -1,22 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:insurease/api/createCustomer.dart';
 import 'package:insurease/pages/app_pages/welcome.dart';
-import 'package:insurease/pages/auth_pages/login_page.dart';
 import 'package:insurease/tools/major_font.dart';
 import 'package:provider/provider.dart';
 
 import '../../authentication/getUser.dart';
-import '../../authentication/signup.dart';
 import '../../authentication/updateProfile.dart';
-import '../../notifiers/productType.dart';
 import '../../notifiers/userObjectNotifier.dart';
 import '../../styles/colors.dart';
 import '../../tools/button.dart';
-import '../bottom_nav_pages/navBar.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
@@ -110,7 +103,7 @@ class _EditProfileState extends State<EditProfile> {
                                     )),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 25,
                             ),
                             Padding(
@@ -139,13 +132,13 @@ class _EditProfileState extends State<EditProfile> {
                             ],
                             color: AppColors.whiteColor,
                             borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
+                                const BorderRadius.all(Radius.circular(20))),
                         // color: Colorshite,
 
                         child: Column(
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(
+                              padding: const EdgeInsets.only(
                                   top: 20, left: 20, right: 20, bottom: 14),
                               child: TextField(
                                 onChanged: (value) {
@@ -153,7 +146,7 @@ class _EditProfileState extends State<EditProfile> {
                                     changedfirst = true;
                                   });
                                 },
-                                style: TextStyle(color: AppColors.blackColor),
+                                style: const TextStyle(color: AppColors.blackColor),
                                 controller: _firstname,
                                 decoration: InputDecoration(
                                   // border: OutlineInputBorder(
@@ -170,7 +163,7 @@ class _EditProfileState extends State<EditProfile> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(
+                              padding: const EdgeInsets.only(
                                   top: 14, left: 20, right: 20, bottom: 14),
                               child: TextField(
                                 onChanged: (value) {
@@ -178,7 +171,7 @@ class _EditProfileState extends State<EditProfile> {
                                     changedlast = true;
                                   });
                                 },
-                                style: TextStyle(color: AppColors.blackColor),
+                                style: const TextStyle(color: AppColors.blackColor),
                                 controller: _lastname,
                                 decoration: InputDecoration(
                                   // border: OutlineInputBorder(
@@ -195,7 +188,7 @@ class _EditProfileState extends State<EditProfile> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(
+                              padding: const EdgeInsets.only(
                                   top: 14, left: 20, right: 20, bottom: 14),
                               child: TextField(
                                 onChanged: (value) {
@@ -203,7 +196,7 @@ class _EditProfileState extends State<EditProfile> {
                                     changedemail = true;
                                   });
                                 },
-                                style: TextStyle(color: AppColors.blackColor),
+                                style: const TextStyle(color: AppColors.blackColor),
                                 controller: _email,
                                 decoration: InputDecoration(
                                   // border: OutlineInputBorder(
@@ -220,7 +213,7 @@ class _EditProfileState extends State<EditProfile> {
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(top: 20),
+                              padding: const EdgeInsets.only(top: 20),
                               child: InkWell(
                                   onTap: () async {
                                     setState(() {
@@ -249,13 +242,13 @@ class _EditProfileState extends State<EditProfile> {
                                       text:
                                           'Update')), // inactive if form empty
                             ),
-                            Padding(
+                            const Padding(
                               padding: EdgeInsets.all(25.0),
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Container(

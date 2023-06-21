@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:insurease/api/createCustomer.dart';
 import 'package:insurease/pages/auth_pages/login_page.dart';
 import 'package:insurease/tools/major_font.dart';
 
 import '../../authentication/signup.dart';
 import '../../styles/colors.dart';
 import '../../tools/button.dart';
-import '../bottom_nav_pages/navBar.dart';
 
 class SignupPage extends StatefulWidget {
-  SignupPage({super.key});
+  const SignupPage({super.key});
 
   @override
   State<SignupPage> createState() => _SignupPageState();
@@ -83,15 +79,15 @@ class _SignupPageState extends State<SignupPage> {
                             ],
                             color: AppColors.containerColor,
                             borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
+                                const BorderRadius.all(Radius.circular(20))),
                         // color: Colorshite,
 
                         child: Column(
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(20.0),
+                              padding: const EdgeInsets.all(20.0),
                               child: TextField(
-                                style: TextStyle(color: AppColors.blackColor),
+                                style: const TextStyle(color: AppColors.blackColor),
                                 controller: _firstname,
                                 decoration: InputDecoration(
                                     // border: OutlineInputBorder(
@@ -109,9 +105,9 @@ class _SignupPageState extends State<SignupPage> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(17.0),
+                              padding: const EdgeInsets.all(17.0),
                               child: TextField(
-                                style: TextStyle(color: AppColors.blackColor),
+                                style: const TextStyle(color: AppColors.blackColor),
                                 controller: _lastname,
                                 decoration: InputDecoration(
                                     // border: OutlineInputBorder(
@@ -129,9 +125,9 @@ class _SignupPageState extends State<SignupPage> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(17.0),
+                              padding: const EdgeInsets.all(17.0),
                               child: TextField(
-                                style: TextStyle(color: AppColors.blackColor),
+                                style: const TextStyle(color: AppColors.blackColor),
                                 controller: _email,
                                 decoration: InputDecoration(
                                     // border: OutlineInputBorder(
@@ -146,10 +142,10 @@ class _SignupPageState extends State<SignupPage> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(17.0),
+                              padding: const EdgeInsets.all(17.0),
                               child: TextField(
                                 obscureText: passwordvisible ? false : true,
-                                style: TextStyle(color: AppColors.blackColor),
+                                style: const TextStyle(color: AppColors.blackColor),
                                 controller: _password,
                                 decoration: InputDecoration(
                                     // border: OutlineInputBorder(
@@ -184,7 +180,7 @@ class _SignupPageState extends State<SignupPage> {
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(top: 20),
+                              padding: const EdgeInsets.only(top: 20),
                               child: InkWell(
                                   onTap: () async {
                                     setState(() {
@@ -205,7 +201,7 @@ class _SignupPageState extends State<SignupPage> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  LoginPage()));
+                                                  const LoginPage()));
                                     } else {
                                       setState(() {
                                         loading = false;
@@ -218,7 +214,7 @@ class _SignupPageState extends State<SignupPage> {
                                   child: Button(text: 'Sign up')),
                             ),
                             
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.all(25.0),
                       
                     ),
