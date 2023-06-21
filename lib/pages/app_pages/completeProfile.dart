@@ -25,21 +25,22 @@ class _CompleteProfileState extends State<CompleteProfile> {
 
   createCustomer() async {
     var user = Provider.of<UserNotifier>(context, listen: false).user;
+    var user2 = Provider.of<UserNotifier>(context, listen: false);
     await postCustomer(
-        user?.ref ?? 'placeholder',
-        user?.firstname ?? 'placeholder',
-        user?.lastname ?? 'placeholder',
+        user.ref,
+        user.firstname,
+        user.lastname ,
         _phonenumber.text,
         _selectedVal ?? 'placeholder',
         _birthdate.text,
-        user?.email ?? 'placeholder',
+        user.email,
         _occupation.text,
         _residentialAddress.text,
         _natialnality.text,
         _nextOfKinName.text,
         _nextOfKinNumber.text);
-
-    await updateUser();
+  
+    await updateUser(user2);
   }
 
   final TextEditingController _phonenumber = TextEditingController();
@@ -86,7 +87,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back)),
       ),
-      body: user2?.profileComplete == true
+      body: user2.profileComplete == true
           ? Center(
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 100),

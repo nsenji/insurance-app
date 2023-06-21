@@ -48,7 +48,7 @@ class _EditProfileState extends State<EditProfile> {
   Widget build(BuildContext context) {
     UserNotifier userNotifier =
         Provider.of<UserNotifier>(context, listen: true);
-    getUser(userNotifier);
+  
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
@@ -157,7 +157,7 @@ class _EditProfileState extends State<EditProfile> {
                                     weight: false,
                                     size: 15,
                                   ),
-                                  helperText: userNotifier.user!.firstname,
+                                  helperText: userNotifier.user.firstname,
                                 ),
                                 keyboardType: TextInputType.name,
                               ),
@@ -182,7 +182,7 @@ class _EditProfileState extends State<EditProfile> {
                                     weight: false,
                                     size: 15,
                                   ),
-                                  helperText: userNotifier.user!.lastname,
+                                  helperText: userNotifier.user.lastname,
                                 ),
                                 keyboardType: TextInputType.name,
                               ),
@@ -207,7 +207,7 @@ class _EditProfileState extends State<EditProfile> {
                                     weight: false,
                                     size: 15,
                                   ),
-                                  helperText: userNotifier.user!.email,
+                                  helperText: userNotifier.user.email,
                                 ),
                                 keyboardType: TextInputType.emailAddress,
                               ),
@@ -220,7 +220,7 @@ class _EditProfileState extends State<EditProfile> {
                                       loading = true;
                                     });
                                     
-                                    bool shouldNavigate = await updateProfile(
+                                    bool shouldNavigate = await updateProfile(userNotifier,
                                         _firstname.text,
                                         _lastname.text,
                                         _email.text);

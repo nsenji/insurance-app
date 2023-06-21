@@ -53,7 +53,7 @@ class _HealthState extends State<Health> {
   getHealth() async {
     String answer = await buyhealth(
         widget.code,
-        Provider.of<UserNotifier>(context, listen: false).user!.ref,
+        Provider.of<UserNotifier>(context, listen: false).user.ref,
         _policyStartDate.text,
         _location.text,
         _medicalHistory.text,

@@ -76,7 +76,7 @@ class _ProfileState extends State<Profile> {
                       width: 300,
                       child: MajorFont(
                         text:
-                            '${userNotifier.user?.firstname} ${userNotifier.user?.lastname}',
+                            '${userNotifier.user.firstname} ${userNotifier.user.lastname}',
                         size: 20,
                       ),
                     ),
@@ -85,7 +85,7 @@ class _ProfileState extends State<Profile> {
                       height: 30,
                       width: 300,
                       child: MajorFont(
-                        text: '${userNotifier.user?.email}',
+                        text: userNotifier.user.email,
                         weight: false,
                         size: 20,
                         color: AppColors.blackColor,

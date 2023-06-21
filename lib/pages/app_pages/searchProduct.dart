@@ -26,7 +26,7 @@ class _SearchProductState extends State<SearchProduct> {
           decoration: InputDecoration(
             border: InputBorder.none,
             hintText:
-                '${Provider.of<UserNotifier>(context, listen: true).user?.firstname}',
+                Provider.of<UserNotifier>(context, listen: true).user.firstname,
             hintStyle: const TextStyle(
                 fontFamily: 'BubblegumSans',
                 fontWeight: FontWeight.normal,

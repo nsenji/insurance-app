@@ -19,12 +19,9 @@ class _HomeState extends State<Home> {
   final TextEditingController _searchController = TextEditingController();
   bool isLoading = false;
 
- 
-
-  
-
   @override
   Widget build(BuildContext context) {
+    // var user1 = Provider.of<UserNotifier>(context, listen: false);
     List icons = [
       'assets/images/healthcare.png',
       'assets/images/3rd party auto insurance.png',
@@ -45,37 +42,36 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 20),
-            child: Icon(Icons.notifications_outlined,size: 25,),
-          )
-        ],
-        elevation: 0,
-        backgroundColor: AppColors.whiteColor,
-        title: MajorFont(
-          text: 'Home',
-          color: AppColors.blackColor,
-          weight: false,
-        ),
-        iconTheme: const IconThemeData(
-          color: Colors.black
-        )
-      ),
+          actions: const [
+            Padding(
+              padding: EdgeInsets.only(right: 20),
+              child: Icon(
+                Icons.notifications_outlined,
+                size: 25,
+              ),
+            )
+          ],
+          elevation: 0,
+          backgroundColor: AppColors.whiteColor,
+          title: MajorFont(
+            text: 'Home',
+            color: AppColors.blackColor,
+            weight: false,
+          ),
+          iconTheme: const IconThemeData(color: Colors.black)),
       drawer: Drawer(
         child: SafeArea(
           child: ListView(
             padding: EdgeInsets.zero,
-            children:  const [
+            children: const [
               DrawerHeader(
-                decoration: BoxDecoration(
-                  color: AppColors.containerColor
-                ),
-                child: Center(
-                child: Text('coming soon...'),
-              )),
-
-              ListTile(title: Text(''),)
+                  decoration: BoxDecoration(color: AppColors.containerColor),
+                  child: Center(
+                    child: Text('coming soon...'),
+                  )),
+              ListTile(
+                title: Text(''),
+              )
             ],
           ),
         ),
@@ -87,7 +83,7 @@ class _HomeState extends State<Home> {
               ),
             )
           : SafeArea(
-            child: Column(
+              child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -107,24 +103,31 @@ class _HomeState extends State<Home> {
                               Expanded(
                                 child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      MajorFont(
-                                        text:
-                                            '${Provider.of<UserNotifier>(context, listen: false).user?.firstname} ${Provider.of<UserNotifier>(context, listen: false).user?.lastname}',
-                                        color: AppColors.primeColor,
-                                        size: 17,
-                                        weight: false,
+                                      Consumer<UserNotifier>(
+                                        builder: (_,user,__) =>
+                                         MajorFont(
+                                          text:
+                                              '${user.user.firstname} ${user.user.lastname}',
+                                          color: AppColors.primeColor,
+                                          size: 17,
+                                          weight: false,
+                                        ),
                                       ),
                                       const SizedBox(
                                         height: 2,
                                       ),
-                                      MajorFont(
-                                        text:
-                                            'Ref : ${Provider.of<UserNotifier>(context, listen: false).user?.ref}',
-                                        color: AppColors.blackColor,
-                                        size: 11,
-                                        weight: false,
+                                      Consumer<UserNotifier>(
+                                        builder : (_,user,__)=>
+                                         MajorFont(
+                                          text:
+                                              'Ref : ${user.user.ref}',
+                                          color: AppColors.blackColor,
+                                          size: 11,
+                                          weight: false,
+                                        ),
                                       ),
                                       const SizedBox(
                                         height: 88,
@@ -143,7 +146,8 @@ class _HomeState extends State<Home> {
                                                     text: 'Claims',
                                                     weight: false,
                                                     size: 12,
-                                                    color: AppColors.blackColor),
+                                                    color:
+                                                        AppColors.blackColor),
                                               ],
                                             ),
                                             const SizedBox(
@@ -199,8 +203,8 @@ class _HomeState extends State<Home> {
                   ),
                   Container(
                     height: 30,
-                    margin:
-                        const EdgeInsets.only(left: 14, top: 13, right: 15, bottom: 8),
+                    margin: const EdgeInsets.only(
+                        left: 14, top: 13, right: 15, bottom: 8),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -215,7 +219,8 @@ class _HomeState extends State<Home> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const SearchProduct()));
+                                      builder: (context) =>
+                                          const SearchProduct()));
                             },
                             icon: const Icon(Icons.search))
                       ],
@@ -283,8 +288,8 @@ class _HomeState extends State<Home> {
                                           weight: false,
                                           text:
                                               '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].premiumtype}',
-                                          color:
-                                              const Color.fromARGB(255, 173, 173, 173),
+                                          color: const Color.fromARGB(
+                                              255, 173, 173, 173),
                                           size: 15,
                                         ),
                                         const SizedBox(
@@ -314,7 +319,7 @@ class _HomeState extends State<Home> {
                   )
                 ],
               ),
-          ),
+            ),
     );
   }
 }

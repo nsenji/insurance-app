@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../styles/colors.dart';
-import 'TabBar_widgets/claimsTab.dart';
-import 'TabBar_widgets/policiesTab.dart';
+import '../TabBar_widgets/claimsTab.dart';
+import '../TabBar_widgets/policiesTab.dart';
 
 class Policies extends StatefulWidget {
   const Policies({super.key});

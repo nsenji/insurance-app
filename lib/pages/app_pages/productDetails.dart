@@ -315,7 +315,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   onTap: () {
                     if (Provider.of<UserNotifier>(context, listen: false)
                             .user
-                            ?.profileComplete ==
+                            .profileComplete ==
                         false) {
                       showDialog(
                           context: context,
