@@ -42,6 +42,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
     String name2 = Provider.of<ProductTypeNotifier>(context, listen: false)
         .prodList[widget.prodIndex]
         .slug;
+    var plans = Provider.of<AllPlansNotifier>(context, listen: false);
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
@@ -66,7 +67,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
           : ListView.builder(
               padding: const EdgeInsets.only(left: 2, right: 2),
               shrinkWrap: true,
-              itemCount: Provider.of<AllPlansNotifier>(context, listen: false)
+              itemCount: plans
                   .plansList
                   .length,
               itemBuilder: (_, index) {
@@ -90,7 +91,8 @@ class _PlanCategoriesState extends State<PlanCategories> {
                           ),
                         ],
                         color: AppColors.containerColor,
-                        borderRadius: const BorderRadius.all(Radius.circular(9))),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(9))),
                     height: 120,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -102,8 +104,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                   fit: BoxFit.contain,
-                                  image: Provider.of<AllPlansNotifier>(context,
-                                                  listen: false)
+                                  image: plans
                                               .plansList[index]
                                               .insurer ==
                                           'Tangerine'
@@ -111,7 +112,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
                                               'assets/images/tangerine-logo.png')
                                           as ImageProvider<Object>
                                       : NetworkImage(
-                                          '${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].logoUrl}'))),
+                                          '${plans.plansList[index].logoUrl}'))),
                         ),
                         const Expanded(
                           flex: 1,
@@ -128,7 +129,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
                               children: [
                                 MajorFont(
                                   text:
-                                      '${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].title}',
+                                      '${plans.plansList[index].title}',
                                   size: 17,
                                   weight: false,
                                   color: AppColors.primeColor,
@@ -140,7 +141,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
                                 ),
                                 MajorFont(
                                   text:
-                                      'By : ${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].insurer}',
+                                      'By : ${plans.plansList[index].insurer}',
                                   weight: false,
                                   size: 17,
                                   flowover: true,
@@ -152,7 +153,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
                                 ),
                                 MajorFont(
                                   text:
-                                      'Type : ${Provider.of<AllPlansNotifier>(context, listen: false).plansList[index].premiumType}',
+                                      'Type : ${plans.plansList[index].premiumType}',
                                   weight: false,
                                   size: 17,
                                   flowover: true,

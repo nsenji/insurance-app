@@ -21,7 +21,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    // var user1 = Provider.of<UserNotifier>(context, listen: false);
     List icons = [
       'assets/images/healthcare.png',
       'assets/images/3rd party auto insurance.png',
@@ -107,8 +106,7 @@ class _HomeState extends State<Home> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Consumer<UserNotifier>(
-                                        builder: (_,user,__) =>
-                                         MajorFont(
+                                        builder: (_, user, __) => MajorFont(
                                           text:
                                               '${user.user.firstname} ${user.user.lastname}',
                                           color: AppColors.primeColor,
@@ -120,10 +118,8 @@ class _HomeState extends State<Home> {
                                         height: 2,
                                       ),
                                       Consumer<UserNotifier>(
-                                        builder : (_,user,__)=>
-                                         MajorFont(
-                                          text:
-                                              'Ref : ${user.user.ref}',
+                                        builder: (_, user, __) => MajorFont(
+                                          text: 'Ref : ${user.user.ref}',
                                           color: AppColors.blackColor,
                                           size: 11,
                                           weight: false,
@@ -230,91 +226,91 @@ class _HomeState extends State<Home> {
                     height: 5,
                   ),
                   Expanded(
-                    child: Scrollbar(
-                      thumbVisibility: true,
-                      child: ListView.builder(
-                          primary: true,
-                          padding: const EdgeInsets.only(left: 2, right: 2),
-                          shrinkWrap: true,
-                          itemCount: Provider.of<ProductTypeNotifier>(context,
-                                  listen: true)
-                              .productList
-                              .length,
-                          itemBuilder: (_, index) {
-                            return InkWell(
-                              onTap: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => PlanCategories(
-                                            prodIndex: index,
-                                          ))),
-                              child: Card(
-                                surfaceTintColor: AppColors.whiteColor,
-                                color: AppColors.whiteColor,
-                                elevation: 10,
-                                margin: const EdgeInsets.only(
-                                    left: 20, right: 20, bottom: 7, top: 5),
-                                child: Row(children: [
-                                  SizedBox(
-                                    height: 70,
-                                    width: 100,
-                                    child: Center(
-                                        child: Container(
-                                      height: 55,
-                                      width: 75,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              image: AssetImage(icons[index]))),
-                                    )),
-                                  ),
-                                  Container(
-                                    margin: const EdgeInsets.only(top: 12),
-                                    padding: const EdgeInsets.only(top: 8),
-                                    height: 70,
-                                    width: 145,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        MajorFont(
-                                          size: 17,
-                                          weight: false,
-                                          text:
-                                              '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].name}',
-                                          color: AppColors.blackColor,
-                                        ),
-                                        const SizedBox(height: 4),
-                                        MajorFont(
-                                          weight: false,
-                                          text:
-                                              '${Provider.of<ProductTypeNotifier>(context, listen: true).prodList[index].premiumtype}',
-                                          color: const Color.fromARGB(
-                                              255, 173, 173, 173),
-                                          size: 15,
-                                        ),
-                                        const SizedBox(
-                                          height: 9,
-                                        ),
-                                      ],
+                    child: Consumer<ProductTypeNotifier>(
+                      builder: (_, value, __) => Scrollbar(
+                        thumbVisibility: true,
+                        child: ListView.builder(
+                            primary: true,
+                            padding: const EdgeInsets.only(left: 2, right: 2),
+                            shrinkWrap: true,
+                            itemCount: value.productList.length,
+                            itemBuilder: (_, index) {
+                              return InkWell(
+                                onTap: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => PlanCategories(
+                                              prodIndex: index,
+                                            ))),
+                                child: Card(
+                                  surfaceTintColor: AppColors.whiteColor,
+                                  color: AppColors.whiteColor,
+                                  elevation: 10,
+                                  margin: const EdgeInsets.only(
+                                      left: 20, right: 20, bottom: 7, top: 5),
+                                  child: Row(children: [
+                                    SizedBox(
+                                      height: 70,
+                                      width: 100,
+                                      child: Center(
+                                          child: Container(
+                                        height: 55,
+                                        width: 75,
+                                        decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                                image:
+                                                    AssetImage(icons[index]))),
+                                      )),
                                     ),
-                                  ),
-                                  const Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsets.only(right: 15),
-                                      child: Align(
-                                          alignment:
-                                              AlignmentDirectional.centerEnd,
-                                          child: Icon(
-                                            Icons.arrow_forward_ios,
-                                            size: 20,
-                                            color: AppColors.primeColor,
-                                          )),
+                                    Container(
+                                      margin: const EdgeInsets.only(top: 12),
+                                      padding: const EdgeInsets.only(top: 8),
+                                      height: 70,
+                                      width: 145,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          MajorFont(
+                                            size: 17,
+                                            weight: false,
+                                            text:
+                                                '${value.prodList[index].name}',
+                                            color: AppColors.blackColor,
+                                          ),
+                                          const SizedBox(height: 4),
+                                          MajorFont(
+                                            weight: false,
+                                            text:
+                                                '${value.prodList[index].premiumtype}',
+                                            color: const Color.fromARGB(
+                                                255, 173, 173, 173),
+                                            size: 15,
+                                          ),
+                                          const SizedBox(
+                                            height: 9,
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  )
-                                ]),
-                              ),
-                            );
-                          }),
+                                    const Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsets.only(right: 15),
+                                        child: Align(
+                                            alignment:
+                                                AlignmentDirectional.centerEnd,
+                                            child: Icon(
+                                              Icons.arrow_forward_ios,
+                                              size: 20,
+                                              color: AppColors.primeColor,
+                                            )),
+                                      ),
+                                    )
+                                  ]),
+                                ),
+                              );
+                            }),
+                      ),
                     ),
                   )
                 ],

@@ -18,8 +18,4 @@ class AllPlansNotifier extends ChangeNotifier {
 
     notifyListeners();
   }
-
-
-
-
 }
