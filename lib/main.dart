@@ -2,6 +2,8 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:insurease/auth_services/auth_service.dart';
+import 'package:insurease/auth_services/auth_widget.dart';
 import 'package:insurease/notifiers/productType.dart';
 
 import 'package:insurease/pages/app_pages/welcome.dart';
@@ -10,6 +12,7 @@ import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
 import 'notifiers/allPlansNotifier.dart';
+
 import 'notifiers/userObjectNotifier.dart';
 
 void main() async {
@@ -20,6 +23,8 @@ void main() async {
       ChangeNotifierProvider(create: (context) => ProductTypeNotifier()),
       ChangeNotifierProvider(create: (context) => AllPlansNotifier()),
       ChangeNotifierProvider(create: (context) => UserNotifier()),
+      ChangeNotifierProvider(create: (context) => FirebaseAuthService()),
+
     ],
     child: MyApp(),
   ));
@@ -32,7 +37,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'InsurEase', debugShowCheckedModeBanner: false, home: Welcome());
+        title: 'InsurEase', debugShowCheckedModeBanner: false, home: AuthWidget());
   }
 }
 

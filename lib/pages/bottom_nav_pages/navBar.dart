@@ -24,20 +24,7 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     List pages = [const Home(), const Policies(), const Profile()];
     return Scaffold(
-      //   appBar: AppBar(
-      //   elevation: 1,
-      //   backgroundColor: AppColors.primeColor,
-      //   title: MajorFont(
-      //     text: 'Welcome [username]',
-      //     color: AppColors.whiteColor,
-      //     weight: false,
-      //   ),
-      //   leading: IconButton(
-      //       color: AppColors.whiteColor,
-      //       onPressed: () => Navigator.pop(context),
-      //       icon: const Icon(Icons.arrow_back)),
-      // ),
-
+   
       body: pages[nowIndex],
       bottomNavigationBar: BottomNavigationBar(
           unselectedLabelStyle: const TextStyle(
