@@ -10,6 +10,7 @@ import '../api/get_products.dart';
 import '../authentication/getUser.dart';
 import '../notifiers/productType.dart';
 import '../notifiers/userObjectNotifier.dart';
+import '../pages/app_pages/restart_widget.dart';
 import '../pages/app_pages/welcome.dart';
 
 class AuthWidget extends StatefulWidget {
@@ -30,9 +31,9 @@ class _AuthWidgetState extends State<AuthWidget> {
         if (snapshot.connectionState == ConnectionState.active) {
           final user = snapshot.data;
           if (user != null) {
-            return NavBar();
+            return const Restart();
           }
-          return Welcome();
+          return const Welcome();
         }
         return const Scaffold(
           body: Center(child: CircularProgressIndicator()),
