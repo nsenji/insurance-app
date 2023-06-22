@@ -66,6 +66,7 @@ class _LoginPageState extends State<LoginPage> {
       body: loading
           ? const Center(
               child: CircularProgressIndicator(
+                backgroundColor: AppColors.greyColor,
                 color: AppColors.primeColor,
               ),
             )

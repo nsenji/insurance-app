@@ -108,7 +108,7 @@ class _HomeState extends State<Home> {
                                       Consumer<UserNotifier>(
                                         builder: (_, user, __) => MajorFont(
                                           text:
-                                              '${user.user.firstname} ${user.user.lastname}',
+                                              '${user.user.firstname} ${user.user.lastname}'.toUpperCase(),
                                           color: AppColors.primeColor,
                                           size: 17,
                                           weight: false,

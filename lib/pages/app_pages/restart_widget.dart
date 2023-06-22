@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:insurease/pages/bottom_nav_pages/navBar.dart';
+import 'package:insurease/styles/colors.dart';
 import 'package:provider/provider.dart';
 
 import '../../api/get_products.dart';
@@ -42,7 +43,10 @@ class _RestartState extends State<Restart> {
     return loading
         ? const Scaffold(
             body: Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: AppColors.primeColor,
+                backgroundColor: AppColors.greyColor,
+              ),
             ),
           )
         : const NavBar();

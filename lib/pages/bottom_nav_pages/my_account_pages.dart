@@ -43,10 +43,7 @@ class _ProfileState extends State<Profile> {
           color: AppColors.blackColor,
           weight: false,
         ),
-        leading: IconButton(
-            color: AppColors.blackColor,
-            onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.arrow_back)),
+        
       ),
       body: SingleChildScrollView(
         child: Center(

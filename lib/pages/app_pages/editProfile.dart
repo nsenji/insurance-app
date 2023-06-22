@@ -68,6 +68,7 @@ class _EditProfileState extends State<EditProfile> {
       body: loading
           ? const Center(
               child: CircularProgressIndicator(
+                backgroundColor: AppColors.greyColor,
                 color: AppColors.primeColor,
               ),
             )

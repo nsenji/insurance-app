@@ -53,6 +53,7 @@ class _SignupPageState extends State<SignupPage> {
       body: loading
           ? const Center(
               child: CircularProgressIndicator(
+                backgroundColor: AppColors.greyColor,
                 color: AppColors.primeColor,
               ),
             )
