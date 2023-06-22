@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:insurease/authentication/getUser.dart';
 import 'package:insurease/pages/app_pages/app_settings.dart';
 import 'package:insurease/pages/app_pages/completeProfile.dart';
@@ -53,7 +51,7 @@ class _ProfileState extends State<Profile> {
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(30),
+            padding: const EdgeInsets.all(20),
             child: Column(
               children: [
                 Column(
@@ -78,7 +76,7 @@ class _ProfileState extends State<Profile> {
                       width: 300,
                       child: MajorFont(
                         text:
-                            '${userNotifier.user?.firstname} ${userNotifier.user?.lastname}',
+                            '${userNotifier.user.firstname} ${userNotifier.user.lastname}',
                         size: 20,
                       ),
                     ),
@@ -87,7 +85,7 @@ class _ProfileState extends State<Profile> {
                       height: 30,
                       width: 300,
                       child: MajorFont(
-                        text: '${userNotifier.user?.email}',
+                        text: userNotifier.user.email,
                         weight: false,
                         size: 20,
                         color: AppColors.blackColor,

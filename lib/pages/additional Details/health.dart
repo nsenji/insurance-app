@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:insurease/api/buyPlan.dart';
-import 'package:insurease/notifiers/productType.dart';
 import 'package:insurease/notifiers/userObjectNotifier.dart';
-import 'package:insurease/pages/app_pages/payment.dart';
 import 'package:insurease/styles/colors.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -57,7 +53,7 @@ class _HealthState extends State<Health> {
   getHealth() async {
     String answer = await buyhealth(
         widget.code,
-        Provider.of<UserNotifier>(context, listen: false).user!.ref,
+        Provider.of<UserNotifier>(context, listen: false).user.ref,
         _policyStartDate.text,
         _location.text,
         _medicalHistory.text,
@@ -90,7 +86,7 @@ class _HealthState extends State<Health> {
       body: SingleChildScrollView(
         child: Center(
           child: Container(
-            margin: EdgeInsets.only(top: 30, left: 30, right: 30, bottom: 30),
+            margin: const EdgeInsets.only(top: 30, left: 30, right: 30, bottom: 30),
             decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
@@ -101,14 +97,14 @@ class _HealthState extends State<Health> {
                   ),
                 ],
                 color: AppColors.containerColor,
-                borderRadius: BorderRadius.all(Radius.circular(20))),
+                borderRadius: const BorderRadius.all(Radius.circular(20))),
             child: Center(
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(17.0),
+                    padding: const EdgeInsets.all(17.0),
                     child: TextField(
-                      style: TextStyle(color: AppColors.blackColor),
+                      style: const TextStyle(color: AppColors.blackColor),
                       controller: _policyStartDate,
                       decoration: InputDecoration(
                         // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -147,9 +143,9 @@ class _HealthState extends State<Health> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: TextField(
-                      style: TextStyle(color: AppColors.blackColor),
+                      style: const TextStyle(color: AppColors.blackColor),
                       controller: _location,
                       decoration: InputDecoration(
                           // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -165,9 +161,9 @@ class _HealthState extends State<Health> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: TextField(
-                      style: TextStyle(color: AppColors.blackColor),
+                      style: const TextStyle(color: AppColors.blackColor),
                       controller: _medicalHistory,
                       decoration: InputDecoration(
                         // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -181,9 +177,9 @@ class _HealthState extends State<Health> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: TextField(
-                      style: TextStyle(color: AppColors.blackColor),
+                      style: const TextStyle(color: AppColors.blackColor),
                       controller: _nextofkinName,
                       decoration: InputDecoration(
                         // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -197,9 +193,9 @@ class _HealthState extends State<Health> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(17.0),
+                    padding: const EdgeInsets.all(17.0),
                     child: TextField(
-                      style: TextStyle(color: AppColors.blackColor),
+                      style: const TextStyle(color: AppColors.blackColor),
                       controller: _nextofkinEmail,
                       decoration: InputDecoration(
                           // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -215,9 +211,9 @@ class _HealthState extends State<Health> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(17.0),
+                    padding: const EdgeInsets.all(17.0),
                     child: TextField(
-                      style: TextStyle(color: AppColors.blackColor),
+                      style: const TextStyle(color: AppColors.blackColor),
                       controller: _nextofkinPhone,
                       decoration: InputDecoration(
                           // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -233,9 +229,9 @@ class _HealthState extends State<Health> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      padding: EdgeInsets.only(top: 20),
+                      padding: const EdgeInsets.only(top: 20),
                       child: InkWell(
                           child: Button(text: 'Submit'),
                           onTap: () {
@@ -281,7 +277,7 @@ class _HealthState extends State<Health> {
                     ),
                   )
                   ,
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.all(25.0),
                       
                     ),

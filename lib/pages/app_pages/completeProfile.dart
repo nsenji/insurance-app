@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:insurease/authentication/updateUser.dart';
-import 'package:insurease/pages/app_pages/payment.dart';
 import 'package:insurease/pages/bottom_nav_pages/navBar.dart';
 import 'package:insurease/styles/colors.dart';
 import 'package:intl/intl.dart';
@@ -13,7 +10,6 @@ import '../../api/createCustomer.dart';
 import '../../notifiers/userObjectNotifier.dart';
 import '../../tools/button.dart';
 import '../../tools/major_font.dart';
-import '../bottom_nav_pages/my_account_pages.dart';
 
 class CompleteProfile extends StatefulWidget {
   const CompleteProfile({super.key});
@@ -29,21 +25,22 @@ class _CompleteProfileState extends State<CompleteProfile> {
 
   createCustomer() async {
     var user = Provider.of<UserNotifier>(context, listen: false).user;
+    var user2 = Provider.of<UserNotifier>(context, listen: false);
     await postCustomer(
-        user?.ref ?? 'placeholder',
-        user?.firstname ?? 'placeholder',
-        user?.lastname ?? 'placeholder',
+        user.ref,
+        user.firstname,
+        user.lastname ,
         _phonenumber.text,
         _selectedVal ?? 'placeholder',
         _birthdate.text,
-        user?.email ?? 'placeholder',
+        user.email,
         _occupation.text,
         _residentialAddress.text,
         _natialnality.text,
         _nextOfKinName.text,
         _nextOfKinNumber.text);
-
-    await updateUser();
+  
+    await updateUser(user2);
   }
 
   final TextEditingController _phonenumber = TextEditingController();
@@ -90,7 +87,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back)),
       ),
-      body: user2?.profileComplete == true
+      body: user2.profileComplete == true
           ? Center(
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 100),
@@ -107,7 +104,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
           : SingleChildScrollView(
               child: Container(
                 margin:
-                    EdgeInsets.only(top: 30, left: 30, right: 30, bottom: 30),
+                    const EdgeInsets.only(top: 30, left: 30, right: 30, bottom: 30),
                 decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
@@ -118,14 +115,14 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       ),
                     ],
                     color: AppColors.containerColor,
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                    borderRadius: const BorderRadius.all(Radius.circular(20))),
                 // height: 850,
                 child: Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: TextField(
-                        style: TextStyle(color: AppColors.blackColor),
+                        style: const TextStyle(color: AppColors.blackColor),
                         controller: _phonenumber,
                         decoration: InputDecoration(
                             // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -141,19 +138,19 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       ),
                     ),
                     Padding(
-                        padding: EdgeInsets.all(17.0),
+                        padding: const EdgeInsets.all(17.0),
                         child: DropdownButtonFormField(
                           value: _selectedVal,
                           items: _genderList
                               .map((e) =>
-                                  DropdownMenuItem(child: Text(e), value: e))
+                                  DropdownMenuItem(value: e, child: Text(e)))
                               .toList(),
                           onChanged: (val) {
                             setState(() {
                               _selectedVal = val as String;
                             });
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.arrow_drop_down_outlined,
                             color: AppColors.primeColor,
                           ),
@@ -166,9 +163,9 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           )),
                         )),
                     Padding(
-                      padding: EdgeInsets.all(17.0),
+                      padding: const EdgeInsets.all(17.0),
                       child: TextField(
-                        style: TextStyle(color: AppColors.blackColor),
+                        style: const TextStyle(color: AppColors.blackColor),
                         controller: _birthdate,
                         decoration: InputDecoration(
                             // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -206,9 +203,9 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(17.0),
+                      padding: const EdgeInsets.all(17.0),
                       child: TextField(
-                        style: TextStyle(color: AppColors.blackColor),
+                        style: const TextStyle(color: AppColors.blackColor),
                         controller: _occupation,
                         decoration: InputDecoration(
                           // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -222,9 +219,9 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: TextField(
-                        style: TextStyle(color: AppColors.blackColor),
+                        style: const TextStyle(color: AppColors.blackColor),
                         controller: _residentialAddress,
                         decoration: InputDecoration(
                             // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -239,9 +236,9 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: TextField(
-                        style: TextStyle(color: AppColors.blackColor),
+                        style: const TextStyle(color: AppColors.blackColor),
                         controller: _natialnality,
                         decoration: InputDecoration(
                           // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -255,9 +252,9 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: TextField(
-                        style: TextStyle(color: AppColors.blackColor),
+                        style: const TextStyle(color: AppColors.blackColor),
                         controller: _nextOfKinName,
                         decoration: InputDecoration(
                             // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -273,9 +270,9 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: TextField(
-                        style: TextStyle(color: AppColors.blackColor),
+                        style: const TextStyle(color: AppColors.blackColor),
                         controller: _nextOfKinNumber,
                         decoration: InputDecoration(
                             // errorText: codeIsEmpty ? 'This field is required' : null,
@@ -293,7 +290,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-                        padding: EdgeInsets.only(top: 20),
+                        padding: const EdgeInsets.only(top: 20),
                         child: InkWell(
                             child: Button(text: 'Submit'),
                             onTap: () {
@@ -330,7 +327,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                                       Navigator.pushAndRemoveUntil(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => NavBar()),
+                                            builder: (context) => const NavBar()),
                                         (route) => false,
                                       )
                                     };

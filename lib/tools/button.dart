@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class Button extends StatelessWidget {
   double width;
@@ -23,7 +20,7 @@ class Button extends StatelessWidget {
                   fit: BoxFit.fill)),
           child: Center(
             child: Text(text,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.white,
                     fontFamily: 'BubblegumSans',
                     fontSize: 15)),

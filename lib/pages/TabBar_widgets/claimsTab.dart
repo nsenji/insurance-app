@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:insurease/styles/colors.dart';
 import 'package:insurease/tools/major_font.dart';
 
@@ -22,12 +19,12 @@ class _ClaimsTabState extends State<ClaimsTab> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.policy,
+            const Icon(Icons.policy,
             size: 150,
             color: AppColors.greyColor,
             ),
-            SizedBox(height: 15,),
-            MajorFont(text: 'You have no claims.',weight: false,color: Color.fromARGB(255, 189, 184, 184),),
+            const SizedBox(height: 15,),
+            MajorFont(text: 'You have no claims.',weight: false,color: const Color.fromARGB(255, 189, 184, 184),),
           ],
         ),
       ),

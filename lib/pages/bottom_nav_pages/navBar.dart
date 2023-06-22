@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:insurease/pages/app_pages/welcome.dart';
 import 'package:insurease/pages/bottom_nav_pages/myPolicies_page.dart';
 import 'package:insurease/pages/bottom_nav_pages/products_page.dart';
-import 'package:insurease/tools/major_font.dart';
 
 import '../../styles/colors.dart';
-import '../../tools/button.dart';
 import 'my_account_pages.dart';
 
 class NavBar extends StatefulWidget {
@@ -27,28 +22,15 @@ class _NavBarState extends State<NavBar> {
 
   @override
   Widget build(BuildContext context) {
-    List pages = [Home(), Policies(), Profile()];
+    List pages = [const Home(), const Policies(), const Profile()];
     return Scaffold(
-      //   appBar: AppBar(
-      //   elevation: 1,
-      //   backgroundColor: AppColors.primeColor,
-      //   title: MajorFont(
-      //     text: 'Welcome [username]',
-      //     color: AppColors.whiteColor,
-      //     weight: false,
-      //   ),
-      //   leading: IconButton(
-      //       color: AppColors.whiteColor,
-      //       onPressed: () => Navigator.pop(context),
-      //       icon: const Icon(Icons.arrow_back)),
-      // ),
-
+   
       body: pages[nowIndex],
       bottomNavigationBar: BottomNavigationBar(
-          unselectedLabelStyle: TextStyle(
+          unselectedLabelStyle: const TextStyle(
             fontFamily: 'BubblegumSans',
             ),
-          selectedLabelStyle: TextStyle(
+          selectedLabelStyle: const TextStyle(
             fontFamily: 'BubblegumSans',
             ),
           selectedFontSize: 10,
@@ -61,8 +43,8 @@ class _NavBarState extends State<NavBar> {
           showSelectedLabels:true,
           showUnselectedLabels: true,
           selectedItemColor: AppColors.primeColor,
-          unselectedItemColor: Color.fromARGB(255, 51, 49, 49).withOpacity(0.5),
-          items: [
+          unselectedItemColor: const Color.fromARGB(255, 51, 49, 49).withOpacity(0.5),
+          items: const [
             BottomNavigationBarItem(label: "Products", icon: Icon(Icons.home)),
             BottomNavigationBarItem(label: "My Policies", icon: Icon(Icons.policy)),
             BottomNavigationBarItem(label: "My account", icon: Icon(Icons.person)),

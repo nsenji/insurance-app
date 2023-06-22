@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:insurease/styles/colors.dart';
 import 'package:insurease/tools/major_font.dart';
 
@@ -36,12 +34,12 @@ class _AppSettingsState extends State<AppSettings> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.settings,
+            const Icon(Icons.settings,
             size: 150,
             color: AppColors.greyColor,
             ),
-            SizedBox(height: 15,),
-            MajorFont(text: 'Coming soon...',weight: false,color: Color.fromARGB(255, 189, 184, 184),),
+            const SizedBox(height: 15,),
+            MajorFont(text: 'Coming soon...',weight: false,color: const Color.fromARGB(255, 189, 184, 184),),
           ],
         ),
       ),
