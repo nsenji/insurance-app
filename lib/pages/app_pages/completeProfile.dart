@@ -6,6 +6,7 @@ import 'package:insurease/styles/colors.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
+import '../../Firebase_paths/user_by_ID.dart';
 import '../../api/createCustomer.dart';
 import '../../notifiers/userObjectNotifier.dart';
 import '../../tools/button.dart';
@@ -26,6 +27,8 @@ class _CompleteProfileState extends State<CompleteProfile> {
   createCustomer() async {
     var user = Provider.of<UserNotifier>(context, listen: false).user;
     var user2 = Provider.of<UserNotifier>(context, listen: false);
+    UserByID userByID =
+        Provider.of<UserByID>(context, listen: false);
     await postCustomer(
         user.ref,
         user.firstname,
@@ -40,7 +43,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
         _nextOfKinName.text,
         _nextOfKinNumber.text);
   
-    await updateUser(user2);
+    await updateUser(user2,userByID);
   }
 
   final TextEditingController _phonenumber = TextEditingController();

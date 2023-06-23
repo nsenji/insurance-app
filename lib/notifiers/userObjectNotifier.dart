@@ -9,7 +9,6 @@ class UserNotifier with ChangeNotifier {
 
   void setUser(UserObject user) {
     _user = user;
-    notifyListeners();
   }
  
 }

@@ -61,6 +61,7 @@ class _PlanCategoriesState extends State<PlanCategories> {
       body: isLoading2
           ? const Center(
               child: CircularProgressIndicator(
+                backgroundColor: AppColors.greyColor,
                 color: AppColors.primeColor,
               ),
             )

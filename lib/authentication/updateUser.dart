@@ -3,24 +3,25 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:insurease/authentication/getUser.dart';
 import 'package:provider/provider.dart';
 
+import '../Firebase_paths/user_by_ID.dart';
 import '../notifiers/userObjectNotifier.dart';
 
-updateUser(UserNotifier userNotifier) async {
-  var db = FirebaseFirestore.instance;
-  var user = FirebaseAuth.instance.currentUser;
+updateUser(UserNotifier userNotifier, UserByID userByID) async {
+  // var db = FirebaseFirestore.instance;
+  // var user = FirebaseAuth.instance.currentUser;
 
-  var query = await db
-      .collection("users")
-      .where("uniqueID", isEqualTo: user!.uid)
-      .get();
+  // var query = await db
+  //     .collection("users")
+  //     .where("uniqueID", isEqualTo: user!.uid)
+  //     .get();
 
-  final data = query.docs;
+  final data = userByID.dataList;
   try {
     data[0].reference.update({"profileComplete": true}).then(
         (value) => print('successfully updated'),
         onError: (e) => print('error while updateing $e'));
   
-    getUser(userNotifier);
+    getUser(userNotifier,userByID);
   } catch (e) {
     print('$e');
   }

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:insurease/pages/bottom_nav_pages/navBar.dart';
+import 'package:insurease/styles/colors.dart';
 import 'package:provider/provider.dart';
 
+import '../../Firebase_paths/user_by_ID.dart';
 import '../../api/get_products.dart';
 import '../../authentication/getUser.dart';
 import '../../notifiers/productType.dart';
@@ -30,8 +32,10 @@ class _RestartState extends State<Restart> {
         Provider.of<ProductTypeNotifier>(context, listen: false);
     UserNotifier userNotifier =
         Provider.of<UserNotifier>(context, listen: false);
+    UserByID userByID = Provider.of<UserByID>(context, listen: false);
+    await userByID.userById;
     await getProductTypes(productType);
-    await getUser(userNotifier);
+    await getUser(userNotifier, userByID);
     setState(() {
       loading = false;
     });
@@ -42,7 +46,10 @@ class _RestartState extends State<Restart> {
     return loading
         ? const Scaffold(
             body: Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: AppColors.primeColor,
+                backgroundColor: AppColors.greyColor,
+              ),
             ),
           )
         : const NavBar();

@@ -8,6 +8,7 @@ import 'package:insurease/pages/app_pages/completeProfile.dart';
 import 'package:insurease/styles/colors.dart';
 import 'package:provider/provider.dart';
 
+import '../../Firebase_paths/user_by_ID.dart';
 import '../../authentication/getUser.dart';
 import '../../tools/button.dart';
 import '../../tools/major_font.dart';
@@ -38,7 +39,9 @@ class _ProductDetailsState extends State<ProductDetails> {
   void initState() {
     UserNotifier userNotifier =
         Provider.of<UserNotifier>(context, listen: false);
-    getUser(userNotifier);
+    UserByID userByID =
+        Provider.of<UserByID>(context, listen: false);
+    getUser(userNotifier,userByID);
     super.initState();
   }
 
