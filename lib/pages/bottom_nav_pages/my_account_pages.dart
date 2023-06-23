@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:insurease/Firebase_paths/user_by_ID.dart';
+import 'package:insurease/Image_Picker/image_picker.dart';
 import 'package:insurease/authentication/getUser.dart';
 import 'package:insurease/pages/app_pages/app_settings.dart';
 import 'package:insurease/pages/app_pages/completeProfile.dart';
@@ -7,6 +9,7 @@ import 'package:insurease/pages/app_pages/welcome.dart';
 import 'package:insurease/tools/button.dart';
 import 'package:provider/provider.dart';
 
+import '../../Image_Picker/avatar.dart';
 import '../../authentication/signout.dart';
 import '../../notifiers/userObjectNotifier.dart';
 import '../../styles/colors.dart';
@@ -21,11 +24,25 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  _chooseAvatar() async {
+    try {
+      final imageService =
+          Provider.of<ImagePickerService>(context, listen: false);
+      await imageService.pickImage();
+
+
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   void initState() {
     UserNotifier userNotifier =
         Provider.of<UserNotifier>(context, listen: false);
-    getUser(userNotifier);
+    UserByID userByID =
+        Provider.of<UserByID>(context, listen: false);
+    getUser(userNotifier,userByID);
     super.initState();
   }
 
@@ -43,7 +60,6 @@ class _ProfileState extends State<Profile> {
           color: AppColors.blackColor,
           weight: false,
         ),
-        
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -54,17 +70,12 @@ class _ProfileState extends State<Profile> {
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Container(
-                      height: 80,
-                      width: 80,
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage(
-                              "assets/images/placeholder.png",
-                            ),
-                          )),
+                    Avatar(
+                      photoUrl: '',
+                      radius: 45,
+                      borderWidth: 2.0,
+                      borderColor: AppColors.primeColor,
+                      onPressed: () => _chooseAvatar(),
                     ),
                     Container(
                       alignment: Alignment.center,

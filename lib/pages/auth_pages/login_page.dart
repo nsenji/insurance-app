@@ -5,6 +5,7 @@ import 'package:insurease/pages/bottom_nav_pages/navBar.dart';
 import 'package:insurease/tools/major_font.dart';
 import 'package:provider/provider.dart';
 
+import '../../Firebase_paths/user_by_ID.dart';
 import '../../api/get_products.dart';
 import '../../authentication/getUser.dart';
 import '../../notifiers/productType.dart';
@@ -29,8 +30,10 @@ class _LoginPageState extends State<LoginPage> {
         Provider.of<ProductTypeNotifier>(context, listen: false);
     UserNotifier userNotifier =
         Provider.of<UserNotifier>(context, listen: false);
+    UserByID userByID = Provider.of<UserByID>(context, listen: false);
+    await userByID.userById;
     await getProductTypes(productType);
-    await getUser(userNotifier);
+    await getUser(userNotifier, userByID);
   }
 
   bool loading = false;
@@ -104,7 +107,8 @@ class _LoginPageState extends State<LoginPage> {
                               Padding(
                                 padding: const EdgeInsets.all(20.0),
                                 child: TextField(
-                                  style: const TextStyle(color: AppColors.blackColor),
+                                  style: const TextStyle(
+                                      color: AppColors.blackColor),
                                   controller: _emailField,
                                   obscureText: false,
                                   decoration: InputDecoration(
@@ -122,7 +126,8 @@ class _LoginPageState extends State<LoginPage> {
                               Padding(
                                 padding: const EdgeInsets.all(20.0),
                                 child: TextField(
-                                  style: const TextStyle(color: AppColors.blackColor),
+                                  style: const TextStyle(
+                                      color: AppColors.blackColor),
                                   controller: _passwordField,
                                   obscureText: passwordvisible ? false : true,
                                   decoration: InputDecoration(
@@ -173,7 +178,8 @@ class _LoginPageState extends State<LoginPage> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const NavBar()), ((route) => false));
+                                                    const NavBar()),
+                                            ((route) => false));
                                       } else {
                                         setState(() {
                                           loading = false;

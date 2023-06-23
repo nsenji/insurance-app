@@ -3,17 +3,19 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:insurease/authentication/getUser.dart';
 import 'package:insurease/notifiers/userObjectNotifier.dart';
 
-Future<bool> updateProfile(UserNotifier userNotifier,
-    String firstname, String lastname, String email) async {
-  var db = FirebaseFirestore.instance;
-  var user = FirebaseAuth.instance.currentUser;
+import '../Firebase_paths/user_by_ID.dart';
 
-  var query = await db
-      .collection("users")
-      .where("uniqueID", isEqualTo: user!.uid)
-      .get();
+Future<bool> updateProfile(UserNotifier userNotifier,UserByID userByID,
+    String firstname, String lastname, String email) async {
+  // var db = FirebaseFirestore.instance;
+  // var user = FirebaseAuth.instance.currentUser;
+
+  // var query = await db
+  //     .collection("users")
+  //     .where("uniqueID", isEqualTo: user!.uid)
+  //     .get();
   try {
-    final data = query.docs;
+    final data = userByID.dataList;
 
     data[0].reference.update({
       "email": email,
@@ -21,7 +23,7 @@ Future<bool> updateProfile(UserNotifier userNotifier,
       "lastname": lastname
     }).then((value) => print('successfully updated'),
         onError: (e) => print('error while updateing $e'));
-    getUser(userNotifier);
+    getUser(userNotifier,userByID);
     return true;
   } catch (e) {
     return false;
