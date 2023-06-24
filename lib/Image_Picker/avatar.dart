@@ -1,38 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:insurease/styles/colors.dart';
+
+
 
 class Avatar extends StatelessWidget {
-  Avatar({super.key, 
+  const Avatar({
     required this.photoUrl,
     required this.radius,
-    this.borderColor = Colors.black,
-    this.borderWidth = 40,
+    this.borderColor = AppColors.blackColor,
+    this.borderWidth = 2.0,
     required this.onPressed,
   });
   final String photoUrl;
   final double radius;
-  Color borderColor = Colors.black;
+  final Color borderColor;
   final double borderWidth;
-  final VoidCallback onPressed ;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: _borderDecoration(),
       child: InkWell(
-        onTap: onPressed,
+        onTap:  onPressed,
+        //borderRadius: BorderRadius.circular(radius * 1.2),
         child: CircleAvatar(
           radius: radius,
           backgroundColor: Colors.black12,
-          backgroundImage:NetworkImage(photoUrl),
-          child:Icon(Icons.camera_alt, size: radius),
+          backgroundImage: photoUrl != null ? NetworkImage(photoUrl) : null,
+          child: photoUrl.isEmpty ? Icon(Icons.camera_alt, size: radius,color: Color.fromARGB(255, 70, 66, 66),) : null,
         ),
       ),
     );
   }
 
-  Decoration _borderDecoration() {
-     
+  BoxDecoration? _borderDecoration() {
+    if (borderColor != null && borderWidth != null) {
       return BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
@@ -40,6 +44,7 @@ class Avatar extends StatelessWidget {
           width: borderWidth,
         ),
       );
-    
+    }
+    return null;
   }
 }

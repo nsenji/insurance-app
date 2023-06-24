@@ -22,3 +22,21 @@ Future<bool> updateProfile(UserNotifier userNotifier, UserByID userByID,
     return false;
   }
 }
+
+Future<bool> updatePicture(String url, UserByID userByID,
+) async {
+  try {
+    final data = userByID.dataList;
+
+    data[0].reference.update({
+      "profilePicture": url,
+      
+    }).then((value) => print('successfully updated'),
+        onError: (e) => print('error while updateing $e'));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+
