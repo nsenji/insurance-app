@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:insurease/Firebase_paths/user_by_ID.dart';
 import 'package:insurease/Image_Picker/image_picker.dart';
 import 'package:insurease/authentication/getUser.dart';
+import 'package:insurease/authentication/updateProfile.dart';
 import 'package:insurease/pages/app_pages/app_settings.dart';
 import 'package:insurease/pages/app_pages/completeProfile.dart';
 import 'package:insurease/pages/app_pages/editProfile.dart';
@@ -11,6 +13,7 @@ import 'package:insurease/tools/button.dart';
 import 'package:provider/provider.dart';
 
 import '../../Image_Picker/avatar.dart';
+import '../../Image_Picker/firebase_storage.dart';
 import '../../Image_Picker/firestore_service.dart';
 import '../../authentication/signout.dart';
 import '../../notifiers/userObjectNotifier.dart';
@@ -26,11 +29,15 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  _chooseAvatar() async {
+  Future<void> _chooseAvatar(BuildContext context) async {
+    final imageService =
+        Provider.of<ImagePickerService>(context, listen: false);
+    final user = FirebaseAuth.instance.currentUser;
+    UserByID userByID = Provider.of<UserByID>(context, listen: false);
     try {
-      final imageService =
-          Provider.of<ImagePickerService>(context, listen: false);
-      await imageService.pickImage();
+      final file = await imageService.pickImages();
+      final downloadUrl = await uploadAvatar(file, user!.uid);
+      await updatePicture(downloadUrl, userByID);
     } catch (e) {
       print(e);
     }
@@ -72,13 +79,14 @@ class _ProfileState extends State<Profile> {
                     StreamBuilder<QuerySnapshot>(
                         stream: picture(),
                         builder: (context, snapshot) {
-                          final avatar = snapshot.data!.docs[0]['profilePicture'];
+                          final avatar =
+                              snapshot.data?.docs[0]['profilePicture'];
                           return Avatar(
                             photoUrl: '$avatar',
                             radius: 45,
                             borderWidth: 2.0,
                             borderColor: AppColors.primeColor,
-                            onPressed: () => _chooseAvatar(),
+                            onPressed: () => _chooseAvatar(context),
                           );
                         }),
                     Container(

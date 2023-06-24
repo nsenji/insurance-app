@@ -1,9 +1,14 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ImagePickerService {
-  Future<Future<XFile?>> pickImage() async {
-    return ImagePicker().pickImage(source: ImageSource.gallery);
+class ImagePickerService extends ChangeNotifier {
+  Future<File> pickImages() async {
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+
+      return File(pickedFile!.path);
+    
   }
 }
