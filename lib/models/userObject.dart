@@ -3,6 +3,7 @@ class UserObject {
   String lastname = '';
   String ref = '';
   String email = '';
+  dynamic profilePicture = '';
   dynamic profileComplete = false;
 
   UserObject();
@@ -11,6 +12,7 @@ class UserObject {
     lastname = data['lastname'];
     ref = data['ref'];
     email = data['email'];
+    profilePicture = data['profilePicture'];
     profileComplete = data['profileComplete'];
   }
 }

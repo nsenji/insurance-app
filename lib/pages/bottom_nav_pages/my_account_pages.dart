@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:insurease/Firebase_paths/user_by_ID.dart';
 import 'package:insurease/Image_Picker/image_picker.dart';
@@ -10,6 +11,7 @@ import 'package:insurease/tools/button.dart';
 import 'package:provider/provider.dart';
 
 import '../../Image_Picker/avatar.dart';
+import '../../Image_Picker/firestore_service.dart';
 import '../../authentication/signout.dart';
 import '../../notifiers/userObjectNotifier.dart';
 import '../../styles/colors.dart';
@@ -29,8 +31,6 @@ class _ProfileState extends State<Profile> {
       final imageService =
           Provider.of<ImagePickerService>(context, listen: false);
       await imageService.pickImage();
-
-
     } catch (e) {
       print(e);
     }
@@ -40,9 +40,8 @@ class _ProfileState extends State<Profile> {
   void initState() {
     UserNotifier userNotifier =
         Provider.of<UserNotifier>(context, listen: false);
-    UserByID userByID =
-        Provider.of<UserByID>(context, listen: false);
-    getUser(userNotifier,userByID);
+    UserByID userByID = Provider.of<UserByID>(context, listen: false);
+    getUser(userNotifier, userByID);
     super.initState();
   }
 
@@ -70,13 +69,18 @@ class _ProfileState extends State<Profile> {
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Avatar(
-                      photoUrl: '',
-                      radius: 45,
-                      borderWidth: 2.0,
-                      borderColor: AppColors.primeColor,
-                      onPressed: () => _chooseAvatar(),
-                    ),
+                    StreamBuilder<QuerySnapshot>(
+                        stream: picture(),
+                        builder: (context, snapshot) {
+                          final avatar = snapshot.data!.docs[0]['profilePicture'];
+                          return Avatar(
+                            photoUrl: '$avatar',
+                            radius: 45,
+                            borderWidth: 2.0,
+                            borderColor: AppColors.primeColor,
+                            onPressed: () => _chooseAvatar(),
+                          );
+                        }),
                     Container(
                       alignment: Alignment.center,
                       margin: const EdgeInsets.only(top: 14),
