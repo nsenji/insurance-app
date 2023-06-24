@@ -20,6 +20,7 @@ Future<bool> signUp(String emailAddress, String password, String firstname,
       'firstname': firstname,         // _usernameField.text.trim(),
       'lastname': lastname,
       'email':emailAddress,
+      'profilePicture': '',
       'profileComplete':false
     });
     return true;

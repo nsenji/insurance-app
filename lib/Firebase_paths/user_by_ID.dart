@@ -15,13 +15,12 @@ class UserByID extends ChangeNotifier {
         .where("uniqueID", isEqualTo: user!.uid)
         .get();
 
-    final dataQuery = query
-        .docs; // the dataQuery is a list and you have to access its first item which is the user object
+    final dataQuery = query.docs; // the dataQuery is a list and you have to access its first item which is the user object
     _dataList = dataQuery;
     notifyListeners();
     return dataQuery;
   }
 
- List<QueryDocumentSnapshot<Map<String, dynamic>>> get dataList => _dataList;
+  List<QueryDocumentSnapshot<Map<String, dynamic>>> get dataList => _dataList;
   get userById => _userById();
 }
