@@ -1,15 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:insurease/auth_services/auth_service.dart';
-import 'package:insurease/pages/bottom_nav_pages/navBar.dart';
 import 'package:provider/provider.dart';
 
-import '../api/get_products.dart';
-import '../authentication/getUser.dart';
-import '../notifiers/productType.dart';
-import '../notifiers/userObjectNotifier.dart';
 import '../pages/app_pages/restart_widget.dart';
 import '../pages/app_pages/welcome.dart';
 

@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:insurease/authentication/getUser.dart';
 import 'package:insurease/notifiers/userObjectNotifier.dart';
 
