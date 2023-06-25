@@ -74,165 +74,169 @@ class _EditProfileState extends State<EditProfile> {
                 color: AppColors.primeColor,
               ),
             )
-          : Padding(
-              padding: const EdgeInsets.only(left: 30, right: 30, bottom: 100),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  const SizedBox(height: 25),
-                  Container(
-                    decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            spreadRadius: 2,
-                            blurRadius: 2,
-                            // changes position of shadow
-                          ),
-                        ],
-                        color: AppColors.whiteColor,
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(20))),
-                    // color: Colorshite,
-
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 20, left: 20, right: 20, bottom: 14),
-                          child: TextField(
-                            onChanged: (value) {
-                              setState(() {
-                                changedfirst = true;
-                              });
-                            },
-                            style: const TextStyle(color: AppColors.blackColor),
-                            controller: _firstname,
-                            decoration: InputDecoration(
-                              // border: OutlineInputBorder(
-                              //   //borderRadius: BorderRadius.circular(60)
-                              // ),
-                              label: MajorFont(
-                                text: 'First Name',
-                                weight: false,
-                                size: 15,
+          : Center(
+            child: SingleChildScrollView(
+              child: Padding(
+                  padding: const EdgeInsets.only(left: 30, right: 30, bottom: 100),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const SizedBox(height: 25),
+                      Container(
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.2),
+                                spreadRadius: 2,
+                                blurRadius: 2,
+                                // changes position of shadow
                               ),
-                              helperText: userNotifier.user.firstname,
-                            ),
-                            keyboardType: TextInputType.name,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 14, left: 20, right: 20, bottom: 14),
-                          child: TextField(
-                            onChanged: (value) {
-                              setState(() {
-                                changedlast = true;
-                              });
-                            },
-                            style: const TextStyle(color: AppColors.blackColor),
-                            controller: _lastname,
-                            decoration: InputDecoration(
-                              // border: OutlineInputBorder(
-                              //   //borderRadius: BorderRadius.circular(60)
-                              // ),
-                              label: MajorFont(
-                                text: 'Last Name',
-                                weight: false,
-                                size: 15,
+                            ],
+                            color: AppColors.whiteColor,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(20))),
+                        // color: Colorshite,
+            
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 20, left: 20, right: 20, bottom: 14),
+                              child: TextField(
+                                onChanged: (value) {
+                                  setState(() {
+                                    changedfirst = true;
+                                  });
+                                },
+                                style: const TextStyle(color: AppColors.blackColor),
+                                controller: _firstname,
+                                decoration: InputDecoration(
+                                  // border: OutlineInputBorder(
+                                  //   //borderRadius: BorderRadius.circular(60)
+                                  // ),
+                                  label: MajorFont(
+                                    text: 'First Name',
+                                    weight: false,
+                                    size: 15,
+                                  ),
+                                  helperText: userNotifier.user.firstname,
+                                ),
+                                keyboardType: TextInputType.name,
                               ),
-                              helperText: userNotifier.user.lastname,
                             ),
-                            keyboardType: TextInputType.name,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 14, left: 20, right: 20, bottom: 14),
-                          child: TextField(
-                            onChanged: (value) {
-                              setState(() {
-                                changedemail = true;
-                              });
-                            },
-                            style: const TextStyle(color: AppColors.blackColor),
-                            controller: _email,
-                            decoration: InputDecoration(
-                              // border: OutlineInputBorder(
-                              //   //borderRadius: BorderRadius.circular(60)
-                              // ),
-                              label: MajorFont(
-                                text: 'Email',
-                                weight: false,
-                                size: 15,
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 14, left: 20, right: 20, bottom: 14),
+                              child: TextField(
+                                onChanged: (value) {
+                                  setState(() {
+                                    changedlast = true;
+                                  });
+                                },
+                                style: const TextStyle(color: AppColors.blackColor),
+                                controller: _lastname,
+                                decoration: InputDecoration(
+                                  // border: OutlineInputBorder(
+                                  //   //borderRadius: BorderRadius.circular(60)
+                                  // ),
+                                  label: MajorFont(
+                                    text: 'Last Name',
+                                    weight: false,
+                                    size: 15,
+                                  ),
+                                  helperText: userNotifier.user.lastname,
+                                ),
+                                keyboardType: TextInputType.name,
                               ),
-                              helperText: userNotifier.user.email,
                             ),
-                            keyboardType: TextInputType.emailAddress,
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: InkWell(
-                              onTap: () async {
-                                setState(() {
-                                  loading = true;
-                                });
-
-                                bool shouldNavigate = await updateProfile(
-                                    userNotifier,
-                                    userByID,
-                                    _firstname.text,
-                                    _lastname.text,
-                                    _email.text);
-
-                                if (shouldNavigate) {
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 14, left: 20, right: 20, bottom: 14),
+                              child: TextField(
+                                onChanged: (value) {
                                   setState(() {
-                                    loading = false;
+                                    changedemail = true;
                                   });
-                                } else {
-                                  setState(() {
-                                    loading = false;
-                                  });
-                                  setState(() {
-                                    shownotification();
-                                  });
-                                }
-                              },
-                              child: Button(
-                                  text: 'Update')), // inactive if form empty
+                                },
+                                style: const TextStyle(color: AppColors.blackColor),
+                                controller: _email,
+                                decoration: InputDecoration(
+                                  // border: OutlineInputBorder(
+                                  //   //borderRadius: BorderRadius.circular(60)
+                                  // ),
+                                  label: MajorFont(
+                                    text: 'Email',
+                                    weight: false,
+                                    size: 15,
+                                  ),
+                                  helperText: userNotifier.user.email,
+                                ),
+                                keyboardType: TextInputType.emailAddress,
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: InkWell(
+                                  onTap: () async {
+                                    setState(() {
+                                      loading = true;
+                                    });
+            
+                                    bool shouldNavigate = await updateProfile(
+                                        userNotifier,
+                                        userByID,
+                                        _firstname.text,
+                                        _lastname.text,
+                                        _email.text);
+            
+                                    if (shouldNavigate) {
+                                      setState(() {
+                                        loading = false;
+                                      });
+                                    } else {
+                                      setState(() {
+                                        loading = false;
+                                      });
+                                      setState(() {
+                                        shownotification();
+                                      });
+                                    }
+                                  },
+                                  child: Button(
+                                      text: 'Update')), // inactive if form empty
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.all(25.0),
+                            ),
+                          ],
                         ),
-                        const Padding(
-                          padding: EdgeInsets.all(25.0),
-                        ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          deleteUser();
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Welcome()),
+                            (route) => false,
+                          );
+                        },
+                        child: (MajorFont(
+                          text: 'Delete Account',
+                          weight: false,
+                          color: Colors.red,
+                          size: 20,
+                        )),
+                      )
+                    ],
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      deleteUser();
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Welcome()),
-                        (route) => false,
-                      );
-                    },
-                    child: (MajorFont(
-                      text: 'Delete Account',
-                      weight: false,
-                      color: Colors.red,
-                      size: 20,
-                    )),
-                  )
-                ],
-              ),
+                ),
             ),
+          ),
     );
   }
 }

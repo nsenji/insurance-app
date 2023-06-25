@@ -8,7 +8,6 @@ import 'package:insurease/auth_services/auth_service.dart';
 import 'package:insurease/auth_services/auth_widget.dart';
 import 'package:insurease/notifiers/productType.dart';
 
-import 'package:insurease/pages/app_pages/welcome.dart';
 
 import 'package:provider/provider.dart';
 

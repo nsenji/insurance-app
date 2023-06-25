@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:insurease/styles/colors.dart';
 
 
 
 class Avatar extends StatelessWidget {
-  const Avatar({
+  const Avatar({super.key, 
     required this.photoUrl,
     required this.radius,
     this.borderColor = AppColors.blackColor,
@@ -29,22 +28,20 @@ class Avatar extends StatelessWidget {
           radius: radius,
           backgroundColor: Colors.black12,
           backgroundImage: photoUrl != null ? NetworkImage(photoUrl) : null,
-          child: photoUrl.isEmpty ? Icon(Icons.camera_alt, size: radius,color: Color.fromARGB(255, 70, 66, 66),) : null,
+          child: photoUrl.isEmpty ? Icon(Icons.camera_alt, size: radius,color: const Color.fromARGB(255, 70, 66, 66),) : null,
         ),
       ),
     );
   }
 
   BoxDecoration? _borderDecoration() {
-    if (borderColor != null && borderWidth != null) {
-      return BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(
-          color: borderColor,
-          width: borderWidth,
-        ),
-      );
-    }
+    return BoxDecoration(
+      shape: BoxShape.circle,
+      border: Border.all(
+        color: borderColor,
+        width: borderWidth,
+      ),
+    );
     return null;
   }
 }

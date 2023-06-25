@@ -1,7 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:insurease/authentication/getUser.dart';
-import 'package:provider/provider.dart';
 
 import '../Firebase_paths/user_by_ID.dart';
 import '../notifiers/userObjectNotifier.dart';
