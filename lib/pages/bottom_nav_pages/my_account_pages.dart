@@ -11,7 +11,6 @@ import 'package:insurease/pages/app_pages/editProfile.dart';
 import 'package:insurease/pages/app_pages/welcome.dart';
 import 'package:insurease/tools/button.dart';
 import 'package:provider/provider.dart';
-
 import '../../Image_Picker/avatar.dart';
 import '../../Image_Picker/firebase_storage.dart';
 import '../../Image_Picker/firestore_service.dart';
