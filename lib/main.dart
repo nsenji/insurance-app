@@ -7,13 +7,9 @@ import 'package:insurease/Image_Picker/image_picker.dart';
 import 'package:insurease/auth_services/auth_service.dart';
 import 'package:insurease/auth_services/auth_widget.dart';
 import 'package:insurease/notifiers/productType.dart';
-
-
 import 'package:provider/provider.dart';
-
 import 'firebase_options.dart';
 import 'notifiers/allPlansNotifier.dart';
-
 import 'notifiers/userObjectNotifier.dart';
 
 void main() async {
