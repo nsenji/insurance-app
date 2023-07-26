@@ -4,13 +4,17 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:insurease/Firebase_paths/user_by_ID.dart';
 import 'package:insurease/Image_Picker/image_picker.dart';
+import 'package:insurease/Phone_auth/OTP_provider.dart';
 import 'package:insurease/auth_services/auth_service.dart';
 import 'package:insurease/auth_services/auth_widget.dart';
 import 'package:insurease/notifiers/productType.dart';
 import 'package:provider/provider.dart';
+import 'Phone_auth/page_phone_login.dart';
 import 'firebase_options.dart';
 import 'notifiers/allPlansNotifier.dart';
 import 'notifiers/userObjectNotifier.dart';
+import '../pages/app_pages/welcome.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,6 +27,7 @@ void main() async {
       ChangeNotifierProvider(create: (context) => FirebaseAuthService()),
       ChangeNotifierProvider(create: (context) => UserByID()),
       ChangeNotifierProvider(create: (context) => ImagePickerService()),
+      ChangeNotifierProvider(create: (context) => OTPNotifier()),
 
     ],
     child: MyApp(),
@@ -36,7 +41,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'InsurEase', debugShowCheckedModeBanner: false, home: AuthWidget());
+        title: 'InsurEase', debugShowCheckedModeBanner: false, home: PhoneLoginPage ());
   }
 }
 

@@ -114,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                                   decoration: InputDecoration(
                                     //border: OutlineInputBorder(borderRadius: BorderRadius.circular(60)),
                                     label: MajorFont(
-                                      text: 'Email',
+                                      text: 'Phone number',
                                       weight: false,
                                       size: 15,
                                     ),
@@ -123,43 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                                   keyboardType: TextInputType.emailAddress,
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(20.0),
-                                child: TextField(
-                                  style: const TextStyle(
-                                      color: AppColors.blackColor),
-                                  controller: _passwordField,
-                                  obscureText: passwordvisible ? false : true,
-                                  decoration: InputDecoration(
-                                      //border: OutlineInputBorder(borderRadius: BorderRadius.circular(60)),
-                                      label: MajorFont(
-                                        text: 'Password',
-                                        weight: false,
-                                        size: 15,
-                                      ),
-                                      suffixIcon: IconButton(
-                                        onPressed: () {
-                                          if (passwordvisible == true) {
-                                            setState(() {
-                                              passwordvisible = false;
-                                            });
-                                          } else {
-                                            setState(() {
-                                              passwordvisible = true;
-                                            });
-                                          }
-                                        },
-                                        icon: Icon(
-                                          passwordvisible
-                                              ? Icons.visibility
-                                              : Icons.visibility_off,
-                                          color: AppColors.primeColor,
-                                          size: 15,
-                                        ),
-                                      )),
-                                  keyboardType: TextInputType.visiblePassword,
-                                ),
-                              ),
+                             
                               Container(
                                 padding: const EdgeInsets.only(top: 38),
                                 child: InkWell(
@@ -167,27 +131,27 @@ class _LoginPageState extends State<LoginPage> {
                                       setState(() {
                                         loading = true;
                                       });
-                                      bool shouldNavigate = await logIn(
-                                          _emailField.text.trim(),
-                                          _passwordField.text.trim());
+                                      // bool shouldNavigate = await (
+                                      //     _emailField.text
+                                      //     );
 
-                                      await loadData();
+                                      // await loadData();
 
-                                      if (shouldNavigate) {
-                                        Navigator.pushAndRemoveUntil(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const NavBar()),
-                                            ((route) => false));
-                                      } else {
-                                        setState(() {
-                                          loading = false;
-                                        });
-                                        setState(() {
-                                          shownotification();
-                                        });
-                                      }
+                                      // if (shouldNavigate) {
+                                      //   Navigator.pushAndRemoveUntil(
+                                      //       context,
+                                      //       MaterialPageRoute(
+                                      //           builder: (context) =>
+                                      //               const NavBar()),
+                                      //       ((route) => false));
+                                      // } else {
+                                      //   setState(() {
+                                      //     loading = false;
+                                      //   });
+                                      //   setState(() {
+                                      //     shownotification();
+                                      //   });
+                                      // }
                                     },
                                     child: Button(text: 'Login')),
                               ),
