@@ -9,12 +9,12 @@ import 'package:insurease/auth_services/auth_service.dart';
 import 'package:insurease/auth_services/auth_widget.dart';
 import 'package:insurease/notifiers/productType.dart';
 import 'package:provider/provider.dart';
+import 'Phone_auth/OTP_input_auto.dart';
 import 'Phone_auth/page_phone_login.dart';
 import 'firebase_options.dart';
 import 'notifiers/allPlansNotifier.dart';
 import 'notifiers/userObjectNotifier.dart';
 import '../pages/app_pages/welcome.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +28,6 @@ void main() async {
       ChangeNotifierProvider(create: (context) => UserByID()),
       ChangeNotifierProvider(create: (context) => ImagePickerService()),
       ChangeNotifierProvider(create: (context) => OTPNotifier()),
-
     ],
     child: MyApp(),
   ));
@@ -41,7 +40,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'InsurEase', debugShowCheckedModeBanner: false, home: PhoneLoginPage ());
+        title: 'InsurEase',
+        debugShowCheckedModeBanner: false,
+        home: PhoneLoginPage());
   }
 }
 
@@ -59,3 +60,18 @@ class MyApp extends StatelessWidget {
 // run flutter downrgade
 // then run flutter --version   then the dart version will also dowgrade accordingly
 // 
+
+
+
+
+
+
+// running on both chrome and mobile
+
+
+//First load on the phone and then run the command below
+
+// flutter run -d chrome
+
+// the hot reload of phone is the one on screen and that of the web app is the terminal where you run this command flutter run -d chrome
+// to hot reload press r on the terminal and for help press h and to quit press q

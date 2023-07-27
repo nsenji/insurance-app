@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:sms_otp_auto_verify/sms_otp_auto_verify.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -108,6 +108,7 @@ class _OtpInputState extends State<OtpInput> {
 
                           child: Column(
                             children: [
+
                               Padding(
                                 padding: const EdgeInsets.all(20.0),
                                 child: TextField(

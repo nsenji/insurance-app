@@ -5,6 +5,8 @@ import 'package:insurease/Phone_auth/OTP_provider.dart';
 import 'package:insurease/Phone_auth/page_phone_login.dart';
 import 'package:provider/provider.dart';
 
+import '../OTP_input_auto.dart';
+
 phoneLogin(String number, BuildContext context) async {
   FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -29,14 +31,14 @@ phoneLogin(String number, BuildContext context) async {
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => OtpInput(
+              builder: (context) => OTPInputAuto (
                     id: verificationId,
                   )));
     },
     timeout: const Duration(seconds: 60),
     codeAutoRetrievalTimeout: (String verificationId) {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => PhoneLoginPage()));
+      // Navigator.push(
+      //     context, MaterialPageRoute(builder: (context) => PhoneLoginPage()));
       print('60 seconds have elapsed');
     },
   );

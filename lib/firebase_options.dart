@@ -23,9 +23,15 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -61,27 +67,5 @@ class DefaultFirebaseOptions {
     projectId: 'insurease-8bfa5',
     databaseURL: 'https://insurease-8bfa5-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'insurease-8bfa5.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDusu5CBnfO8YQUj1pgp3FOgtMAWyOGn8Q',
-    appId: '1:926460402818:ios:7ce59c6128e2e10278689b',
-    messagingSenderId: '926460402818',
-    projectId: 'insurease-8bfa5',
-    databaseURL: 'https://insurease-8bfa5-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'insurease-8bfa5.appspot.com',
-    iosClientId: '926460402818-gslsjsrc9dj60f2gv7erb953siunmmd9.apps.googleusercontent.com',
-    iosBundleId: 'com.example.insurease',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDusu5CBnfO8YQUj1pgp3FOgtMAWyOGn8Q',
-    appId: '1:926460402818:ios:7ce59c6128e2e10278689b',
-    messagingSenderId: '926460402818',
-    projectId: 'insurease-8bfa5',
-    databaseURL: 'https://insurease-8bfa5-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'insurease-8bfa5.appspot.com',
-    iosClientId: '926460402818-gslsjsrc9dj60f2gv7erb953siunmmd9.apps.googleusercontent.com',
-    iosBundleId: 'com.example.insurease',
   );
 }
