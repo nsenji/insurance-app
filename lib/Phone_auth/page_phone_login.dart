@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:geolocator/geolocator.dart';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -32,15 +33,7 @@ class _PhoneLoginPageState extends State<PhoneLoginPage> {
   String errorText = '';
 
   bool loading = false;
-  shownotification() {
-    Fluttertoast.showToast(
-        backgroundColor: AppColors.primeColor,
-        textColor: AppColors.whiteColor,
-        msg: 'Login Failed',
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.TOP,
-        timeInSecForIosWeb: 4);
-  }
+  
 
   bool passwordvisible = false;
   @override
@@ -115,7 +108,14 @@ class _PhoneLoginPageState extends State<PhoneLoginPage> {
                                           errorText.isEmpty ? null : errorText,
                                       floatingLabelStyle:
                                           const TextStyle(color: Colors.black),
-                                      //border: OutlineInputBorder(borderRadius: BorderRadius.circular(60)),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.green)),
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(6),
+                                          borderSide:
+                                              BorderSide(color: Colors.green)),
                                       label: const Text('Input PF'),
                                       labelStyle:
                                           const TextStyle(color: Colors.black)
@@ -125,7 +125,7 @@ class _PhoneLoginPageState extends State<PhoneLoginPage> {
                                 ),
                               ),
                               Container(
-                                padding: const EdgeInsets.only(top: 38),
+                                padding: const EdgeInsets.only(top: 20),
                                 child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors
@@ -162,12 +162,9 @@ class _PhoneLoginPageState extends State<PhoneLoginPage> {
                                             jsonDecode(answer as String);
                                         var contact = responseData['data']
                                             ['mobile_number'];
-                                        //
 
-                                      
-                                            await phoneLogin(contact, context);
-
-                                       
+                                        
+                                        
                                       } else {
                                         setState(() {
                                           errorText = 'Submit failed';

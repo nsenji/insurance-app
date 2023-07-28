@@ -82,103 +82,114 @@ class _PhoneSignupPageState extends State<PhoneSignupPage> {
                                 const BorderRadius.all(Radius.circular(20))),
                         // color: Colorshite,
 
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(20.0),
-                              child: TextField(
-                                style: const TextStyle(color: AppColors.blackColor),
-                                controller: _firstname,
-                                decoration: InputDecoration(
-                                    // border: OutlineInputBorder(
-                                    //   //borderRadius: BorderRadius.circular(60)
-                                    // ),
-                                    label: Text('PF'),
-                                      labelStyle: TextStyle(color: Colors.black)
-                                    //hintText: 'username',
-
-                                    ),
-                                keyboardType: TextInputType.name,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(17.0),
-                              child: TextField(
-                                style: const TextStyle(color: AppColors.blackColor),
-                                controller: _lastname,
-                                decoration: InputDecoration(
-                                    // border: OutlineInputBorder(
-                                    //   //borderRadius: BorderRadius.circular(60)
-                                    // ),
-                                    label: Text('Email'),
-                                      labelStyle: TextStyle(color: Colors.black)
-                                    //hintText: 'Email',
-
-                                    ),
-                                keyboardType: TextInputType.name,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(17.0),
-                              child: TextField(
-                                style: const TextStyle(color: AppColors.blackColor),
-                                controller: _email,
-                                decoration: InputDecoration(
-                                    // border: OutlineInputBorder(
-                                    //   //borderRadius: BorderRadius.circular(60)
-                                    // ),
-                                    label: Text('Phone Number'),
-                                    hintText: 'eg. +25698765432',
-                                      labelStyle: TextStyle(color: Colors.black)),
-                                keyboardType: TextInputType.emailAddress,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(17.0),
-                              child: TextField(
-                                style: const TextStyle(color: AppColors.blackColor),
-                                controller: _password,
-                                decoration: InputDecoration(
-                                    // border: OutlineInputBorder(
-                                    //   //borderRadius: BorderRadius.circular(60)
-                                    // ),
-                                    label: Text('Branch'),
-                                      labelStyle: TextStyle(color: Colors.black),
-                                    ),
-                                keyboardType: TextInputType.emailAddress,
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(top: 20),
-                              child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors
-                                          .green, // Change the text color here
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                            10.0), // Optional: Customize the button's shape
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: TextField(
+                                  style: const TextStyle(color: AppColors.blackColor),
+                                  controller: _firstname,
+                                  decoration: InputDecoration(
+                                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.green)),
+                                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(6),borderSide: BorderSide(color: Colors.green)),
+                                      // border: OutlineInputBorder(
+                                      //   //borderRadius: BorderRadius.circular(60)
+                                      // ),
+                                      label: Text('PF'),
+                                        labelStyle: TextStyle(color: Colors.black)
+                                      //hintText: 'username',
+                        
                                       ),
-                                      // padding: EdgeInsets.symmetric(
-                                      //     horizontal: 16,
-                                      //     vertical:
-                                      //         8), // Optional: Adjust the button's padding
-                                    ),
-                                    onPressed: () async {
-                                      // setState(() {
-                                      //   loading = true;
-                                      // });
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(12),
-                                      child: Text('Submit'),
-                                    )),
-                            ),
-                            
-                    const Padding(
-                      padding: EdgeInsets.all(25.0),
-                      
-                    ),
-                          ],
+                                  keyboardType: TextInputType.name,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(17.0),
+                                child: TextField(
+                                  style: const TextStyle(color: AppColors.blackColor),
+                                  controller: _lastname,
+                                  decoration: InputDecoration(
+                                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.green)),
+                                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(6),borderSide: BorderSide(color: Colors.green)),
+                                      // border: OutlineInputBorder(
+                                      //   //borderRadius: BorderRadius.circular(60)
+                                      // ),
+                                      label: Text('Email'),
+                                        labelStyle: TextStyle(color: Colors.black)
+                                      //hintText: 'Email',
+                        
+                                      ),
+                                  keyboardType: TextInputType.name,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(17.0),
+                                child: TextField(
+                                  style: const TextStyle(color: AppColors.blackColor),
+                                  controller: _email,
+                                  decoration: InputDecoration(
+                                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.green)),
+                                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(6),borderSide: BorderSide(color: Colors.green)),
+                                      // border: OutlineInputBorder(
+                                      //   //borderRadius: BorderRadius.circular(60)
+                                      // ),
+                                      label: Text('Phone Number'),
+                                      hintText: 'eg. +25698765432',
+                                        labelStyle: TextStyle(color: Colors.black)),
+                                  keyboardType: TextInputType.emailAddress,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(17.0),
+                                child: TextField(
+                                  style: const TextStyle(color: AppColors.blackColor),
+                                  controller: _password,
+                                  decoration: InputDecoration(
+                                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.green)),
+                                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(6),borderSide: BorderSide(color: Colors.green)),
+                                      // border: OutlineInputBorder(
+                                      //   //borderRadius: BorderRadius.circular(60)
+                                      // ),
+                                      label: Text('Branch'),
+                                        labelStyle: TextStyle(color: Colors.black),
+                                      ),
+                                  keyboardType: TextInputType.emailAddress,
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.only(top: 20),
+                                child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors
+                                            .green, // Change the text color here
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                              10.0), // Optional: Customize the button's shape
+                                        ),
+                                        // padding: EdgeInsets.symmetric(
+                                        //     horizontal: 16,
+                                        //     vertical:
+                                        //         8), // Optional: Adjust the button's padding
+                                      ),
+                                      onPressed: () async {
+                                        // setState(() {
+                                        //   loading = true;
+                                        // });
+                                      },
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(12),
+                                        child: Text('Submit'),
+                                      )),
+                              ),
+                              
+                                            const Padding(
+                                              padding: EdgeInsets.all(15.0),
+                                              
+                                            ),
+                            ],
+                          ),
                         ),
                       ),
                     ],

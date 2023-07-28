@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:insurease/Firebase_paths/user_by_ID.dart';
 import 'package:insurease/Image_Picker/image_picker.dart';
 import 'package:insurease/Phone_auth/OTP_provider.dart';
+import 'package:insurease/Phone_auth/api_phone/location.dart';
+import 'package:insurease/Phone_auth/api_phone/location_provider.dart';
 import 'package:insurease/auth_services/auth_service.dart';
 import 'package:insurease/auth_services/auth_widget.dart';
 import 'package:insurease/notifiers/productType.dart';
@@ -28,6 +30,7 @@ void main() async {
       ChangeNotifierProvider(create: (context) => UserByID()),
       ChangeNotifierProvider(create: (context) => ImagePickerService()),
       ChangeNotifierProvider(create: (context) => OTPNotifier()),
+      ChangeNotifierProvider(create: (context) => LocationProvider()),
     ],
     child: MyApp(),
   ));
@@ -42,7 +45,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'InsurEase',
         debugShowCheckedModeBanner: false,
-        home: PhoneLoginPage());
+        home: Location());
   }
 }
 

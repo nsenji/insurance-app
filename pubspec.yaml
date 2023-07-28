@@ -47,6 +47,7 @@ dependencies:
   random_string: ^2.3.1
   firebase_storage: ^11.2.3
   sms_otp_auto_verify: ^2.1.0
+  geolocator: ^9.0.2
   
   
 dev_dependencies:
