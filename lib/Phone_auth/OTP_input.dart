@@ -160,7 +160,7 @@ class _OtpInputState extends State<OtpInput> {
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                                builder: (context) => Yes()));
+                                                builder: (context) => const Yes()));
                                       }
                                     },
                                     child: const Padding(
