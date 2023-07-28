@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:insurease/Phone_auth/OTP_input.dart';
-import 'package:insurease/Phone_auth/OTP_provider.dart';
 import 'package:insurease/Phone_auth/page_phone_login.dart';
 import 'package:provider/provider.dart';
 
