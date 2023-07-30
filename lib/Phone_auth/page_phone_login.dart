@@ -31,11 +31,16 @@ class _PhoneLoginPageState extends State<PhoneLoginPage> {
   final TextEditingController _emailField = TextEditingController();
   final TextEditingController _passwordField = TextEditingController();
   String errorText = '';
-
   bool loading = false;
-  
-
   bool passwordvisible = false;
+
+
+
+
+
+
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -162,9 +167,6 @@ class _PhoneLoginPageState extends State<PhoneLoginPage> {
                                             jsonDecode(answer as String);
                                         var contact = responseData['data']
                                             ['mobile_number'];
-
-                                        
-                                        
                                       } else {
                                         setState(() {
                                           errorText = 'Submit failed';
