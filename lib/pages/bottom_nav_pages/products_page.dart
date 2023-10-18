@@ -230,7 +230,7 @@ class _HomeState extends State<Home> {
                       builder: (_, value, __) => Scrollbar(
                         thumbVisibility: true,
                         child: ListView.builder(
-                            primary: true,
+                            primary: false,
                             padding: const EdgeInsets.only(left: 2, right: 2),
                             shrinkWrap: true,
                             itemCount: value.productList.length,
